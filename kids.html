@@ -7,7 +7,7 @@
   <style>
     body {
       font-family: 'Tajawal', sans-serif;
-      background: linear-gradient(to bottom, #eef4f9, #dceeff);
+      background: linear-gradient(to bottom, #f0faff, #dceeff);
       margin: 0;
       padding: 0;
     }
@@ -38,9 +38,33 @@
       flex: 1;
     }
 
+    nav {
+      background-color: #f0f8ff;
+      padding: 10px 0;
+      border-top: 2px solid #5f9ea0;
+      border-bottom: 2px solid #5f9ea0;
+      text-align: center;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #005f8f;
+      font-weight: bold;
+    }
+
+    .banner {
+      background-color: #e0f4ff;
+      padding: 25px;
+      text-align: center;
+      font-size: 20px;
+      color: #333;
+      font-weight: bold;
+    }
+
     .container {
       max-width: 900px;
-      margin: 30px auto;
+      margin: 20px auto;
       padding: 20px;
     }
 
@@ -58,6 +82,22 @@
       font-weight: bold;
       text-decoration: none;
       font-size: 18px;
+    }
+
+    .section-title {
+      color: #005f8f;
+      margin: 30px 10px 15px;
+      font-size: 22px;
+    }
+
+    .video {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    iframe {
+      border-radius: 10px;
+      max-width: 100%;
     }
 
     .back {
@@ -82,32 +122,60 @@
     <h1>ركن الطفل - قصص وأنشطة</h1>
   </header>
 
-‎<!-- أضف هذا مباشرة بعد </header> -->
+  <nav>
+    <a href="index.html">الرئيسية</a>
+    <a href="kids.html">ركن الطفل</a>
+    <a href="ask.html">أنت تسأل</a>
+    <a href="initiatives.html">أعمالنا الرقمية</a>
+    <a href="certificate.html">شهادة الشكر</a>
+    <a href="index.html#contact">نموذج التواصل</a>
+  </nav>
 
-<nav style="background-color: #f0f8ff; padding: 10px 0; border-top: 2px solid #5f9ea0; border-bottom: 2px solid #5f9ea0;">
-  <div style="text-align: center;">
-    <a href="index.html" style="margin: 0 15px; text-decoration: none; color: #005f8f; font-weight: bold;">الرئيسية</a>
-    <a href="kids.html" style="margin: 0 15px; text-decoration: none; color: #005f8f; font-weight: bold;">ركن الطفل</a>
-    <a href="ask.html" style="margin: 0 15px; text-decoration: none; color: #005f8f; font-weight: bold;">أنت تسأل والمكتبة تُجيب</a>
-<a href="index.html#contact" style="margin: 0 15px; text-decoration: none; color: #005f8f; font-weight: bold;">نموذج التواصل</a>
-
+  <div class="banner">
+    أهلاً بك في ركن الطفل! استمتع بالقصص والأنشطة التفاعلية المفيدة والمسلية.
+  </div>
 
   <div class="container">
-    <div class="item">
-      <a href="https://3asafeer.com" target="_blank">منصة عصافير - قصص باللغة العربية</a>
-    </div>
-    <div class="item">
-      <a href="https://www.belarabyapps.com/category/قصص-أطفال/" target="_blank">حكايات بالعربي - أكثر من 300 قصة</a>
-    </div>
-    <div class="item">
-      <a href="https://storyberries.com" target="_blank">Storyberries - قصص إنجليزية مصورة للأطفال</a>
-    </div>
-    <div class="item">
-      <a href="https://www.oxfordowl.co.uk/for-home" target="_blank">Oxford Owl - مكتبة قصص إنجليزية تفاعلية</a>
-    </div>
-    <div class="item">
-      <a href="https://www.fra7h.com" target="_blank">موقع فراولة - قصص مكتوبة ومصورة للأطفال</a>
-    </div>
+    <div class="section-title">قصص مقترحة:</div>
+    <div class="item"><a href="https://3asafeer.com" target="_blank">منصة عصافير - قصص باللغة العربية</a></div>
+    <div class="item"><a href="https://www.belarabyapps.com/category/قصص-أطفال/" target="_blank">حكايات بالعربي - أكثر من 300 قصة</a></div>
+    <div class="item"><a href="https://storyberries.com" target="_blank">Storyberries - قصص إنجليزية مصورة للأطفال</a></div>
+    <div class="item"><a href="https://www.oxfordowl.co.uk/for-home" target="_blank">Oxford Owl - مكتبة قصص إنجليزية تفاعلية</a></div>
+    <div class="item"><a href="https://www.fra7h.com" target="_blank">موقع فراولة - قصص مكتوبة ومصورة للأطفال</a></div>
+  </div>
+
+<div class="container">
+  <div class="section-title">استمتع مع مجموعة من الفيديوهات التعليمية للأطفال – تتغير تلقائيًا كل 20 ثانية:</div>
+  <div class="video">
+    <iframe id="videoFrame" width="360" height="215"
+      src="https://www.youtube.com/embed/KTRDQKTeXHk"
+      title="فيديو تعليمي للأطفال"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+<script>
+  const videos = [
+    "https://www.youtube.com/embed/KTRDQKTeXHk",
+    "https://www.youtube.com/embed/RJnOuk_KO_I",
+    "https://www.youtube.com/embed/-P1IRrkKeww",
+    "https://www.youtube.com/embed/-TUuX8jP398"
+  ];
+
+  let current = 0;
+  setInterval(() => {
+    current = (current + 1) % videos.length;
+    document.getElementById("videoFrame").src = videos[current];
+  }, 20000); // كل 20 ثانية
+</script>
+
+  <div class="container">
+    <div class="section-title">أنشطة وتلوين:</div>
+    <div class="item"><a href="https://toytheater.com/category/teacher-tools/" target="_blank">ألعاب تعليمية مسلية للأطفال</a></div>
+    <div class="item"><a href="https://www.crayola.com/featured/free-coloring-pages/" target="_blank">صفحات تلوين مجانية - Crayola</a></div>
+    <div class="item"><a href="https://www.superteacherworksheets.com" target="_blank">أوراق عمل تعليمية - Super Teacher</a></div>
   </div>
 
   <div class="back">

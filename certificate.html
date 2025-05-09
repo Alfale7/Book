@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>شهادة شكر وتقدير</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <style>
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background: #f3f8ff;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    header {
+      background: linear-gradient(to left, #4682B4, #5f9ea0);
+      color: white;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 10px;
+      object-fit: contain;
+      border: 3px solid #ffffff;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+      background-color: white;
+    }
+
+    h1 {
+      flex: 1;
+      font-size: 22px;
+      margin: 0;
+    }
+
+    .form-area {
+      margin: 40px 0;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 280px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-weight: bold;
+      background-color: #4682B4;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    #certificate {
+      display: none;
+      margin: 30px auto;
+      padding: 40px;
+      width: 80%;
+      max-width: 700px;
+      background: linear-gradient(to bottom right, #eaf6ff, #d4eaff);
+      border-radius: 12px;
+      border: 3px solid #4682B4;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    #certificate img.logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 60px;
+    }
+
+    #student-name {
+      font-size: 28px;
+      font-weight: bold;
+      margin: 30px 0 10px;
+      color: #003366;
+    }
+
+    .back {
+      margin-top: 40px;
+    }
+
+    .back a {
+      text-decoration: none;
+      color: #4682B4;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #003d66;
+      text-decoration: underline;
+    }
+
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #certificate, #certificate * {
+        visibility: visible;
+      }
+      #certificate {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 0;
+        width: 100%;
+        box-shadow: none;
+        border: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.jpg" alt="شعار المدرسة" class="logo">
+    <h1>نموذج إصدار شهادة شكر وتقدير</h1>
+    <div style="width:60px"></div>
+  </header>
+
+  <nav style="background-color: #f0f8ff; padding: 10px 0; border-top: 2px solid #5f9ea0; border-bottom: 2px solid #5f9ea0;">
+    <div style="text-align: center;">
+      <a href="index.html" style="margin: 0 15px; text-decoration: none; color: #005f8f; font-weight: bold;">الرئيسية</a>
+      <a href="kids.html" style="margin: 0 15px; text-decoration: none; color: #005f8f; font-weight: bold;">ركن الطفل</a>
+      <a href="ask.html" style="margin: 0 15px; text-decoration: none; color: #005f8f; font-weight: bold;">أنت تسأل  </a>
+      <a href="initiatives.html" style="margin: 0 15px; text-decoration: none; color: #005f8f; font-weight: bold;">أعمالنا الرقمية</a>
+      <a href="certificate.html" style="margin: 0 15px; text-decoration: none; color: #005f8f; font-weight: bold;">شهادة الشكر</a>
+      <a href="index.html#contact" style="margin: 0 15px; text-decoration: none; color: #005f8f; font-weight: bold;">نموذج التواصل</a>
+    </div>
+  </nav>
+
+  <div style="max-width: 700px; margin: 30px auto 10px; padding: 10px;">
+    <h2 style="text-align:center; color:#2c3e50;">مرحبًا بكم في نظام إصدار شهادات الشكر</h2>
+    <p style="text-align:center; color:#555;">يسرنا تقديم هذه الخدمة الرقمية لتكريم المتميزين في أنشطة ومبادرات المكتبة الرقمية بثانوية اليرموك.</p>
+    <p style="text-align:center; color:#888; font-size: 14px;">* يرجى إدخال الاسم كما ترغب أن يظهر في الشهادة.</p>
+  </div>
+
+  <div class="form-area">
+    <p>أدخل اسمك ليتم عرض الشهادة:</p>
+    <input type="text" id="nameInput" placeholder="اكتب اسمك هنا">
+    <br>
+    <button onclick="generateCertificate()">عرض الشهادة</button>
+  </div>
+
+  <div id="certificate">
+    <img src="logo.jpg" alt="شعار المدرسة" class="logo">
+    <h2>شهادة شكر وتقدير</h2>
+    <p>تُمنح لــ</p>
+    <div id="student-name"></div>
+    <p>وذلك نظير مشاركته المتميزة وتفاعله في المكتبة الرقمية</p>
+    <p>إدارة ثانوية اليرموك</p>
+    <button onclick="downloadCertificate()" style="margin-top: 20px;">تحميل الشهادة</button>
+  </div>
+
+  <div class="back">
+    <a href="index.html">العودة للمكتبة الرئيسية</a> | 
+    <a href="javascript:window.print()">طباعة الشهادة</a>
+  </div>
+
+  <p style="text-align:center; margin: 60px 10px 20px; color: #5f9ea0; font-weight: bold;">
+    شكراً لكل من ساهم وشارك معنا في أعمالنا الرقمية – أنتم فخرنا في اليرموك
+  </p>
+
+  <script>
+    function generateCertificate() {
+      var name = document.getElementById("nameInput").value.trim();
+      if(name === "") {
+        alert("يرجى كتابة الاسم أولاً");
+        return;
+      }
+      document.getElementById("student-name").innerText = name;
+      document.getElementById("certificate").style.display = "block";
+    }
+
+    function downloadCertificate() {
+      const certificate = document.getElementById("certificate");
+      html2canvas(certificate).then(canvas => {
+        const link = document.createElement("a");
+        link.download = "شهادة_شكر.png";
+        link.href = canvas.toDataURL();
+        link.click();
+      });
+    }
+  </script>
+
+</body>
+</html>

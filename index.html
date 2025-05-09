@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+
+<!-- وسوم Open Graph لمشاركة الرابط بصورة -->
+<meta property="og:title" content="المكتبة الرقمية - اليرموك الثانوية    ">
+<meta property="og:description" content="مكتبة رقمية مميزة تقدم مصادر تعليمية وروابط مفيدة للطلاب والمعلمين.">
+<meta property="og:image" content="https://alfale7.github.io/Books/viwa.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alfale7.github.io/Books/">
   <meta charset="UTF-8">
-  <title>المكتبة الرقمية - ثانوية اليرموك</title>
+  <title>المكتبة الرقمية - اليرموك الثانوية  </title>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -208,6 +215,11 @@
       font-weight: bold;
       cursor: pointer;
     }
+
+.item.video {
+  background: linear-gradient(to right, #6b8fd8, #5f9ea0);
+}
+
   </style>
 </head>
 <body>
@@ -217,7 +229,7 @@
     <div class="popup-content">
       <img src="logo.jpg" alt="شعار المدرسة" style="width: 80px; height: 80px; border-radius: 8px; margin-bottom: 15px; border: 2px solid #4682B4;">
       <h2 style="margin: 10px 0; color: #2c3e50;">مرحبًا بكم في المكتبة الرقمية</h2>
-      <p style="color: #555;">ثانوية اليرموك ترحب بكم وتتمنى لكم تصفحاً مفيداً وممتعاً</p>
+      <p style="color: #555;">اليرموك الثانوية   ترحب بكم وتتمنى لكم تصفحاً مفيداً وممتعاً</p>
       <button onclick="closePopup()">دخول</button>
     </div>
   </div>
@@ -230,20 +242,21 @@
     <img src="logo.jpg" alt="شعار المدرسة" class="logo">
     <div class="header-text">
       <h1>المكتبة الرقمية</h1>
-      <p>ثانوية اليرموك</p>
+      <p>اليرموك الثانوية</p>
     </div>
     <button class="mode-toggle" onclick="toggleMode()">الوضع الليلي</button>
 
   </header>
 
-<!-- أضف هذا مباشرة بعد </header> -->
 
 <nav style="background-color: #f0f8ff; padding: 10px 0; border-top: 2px solid #5f9ea0; border-bottom: 2px solid #5f9ea0;">
   <div style="text-align: center;">
     <a href="index.html" style="margin: 0 15px; text-decoration: none; color: #005f8f; font-weight: bold;">الرئيسية</a>
     <a href="kids.html" style="margin: 0 15px; text-decoration: none; color: #005f8f; font-weight: bold;">ركن الطفل</a>
-    <a href="ask.html" style="margin: 0 15px; text-decoration: none; color: #005f8f; font-weight: bold;">أنت تسأل والمكتبة تُجيب</a>
-    <a href="#contact" style="margin: 0 15px; text-decoration: none; color: #005f8f; font-weight: bold;">نموذج التواصل</a>
+    <a href="ask.html" style="margin: 0 15px; text-decoration: none; color: #005f8f; font-weight: bold;">أنت تسأل  </a>
+    <a href="initiatives.html" style="margin: 0 15px; text-decoration: none; color: #005f8f; font-weight: bold;">أعمالنا الرقمية</a>
+    <a href="certificate.html" style="margin: 0 15px; text-decoration: none; color: #005f8f; font-weight: bold;">شهادة الشكر</a>
+    <a href="index.html#contact" style="margin: 0 15px; text-decoration: none; color: #005f8f; font-weight: bold;">نموذج التواصل</a>
   </div>
 </nav>
 
@@ -286,72 +299,69 @@
     <div class="item video"><a href="https://www.ientv.edu.sa/" target="_blank">قناة عين التعليمية</a></div>
     <div class="item book"><a href="https://sdl.edu.sa/SDLPortal/Publishers.aspx" target="_blank">المكتبة الرقمية السعودية (SDL)</a></div>
     <div class="item book"><a href="https://baytalhikma2.org/books" target="_blank">مكتبة بيت الحكمة للكتب الرقمية</a></div>
+
+<!-- بجانب العناصر الأخرى في المكتبة -->
+<div class="item book">
+  <a href="https://shamela.ws" target="_blank">المكتبة الشاملة</a>
+</div>
   </div>
 
-<!-- نموذج التواصل -->
-<div id="contact" style="max-width: 900px; margin: 40px auto;">نموذج التواصل مع إدارة المكتبة الرقمية </h2>
-  <iframe src="https://forms.gle/oAhgsuRvQPkBDfxp6" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0" style="border-radius: 12px; border: 1px solid #ccc;"></iframe>
+
+
+<h2 style="text-align:center; color:#005f8f; margin-top: 50px;">مكتبة الفيديوهات التعليمية</h2>
+
+<div class="library">
+  <div class="item video"><a href="https://www.youtube.com/@ientv" target="_blank">قناة عين التعليمية</a></div>
+  <div class="item video"><a href="https://www.youtube.com/@SajilniLearning" target="_blank">قناة سَجّلني التعليمية</a></div>
+  <div class="item video"><a href="https://www.youtube.com/@TaalemOnline" target="_blank">قناة تعلّم أونلاين</a></div>
+  <div class="item video"><a href="https://www.youtube.com/@DorosiOnline" target="_blank">دروسي أونلاين</a></div>
 </div>
 
-<div style="text-align: center; margin: 30px;">
-  <a href="ask.html" style="text-decoration: none; font-weight: bold; color: #005f8f;">
-    أنت تسأل والمكتبة تُجيب
-  </a>
+<!-- نموذج التواصل -->
+<div style="max-width: 900px; margin: 40px auto;">
+  <h2 style="text-align:center; color:#2c3e50; margin-bottom: 20px;">نموذج التواصل مع إدارة المكتبة الرقمية </h2>
+  <iframe src="https://forms.gle/oAhgsuRvQPkBDfxp6" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0" style="border-radius: 12px; border: 1px solid #ccc;"></iframe>
 </div>
 
   <!-- الفوتر -->
   <footer>
-    <p style="margin: 5px 0; font-size: 14px;">جميع الحقوق محفوظة © لثانوية اليرموك</p>
+    <p style="margin: 5px 0; font-size: 14px;">جميع الحقوق محفوظة © اليرموك الثانوية </p>
     <p style="margin: 0; font-size: 14px;">تمت البرمجة والتنسيق بواسطة أمين مركز مصادر التعلم</p>
     <p style="margin: 0; font-weight: bold; font-size: 15px;">الأستاذ / صلاح الفالح</p>
-    <p style="margin: 10px 0 0; font-size: 14px;">مدير المدرسة: الأستاذ / حمد المعيقل</p>
+    <p style="margin: 10px 0 0; font-size: 14px;">
+مدير المدرسة /   حمد المعيقل</p>
   </footer>
 
   <!-- السكربتات -->
- <script>
-  function toggleMode() {
-    document.body.classList.toggle("dark-mode");
-  }
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+    }
 
-  const searchBox = document.getElementById("search");
-  const items = document.querySelectorAll(".item");
+    const searchBox = document.getElementById("search");
+    const items = document.querySelectorAll(".item");
 
-  searchBox.addEventListener("input", () => {
-    const val = searchBox.value.toLowerCase();
-    items.forEach(item => {
-      item.style.display = item.textContent.toLowerCase().includes(val) ? "block" : "none";
+    searchBox.addEventListener("input", () => {
+      const val = searchBox.value.toLowerCase();
+      items.forEach(item => {
+        item.style.display = item.textContent.toLowerCase().includes(val) ? "block" : "none";
+      });
     });
-  });
 
-  function filterItems(type) {
-    const items = document.querySelectorAll('.item');
-    items.forEach(item => {
-      if (type === 'all' || item.classList.contains(type)) {
-        item.style.display = 'block';
-      } else {
-        item.style.display = 'none';
-      }
-    });
-  }
+    function filterItems(type) {
+      const items = document.querySelectorAll('.item');
+      items.forEach(item => {
+        if (type === 'all' || item.classList.contains(type)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
 
-  function closePopup() {
-    document.getElementById("welcome-popup").style.display = "none";
-  }
-
-  // هنا تضيف دالة الترتيب العشوائي
-  function shuffleLibraryItems() {
-    const container = document.getElementById("library");
-    const items = Array.from(container.children);
-    const shuffled = items.sort(() => Math.random() - 0.5);
-    shuffled.forEach(item => container.appendChild(item));
-  }
-
-  // تشغيل الترتيب العشوائي ونافذة الترحيب معًا عند تحميل الصفحة
-  window.onload = function () {
-    shuffleLibraryItems();
-    closePopup();
-  };
-</script>
+    function closePopup() {
+      document.getElementById("welcome-popup").style.display = "none";
+    }
 
 
   </script>
