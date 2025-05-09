@@ -2,14 +2,16 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>مركز التحميلات التعليمية</title>
+  <title>مركز التحميلات - المكتبة الرقمية</title>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Tajawal', sans-serif;
-      background: linear-gradient(to bottom, #f0faff, #dceeff);
       margin: 0;
-      padding: 0;
+      font-family: 'Tajawal', sans-serif;
+      background: linear-gradient(to bottom, #eef4f9, #dceeff);
+      color: #333;
+      text-align: center;
+      padding-bottom: 50px;
     }
 
     header {
@@ -17,24 +19,23 @@
       color: white;
       padding: 20px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      flex: 1;
+      font-size: 22px;
+      margin: 0;
     }
 
     .logo {
       width: 60px;
       height: 60px;
       border-radius: 10px;
+      background: white;
+      border: 2px solid white;
       object-fit: contain;
-      border: 3px solid #ffffff;
-      background-color: white;
-    }
-
-    h1 {
-      margin: 0 auto;
-      font-size: 24px;
-      flex: 1;
-      text-align: center;
     }
 
     nav {
@@ -42,7 +43,6 @@
       padding: 10px 0;
       border-top: 2px solid #5f9ea0;
       border-bottom: 2px solid #5f9ea0;
-      text-align: center;
     }
 
     nav a {
@@ -52,98 +52,72 @@
       font-weight: bold;
     }
 
-    .intro {
-      padding: 20px;
-      text-align: center;
-      color: #003c5a;
-      font-size: 18px;
-      max-width: 800px;
+    .welcome {
+      padding: 30px 20px 10px;
+      font-size: 20px;
+      color: #005f8f;
+      font-weight: bold;
+    }
+
+    .desc {
+      font-size: 16px;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .box {
+      max-width: 600px;
       margin: auto;
-    }
-
-    .downloads {
-      max-width: 900px;
-      margin: 20px auto;
-      padding: 0 20px;
-    }
-
-    .item {
-      background-color: #ffffff;
-      padding: 20px;
-      margin-bottom: 15px;
+      background: white;
+      padding: 30px;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      border-right: 5px solid #5f9ea0;
-    }
-
-    .item p {
-      margin: 0 0 10px;
-      font-weight: bold;
-      color: #005f8f;
-    }
-
-    .item a {
-      display: inline-block;
-      padding: 10px 18px;
-      background: linear-gradient(to left, #5fa8d3, #68c3c0);
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-    }
-
-    .social-download {
-      background: #f0faff;
-      padding: 25px;
-      border-radius: 12px;
-      margin: 40px auto;
-      max-width: 800px;
       text-align: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
-    .social-download h2 {
-      color: #005f8f;
-      margin-bottom: 10px;
-    }
-
-    .social-download input {
-      width: 80%;
-      padding: 10px;
+    input[type="text"] {
+      width: 90%;
+      padding: 12px;
+      font-size: 16px;
       border-radius: 8px;
       border: 1px solid #ccc;
+      margin-bottom: 20px;
+      text-align: left;
     }
 
-    .social-download a {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 25px;
+    button {
       background: linear-gradient(to left, #5fa8d3, #68c3c0);
+      border: none;
       color: white;
+      padding: 12px 30px;
+      font-size: 16px;
+      border-radius: 8px;
       font-weight: bold;
-      border-radius: 10px;
-      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .note {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #666;
     }
 
     footer {
-      background-color: #e1f0f9;
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      color: #555;
       margin-top: 40px;
+      font-size: 13px;
+      color: #777;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <img src="logo.jpg" alt="شعار المدرسة" class="logo">
-  <h1>مركز التحميلات التعليمية</h1>
-  <div style="width: 60px;"></div>
-</header>
+  <header>
+    <img src="logo.jpg" alt="شعار" class="logo">
+    <h1>مركز التحميلات - بدون إعلانات</h1>
+    <div style="width:60px"></div>
+  </header>
 
-<nav style="background-color: #f0f8ff; padding: 10px 0; border-top: 2px solid #5f9ea0; border-bottom: 2px solid #5f9ea0;">
+ <nav style="background-color: #f0f8ff; padding: 10px 0; border-top: 2px solid #5f9ea0; border-bottom: 2px solid #5f9ea0;">
   <div style="display: flex; flex-wrap: wrap; justify-content: center;">
     <a href="index.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold;">الرئيسية</a>
     <a href="kids.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold;">ركن الطفل</a>
@@ -155,42 +129,31 @@
   </div>
 </nav>
 
-<div class="intro">
-  المكتبة الرقمية تسعد بخدمتكم وتوفر لكم باقة مختارة من أوراق العمل التعليمية الجاهزة للتحميل. نسعى لراحتكم ونهتم بتوفير أدوات تعليمية تدعم تعلمكم بكل حب.
-</div>
+  <div class="welcome">مرحبًا بك في مركز التحميلات</div>
+  <div class="desc">المكتبة الرقمية تسعد بخدمتك وتوفر لك أداة سهلة لتحميل الفيديوهات من مختلف المنصات بدون إعلانات مزعجة.</div>
 
-<div class="downloads">
-  <div class="item">
-    <p>ورقة عمل تلوين - هلال رمضان للأطفال</p>
-    <a href="هلال رمضان رسومات اطفال.pdf" download>تحميل الورقة</a>
+  <div class="box">
+    <input type="text" id="videoUrl" placeholder="ألصق هنا رابط الفيديو من تيك توك أو يوتيوب أو غيرها">
+    <br>
+    <button onclick="handleDownload()">تحميل الآن</button>
+    <div class="note">* يرجى التأكد أن الرابط مباشر أو من موقع يدعم التحميل.</div>
   </div>
-</div>
 
-<div class="social-download">
-  <h2>خدمة تحميل من مواقع التواصل</h2>
-  <p>انسخ رابط الفيديو من يوتيوب، تيك توك، انستقرام، أو تويتر، والصقه هنا:</p>
-  <input type="text" id="videoUrl" placeholder="ضع الرابط هنا...">
-  <br>
-  <a id="downloadBtn" target="_blank" href="#">ابدأ التحميل الآن</a>
-</div>
+  <footer>
+    جميع الحقوق محفوظة © اليرموك الثانوية - مركز مصادر التعلم
+  </footer>
 
-<footer>
-  جميع الحقوق محفوظة © اليرموك الثانوية - مركز مصادر التعلم
-</footer>
-
-<script>
-  const btn = document.getElementById("downloadBtn");
-  const input = document.getElementById("videoUrl");
-
-  input.addEventListener("input", () => {
-    const url = input.value.trim();
-    if (url) {
-      btn.href = `https://snaptik.ltd/download?url=${encodeURIComponent(url)}`;
-    } else {
-      btn.href = "#";
+  <script>
+    function handleDownload() {
+      const link = document.getElementById('videoUrl').value.trim();
+      if (!link) {
+        alert('يرجى لصق الرابط أولاً');
+        return;
+      }
+      // نحول المستخدم إلى موقع تحميل آمن
+      window.open('https://ssyoutube.com/' + '?url=' + encodeURIComponent(link), '_blank');
     }
-  });
-</script>
+  </script>
 
 </body>
 </html>
