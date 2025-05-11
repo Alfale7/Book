@@ -319,18 +319,18 @@
   }
 </style>
 
-<div class="dropdown">
-  <button class="dropdown-btn">القائمة الرئيسية</button>
-  <div class="dropdown-content">
-    <a href="index.html">الرئيسية</a>
-    <a href="kids.html">ركن الطفل</a>
-    <a href="ask.html">أنت تسأل</a>
-    <a href="initiatives.html">أعمالنا الرقمية</a>
-    <a href="downloads.html">مركز التحميلات</a>
-    <a href="certificate.html">شهادة الشكر</a>
-    <a href="index.html#contact">نموذج التواصل</a>
+
+<nav style="background-color: #f0f8ff; padding: 10px 0; border-top: 2px solid #5f9ea0; border-bottom: 2px solid #5f9ea0;">
+  <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+    <a href="index.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold;">الرئيسية</a>
+    <a href="kids.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold;">ركن الطفل</a>
+    <a href="ask.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold;">أنت تسأل</a>
+    <a href="initiatives.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold;">أعمالنا الرقمية</a>
+    <a href="downloads.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold;">مركز التحميلات</a>
+    <a href="certificate.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold;">شهادة الشكر</a>
+    <a href="index.html#contact" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold;">نموذج التواصل</a>
   </div>
-</div>
+</nav>
 
 <div style="text-align: center; margin: 20px auto;">
   <iframe width="100%" height="315" src="https://www.youtube.com/embed/mX6e42Q7cO0"
@@ -446,6 +446,69 @@
 
 
   </script>
+<!-- زر المساعد -->
+<button id="library-assistant-toggle" style="position: fixed; bottom: 20px; right: 20px; background: linear-gradient(to left, #4db6ac, #1976d2); color: white; border: none; border-radius: 12px; padding: 10px 16px; cursor: pointer; z-index: 9999;">
+  مساعد المكتبة
+</button>
+
+<!-- صندوق المحادثة -->
+<div id="library-assistant" style="display: none; position: fixed; bottom: 80px; right: 20px; width: 300px; background: white; border-radius: 10px; box-shadow: 0 0 12px rgba(0,0,0,0.2); z-index: 9999; overflow: hidden; font-family: 'Tajawal', sans-serif;">
+  <div style="background: linear-gradient(to left, #4db6ac, #1976d2); color: white; padding: 10px; font-weight: bold; text-align: center;">مساعد المكتبة</div>
+  <div id="chat-log" style="padding: 10px; max-height: 300px; overflow-y: auto; font-size: 14px;"></div>
+  <div style="display: flex; border-top: 1px solid #ddd;">
+    <input type="text" id="user-input" placeholder="اكتب سؤالك..." style="flex: 1; padding: 10px; border: none; border-left: 1px solid #ddd; font-size: 14px;">
+    <button onclick="sendMessage()" style="background: #4db6ac; color: white; border: none; padding: 10px 15px; cursor: pointer;">إرسال</button>
+  </div>
+</div>
+
+<script>
+  const toggleBtn = document.getElementById('library-assistant-toggle');
+  const assistantBox = document.getElementById('library-assistant');
+  const chatLog = document.getElementById('chat-log');
+  const userInput = document.getElementById('user-input');
+
+  toggleBtn.onclick = () => {
+    assistantBox.style.display = assistantBox.style.display === 'none' ? 'block' : 'none';
+  };
+
+  function sendMessage() {
+    const userText = userInput.value.trim();
+    if (!userText) return;
+    appendMessage('أنت', userText);
+    userInput.value = '';
+    const response = getBotReply(userText.toLowerCase());
+    setTimeout(() => appendMessage('المساعد', response), 500);
+  }
+
+  function appendMessage(sender, text) {
+    const messageDiv = document.createElement('div');
+    messageDiv.innerHTML = `<strong>${sender}:</strong> ${text}`;
+    chatLog.appendChild(messageDiv);
+    chatLog.scrollTop = chatLog.scrollHeight;
+  }
+
+  function getBotReply(input) {
+    const responses = [
+      { keywords: ['السلام', 'هلا', 'مرحبا', 'مساء الخير', 'صباح الخير'], reply: 'أهلًا وسهلًا بك! كيف أقدر أخدمك في المكتبة الرقمية؟' },
+      { keywords: ['من انت', 'مين انت', 'وش وظيفتك'], reply: 'أنا مساعد المكتبة الرقمية لثانوية اليرموك، موجود لمساعدتك في الوصول للمصادر التعليمية والروابط المهمة.' },
+      { keywords: ['برمجك', 'صممك', 'طورك'], reply: 'تم برمجتي وتطويري بواسطة الأستاذ صلاح خليفة الفالح.' },
+      { keywords: ['كتب', 'كتاب', 'رابط كتاب', 'تحميل كتاب'], reply: 'تقدر تتصفح كتبنا عبر قسم "الكتب" أو تستخدم محرك البحث الموجود أعلى الصفحة.' },
+      { keywords: ['فيديو', 'مقاطع', 'مشاهدة'], reply: 'في قسم "ركن الطفل" وفيديوهات تعليمية مميزة – تفضل تصفحها واستمتع.' },
+      { keywords: ['أوراق', 'تمارين', 'أنشطة'], reply: 'ستجد أوراق العمل والأنشطة في "مركز التحميلات"، جاهزة للتحميل بدون إعلانات.' },
+      { keywords: ['التواصل', 'تواصل', 'اتصل', 'راسل'], reply: 'تقدر تتواصل معنا من خلال نموذج "تواصل معنا" أسفل الصفحة.' },
+      { keywords: ['المكتبة الرقمية', 'وش تقدم', 'وش فيها'], reply: 'مكتبتنا تحتوي على روابط لمنصات تعليمية، كتب، فيديوهات، أنشطة، وشهادات شكر قابلة للطباعة.' },
+      { keywords: ['شكر', 'شكرا', 'مشكور'], reply: 'العفو يا غالي، هذا من واجبنا ونسعد بخدمتك دائماً.' }
+    ];
+
+    for (let pair of responses) {
+      if (pair.keywords.some(k => input.includes(k))) {
+        return pair.reply;
+      }
+    }
+
+    return 'سؤالك جميل! بس ممكن توضح أكثر علشان أقدر أساعدك بشكل أفضل.';
+  }
+</script>
 
 </body>
 </html>
