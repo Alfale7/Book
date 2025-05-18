@@ -26,16 +26,17 @@
       color: #f0f0f0;
     }
 
-    .announcement {
-      background-color: #005f8f;
-      color: white;
-      padding: 10px;
-      text-align: center;
-      font-weight: bold;
-      animation: slide 15s linear infinite;
-      white-space: nowrap;
-      overflow: hidden;
-    }
+  .announcement {
+  background-color: #005f8f;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  animation: slide 15s linear infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 18px; /* حجم الخط الجديد */
+}
 
     @keyframes slide {
       0% { transform: translateX(100%); }
@@ -185,36 +186,6 @@
       background: #222;
     }
 
-    /* نافذة الترحيب */
-    #welcome-popup {
-      position: fixed;
-      top: 0; right: 0; bottom: 0; left: 0;
-      background: rgba(0,0,0,0.7);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-
-    #welcome-popup .popup-content {
-      background: white;
-      border-radius: 12px;
-      padding: 30px;
-      text-align: center;
-      max-width: 400px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    }
-
-    #welcome-popup button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      border: none;
-      background-color: #4682B4;
-      color: white;
-      border-radius: 6px;
-      font-weight: bold;
-      cursor: pointer;
-    }
 
 .item.video {
   background: linear-gradient(to right, #6b8fd8, #5f9ea0);
@@ -226,18 +197,9 @@
 </head>
 <body>
 
-  <!-- نافذة ترحيب -->
-  <div id="welcome-popup">
-    <div class="popup-content">
-      <img src="logo.jpg" alt="شعار المدرسة" style="width: 80px; height: 80px; border-radius: 8px; margin-bottom: 15px; border: 2px solid #4682B4;">
-      <h2 style="margin: 10px 0; color: #2c3e50;">مرحبًا بكم في المكتبة الرقمية</h2>
-      <p style="color: #555;">اليرموك الثانوية   ترحب بكم وتتمنى لكم تصفحاً مفيداً وممتعاً</p>
-      <button onclick="closePopup()">دخول</button>
-    </div>
-  </div>
 
   <!-- شريط إعلان -->
-  <div class="announcement">تم إضافة مكتبة بيت الحكمة للكتب الرقمية - تابع التحديثات الجديدة أولاً بأول!</div>
+<div class="announcement">تنويه: يُعرض عبر هذا الشريط آخر التحديثات والإضافات في مكتبة اليرموك الرقمية.</div>
 
   <!-- الهيدر -->
   <header>
@@ -319,16 +281,15 @@
   }
 </style>
 
-
 <nav style="background-color: #f0f8ff; padding: 10px 0; border-top: 2px solid #5f9ea0; border-bottom: 2px solid #5f9ea0;">
   <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-    <a href="index.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold;">الرئيسية</a>
-    <a href="kids.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold;">ركن الطفل</a>
-    <a href="ask.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold;">أنت تسأل</a>
-    <a href="initiatives.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold;">أعمالنا الرقمية</a>
-    <a href="downloads.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold;">مركز التحميلات</a>
-    <a href="certificate.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold;">شهادة الشكر</a>
-    <a href="index.html#contact" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold;">نموذج التواصل</a>
+    <a href="index.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold; font-size: 20px;">الرئيسية</a>
+    <a href="kids.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold; font-size: 20px;">ركن الطفل</a>
+    <a href="ask.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold; font-size: 20px;">أنت تسأل</a>
+    <a href="initiatives.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold; font-size: 20px;">أعمالنا الرقمية</a>
+    <a href="downloads.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold; font-size: 20px;">مركز التحميلات</a>
+    <a href="certificate.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold; font-size: 20px;">شهادة الشكر</a>
+    <a href="index.html#contact" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold; font-size: 20px;">نموذج التواصل</a>
   </div>
 </nav>
 
@@ -363,14 +324,14 @@
 
   <div class="library" id="library">
     <div class="item book"><a href="https://ien.edu.sa" target="_blank">منصة عين التعليمية</a></div>
-    <div class="item interactive"><a href="https://www.kutubee.com/ar" target="_blank">منصة كتبي - كتب تفاعلية</a></div>
-    <div class="item book"><a href="https://ktby.net/" target="_blank">موقع كتبي - كتب الوزارة</a></div>
-    <div class="item book"><a href="https://www.ien.edu.sa/Home/DigitalLibrary" target="_blank">المكتبة الرقمية - عين</a></div>
-    <div class="item interactive"><a href="https://school-edu.com" target="_blank">منصة المدرسة</a></div>
-    <div class="item book"><a href="https://www.rwafed.com" target="_blank">روافد التعليمية</a></div>
+
+    <div class="item book"><a href="https://ktby.net/" target="_blank"> كتبي </a></div>
+
+    <div class="item interactive"><a href="https://schools.madrasati.sa" target="_blank">منصة مدرستي</a></div>
+
     <div class="item video"><a href="https://www.ientv.edu.sa/" target="_blank">قناة عين التعليمية</a></div>
     <div class="item book"><a href="https://sdl.edu.sa/SDLPortal/Publishers.aspx" target="_blank">المكتبة الرقمية السعودية (SDL)</a></div>
-    <div class="item book"><a href="https://baytalhikma2.org/books" target="_blank">مكتبة بيت الحكمة للكتب الرقمية</a></div>
+
 
 <!-- بجانب العناصر الأخرى في المكتبة -->
 <div class="item book">
@@ -384,9 +345,10 @@
 
 <div class="library">
   <div class="item video"><a href="https://www.youtube.com/@ientv" target="_blank">قناة عين التعليمية</a></div>
-  <div class="item video"><a href="https://www.youtube.com/@SajilniLearning" target="_blank">قناة سَجّلني التعليمية</a></div>
-  <div class="item video"><a href="https://www.youtube.com/@TaalemOnline" target="_blank">قناة تعلّم أونلاين</a></div>
-  <div class="item video"><a href="https://www.youtube.com/@DorosiOnline" target="_blank">دروسي أونلاين</a></div>
+</div>
+
+<div class="library">
+  <div class="item video"><a href="https://youtube.com/@moe_gov?feature=shared" target="_blank">قناة وزارة التعليم الرسمية</a></div>
 </div>
 
 <!-- نموذج التواصل -->
@@ -397,9 +359,9 @@
 
   <!-- الفوتر -->
   <footer>
-    <p style="margin: 5px 0; font-size: 14px;">جميع الحقوق محفوظة © اليرموك الثانوية </p>
-    <p style="margin: 0; font-size: 14px;">تمت البرمجة والتنسيق بواسطة أمين مركز مصادر التعلم</p>
-    <p style="margin: 0; font-weight: bold; font-size: 15px;">الأستاذ / صلاح الفالح</p>
+    <p style="margin: 5px 0; font-size: 14px;">جميع الحقوق محفوظة © مدرسة اليرموك الثانوية </p>
+    <p style="margin: 0; font-size: 14px;">تمت البرمجة والتنسيق بواسطة منسوبي مدرسة  اليرموك الثانوية</p>
+    <p style="margin: 0; font-weight: bold; font-size: 15px;">  </p>
     <p style="margin: 10px 0 0; font-size: 14px;">
 مدير المدرسة /   حمد المعيقل</p>
   </footer>
@@ -431,83 +393,7 @@
       });
     }
 
-    function closePopup() {
-      document.getElementById("welcome-popup").style.display = "none";
-    }
 
-
-  // إغلاق النافذة الترحيبية بعد ثانيتين تلقائيًا
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      document.getElementById("welcome-popup").style.display = "none";
-    }, 500); // 500 ملي ثانية = 0.5 ثانية
-  });
-
-
-
-  </script>
-<!-- زر المساعد -->
-<button id="library-assistant-toggle" style="position: fixed; bottom: 20px; right: 20px; background: linear-gradient(to left, #4db6ac, #1976d2); color: white; border: none; border-radius: 12px; padding: 10px 16px; cursor: pointer; z-index: 9999;">
-  مساعد المكتبة
-</button>
-
-<!-- صندوق المحادثة -->
-<div id="library-assistant" style="display: none; position: fixed; bottom: 80px; right: 20px; width: 300px; background: white; border-radius: 10px; box-shadow: 0 0 12px rgba(0,0,0,0.2); z-index: 9999; overflow: hidden; font-family: 'Tajawal', sans-serif;">
-  <div style="background: linear-gradient(to left, #4db6ac, #1976d2); color: white; padding: 10px; font-weight: bold; text-align: center;">مساعد المكتبة</div>
-  <div id="chat-log" style="padding: 10px; max-height: 300px; overflow-y: auto; font-size: 14px;"></div>
-  <div style="display: flex; border-top: 1px solid #ddd;">
-    <input type="text" id="user-input" placeholder="اكتب سؤالك..." style="flex: 1; padding: 10px; border: none; border-left: 1px solid #ddd; font-size: 14px;">
-    <button onclick="sendMessage()" style="background: #4db6ac; color: white; border: none; padding: 10px 15px; cursor: pointer;">إرسال</button>
-  </div>
-</div>
-
-<script>
-  const toggleBtn = document.getElementById('library-assistant-toggle');
-  const assistantBox = document.getElementById('library-assistant');
-  const chatLog = document.getElementById('chat-log');
-  const userInput = document.getElementById('user-input');
-
-  toggleBtn.onclick = () => {
-    assistantBox.style.display = assistantBox.style.display === 'none' ? 'block' : 'none';
-  };
-
-  function sendMessage() {
-    const userText = userInput.value.trim();
-    if (!userText) return;
-    appendMessage('أنت', userText);
-    userInput.value = '';
-    const response = getBotReply(userText.toLowerCase());
-    setTimeout(() => appendMessage('المساعد', response), 500);
-  }
-
-  function appendMessage(sender, text) {
-    const messageDiv = document.createElement('div');
-    messageDiv.innerHTML = `<strong>${sender}:</strong> ${text}`;
-    chatLog.appendChild(messageDiv);
-    chatLog.scrollTop = chatLog.scrollHeight;
-  }
-
-  function getBotReply(input) {
-    const responses = [
-      { keywords: ['السلام', 'هلا', 'مرحبا', 'مساء الخير', 'صباح الخير'], reply: 'أهلًا وسهلًا بك! كيف أقدر أخدمك في المكتبة الرقمية؟' },
-      { keywords: ['من انت', 'مين انت', 'وش وظيفتك'], reply: 'أنا مساعد المكتبة الرقمية لثانوية اليرموك، موجود لمساعدتك في الوصول للمصادر التعليمية والروابط المهمة.' },
-      { keywords: ['برمجك', 'صممك', 'طورك'], reply: 'تم برمجتي وتطويري بواسطة الأستاذ صلاح خليفة الفالح.' },
-      { keywords: ['كتب', 'كتاب', 'رابط كتاب', 'تحميل كتاب'], reply: 'تقدر تتصفح كتبنا عبر قسم "الكتب" أو تستخدم محرك البحث الموجود أعلى الصفحة.' },
-      { keywords: ['فيديو', 'مقاطع', 'مشاهدة'], reply: 'في قسم "ركن الطفل" وفيديوهات تعليمية مميزة – تفضل تصفحها واستمتع.' },
-      { keywords: ['أوراق', 'تمارين', 'أنشطة'], reply: 'ستجد أوراق العمل والأنشطة في "مركز التحميلات"، جاهزة للتحميل بدون إعلانات.' },
-      { keywords: ['التواصل', 'تواصل', 'اتصل', 'راسل'], reply: 'تقدر تتواصل معنا من خلال نموذج "تواصل معنا" أسفل الصفحة.' },
-      { keywords: ['المكتبة الرقمية', 'وش تقدم', 'وش فيها'], reply: 'مكتبتنا تحتوي على روابط لمنصات تعليمية، كتب، فيديوهات، أنشطة، وشهادات شكر قابلة للطباعة.' },
-      { keywords: ['شكر', 'شكرا', 'مشكور'], reply: 'العفو يا غالي، هذا من واجبنا ونسعد بخدمتك دائماً.' }
-    ];
-
-    for (let pair of responses) {
-      if (pair.keywords.some(k => input.includes(k))) {
-        return pair.reply;
-      }
-    }
-
-    return 'سؤالك جميل! بس ممكن توضح أكثر علشان أقدر أساعدك بشكل أفضل.';
-  }
 </script>
 
 </body>
