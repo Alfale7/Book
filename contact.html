@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تواصل معنا - اليرموك الثانوية</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #6366f1;
+      --bg: #020617;
+      --card-bg: rgba(30, 41, 59, 0.5);
+      --glass: blur(20px);
+      --text: #f8fafc;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(79, 70, 229, 0.1) 0px, transparent 50%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 15px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: var(--glass);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .brand { display: flex; align-items: center; gap: 15px; }
+    .logo-img { width: 50px; height: 50px; border-radius: 10px; background: white; padding: 3px; object-fit: contain; }
+    .header-text h1 { font-size: 18px; font-weight: 900; background: linear-gradient(to left, #818cf8, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0; }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      flex: 1;
+    }
+
+    .contact-card {
+      background: var(--card-bg);
+      backdrop-filter: var(--glass);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    }
+
+    .contact-card h2 {
+      font-size: 26px;
+      font-weight: 900;
+      margin-bottom: 10px;
+      text-align: center;
+      color: var(--primary);
+    }
+
+    .contact-card p {
+      text-align: center;
+      color: #94a3b8;
+      margin-bottom: 30px;
+    }
+
+    .form-group { margin-bottom: 20px; }
+    label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 14px; color: #cbd5e1; }
+
+    input, textarea {
+      width: 100%;
+      padding: 15px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(0,0,0,0.2);
+      color: white;
+      font-family: 'Tajawal';
+      outline: none;
+      transition: 0.3s;
+    }
+
+    input:focus, textarea:focus { border-color: var(--primary); background: rgba(0,0,0,0.3); }
+
+    .btn-send {
+      width: 100%;
+      padding: 15px;
+      border-radius: 12px;
+      border: none;
+      background: var(--primary);
+      color: white;
+      font-weight: 900;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 10px;
+    }
+
+    .btn-send:hover { background: #4f46e5; transform: translateY(-2px); }
+
+    .bottom-nav {
+      position: fixed; bottom: 15px; left: 15px; right: 15px;
+      background: rgba(30, 41, 59, 0.85);
+      backdrop-filter: var(--glass);
+      height: 60px; border-radius: 20px;
+      display: flex; justify-content: space-around; align-items: center;
+      border: 1px solid rgba(255,255,255,0.1);
+      z-index: 2000;
+    }
+    .nav-item { color: #94a3b8; text-decoration: none; display: flex; flex-direction: column; align-items: center; font-size: 16px; }
+    .nav-item.active { color: var(--primary); }
+    .nav-item span { font-size: 9px; margin-top: 3px; font-weight: 700; }
+
+    footer { text-align: center; padding: 20px 0 110px; font-size: 12px; color: #64748b; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <img src="logo.jpg" alt="Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/50'">
+      <div class="header-text">
+        <h1>تواصل معنا</h1>
+      </div>
+    </div>
+    <a href="index.html" style="color: white; text-decoration: none; font-size: 14px; font-weight: bold;"><i class="fas fa-home"></i> الرئيسية</a>
+  </header>
+
+  <div class="container">
+    <div class="contact-card">
+      <h2>أرسل رسالتك</h2>
+      <p>يسعدنا استقبال استفساراتكم وملاحظاتكم لتطوير المكتبة الرقمية.</p>
+      
+      <form action="https://formspree.io/f/xqenlvyb" method="POST">
+        <div class="form-group">
+          <label>الاسم الكامل</label>
+          <input type="text" name="الاسم" placeholder="أدخل اسمك الكريم" required>
+        </div>
+        <div class="form-group">
+          <label>البريد الإلكتروني</label>
+          <input type="email" name="الايميل" placeholder="example@mail.com" required>
+        </div>
+        <div class="form-group">
+          <label>الموضوع</label>
+          <input type="text" name="الموضوع" placeholder="ما هو موضوع رسالتك؟">
+        </div>
+        <div class="form-group">
+          <label>الرسالة</label>
+          <textarea name="الرسالة" rows="5" placeholder="اكتب تفاصيل رسالتك هنا..." required></textarea>
+        </div>
+        <button type="submit" class="btn-send">
+          <i class="fas fa-paper-plane"></i> إرسال الرسالة
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>جميع الحقوق محفوظة © مدرسة اليرموك الثانوية</p>
+    <p style="margin-top: 5px; font-weight: bold;">مركز مصادر التعلم</p>
+  </footer>
+
+  <div class="bottom-nav">
+    <a href="index.html" class="nav-item">
+      <i class="fas fa-th-large"></i>
+      <span>الرئيسية</span>
+    </a>
+    <a href="kids.html" class="nav-item">
+      <i class="fas fa-gamepad"></i>
+      <span>الأنشطة</span>
+    </a>
+    <a href="ask.html" class="nav-item">
+      <i class="fas fa-comment-dots"></i>
+      <span>اسأل</span>
+    </a>
+    <a href="contact.html" class="nav-item active">
+      <i class="fas fa-envelope"></i>
+      <span>تواصل</span>
+    </a>
+    <a href="downloads.html" class="nav-item">
+      <i class="fas fa-download"></i>
+      <span>تحميل</span>
+    </a>
+    <a href="certificate.html" class="nav-item">
+      <i class="fas fa-award"></i>
+      <span>شهادة</span>
+    </a>
+  </div>
+
+</body>
+</html>

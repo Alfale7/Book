@@ -2,187 +2,228 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>شهادة شكر وتقدير</title>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>إصدار شهادة شكر - اليرموك الثانوية</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
   <style>
+    :root {
+      --primary: #6366f1;
+      --bg: #020617;
+      --card-bg: rgba(30, 41, 59, 0.5);
+      --glass: blur(20px);
+      --text: #f8fafc;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
       font-family: 'Tajawal', sans-serif;
-      background: #f3f8ff;
-      margin: 0;
-      padding: 0;
-      text-align: center;
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(79, 70, 229, 0.1) 0px, transparent 50%);
+      color: var(--text);
+      min-height: 100vh;
+      padding-bottom: 100px;
     }
 
     header {
-      background: linear-gradient(to left, #4682B4, #5f9ea0);
-      color: white;
-      padding: 20px;
+      padding: 15px 5%;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: var(--glass);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
-    .logo {
-      width: 60px;
-      height: 60px;
-      border-radius: 10px;
-      object-fit: contain;
-      border: 3px solid #ffffff;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
-      background-color: white;
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .logo-img { width: 50px; height: 50px; border-radius: 10px; background: white; padding: 3px; object-fit: contain; }
+    .header-text h1 { font-size: 18px; font-weight: 900; background: linear-gradient(to left, #818cf8, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px;
+      text-align: center;
     }
 
-    h1 {
-      flex: 1;
-      font-size: 22px;
-      margin: 0;
-    }
-
-    .form-area {
-      margin: 40px 0;
+    .input-card {
+      background: var(--card-bg);
+      backdrop-filter: var(--glass);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      padding: 40px 20px;
+      margin-bottom: 30px;
     }
 
     input[type="text"] {
-      padding: 10px;
-      font-size: 16px;
-      width: 280px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
+      width: 100%;
+      max-width: 400px;
+      padding: 15px 25px;
+      border-radius: 15px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(0,0,0,0.2);
+      color: white;
+      font-family: 'Tajawal';
+      font-size: 18px;
+      text-align: center;
+      outline: none;
       margin-bottom: 20px;
     }
 
-    button {
-      padding: 10px 20px;
-      font-weight: bold;
-      background-color: #4682B4;
-      color: white;
+    .btn {
+      padding: 12px 35px;
+      border-radius: 15px;
       border: none;
-      border-radius: 8px;
+      background: var(--primary);
+      color: white;
+      font-weight: bold;
       cursor: pointer;
+      transition: 0.3s;
+      font-family: 'Tajawal';
     }
+    .btn:hover { transform: scale(1.05); background: #4f46e5; }
+    .btn-print { background: #10b981; margin-top: 10px; }
 
     #certificate {
       display: none;
-      margin: 30px auto;
-      padding: 40px;
-      width: 80%;
-      max-width: 700px;
-      background: linear-gradient(to bottom right, #eaf6ff, #d4eaff);
-      border-radius: 12px;
-      border: 3px solid #4682B4;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      margin: 40px auto;
+      padding: 60px;
+      width: 100%;
+      max-width: 800px;
+      background: #fff;
+      color: #001f3f;
+      border-radius: 5px;
       position: relative;
+      border: 15px double #6366f1;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+      background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
     }
 
-    #certificate img.logo {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      width: 60px;
-    }
-
+    .cert-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px; }
+    .cert-logo { width: 80px; }
+    
+    .cert-content h2 { font-size: 45px; font-weight: 900; color: #6366f1; margin-bottom: 20px; }
+    .cert-content p { font-size: 20px; margin: 10px 0; }
+    
     #student-name {
-      font-size: 28px;
-      font-weight: bold;
-      margin: 30px 0 10px;
-      color: #003366;
+      font-size: 40px;
+      font-weight: 900;
+      color: #1e293b;
+      margin: 25px 0;
+      border-bottom: 2px solid #6366f1;
+      display: inline-block;
+      padding: 0 30px;
     }
 
-    .back {
-      margin-top: 40px;
-    }
+    .cert-footer { margin-top: 40px; display: flex; justify-content: space-around; font-weight: bold; }
 
-    .back a {
-      text-decoration: none;
-      color: #4682B4;
-      font-weight: bold;
+    .bottom-nav {
+      position: fixed; bottom: 15px; left: 15px; right: 15px;
+      background: rgba(30, 41, 59, 0.85);
+      backdrop-filter: var(--glass);
+      height: 60px; border-radius: 20px;
+      display: flex; justify-content: space-around; align-items: center;
+      border: 1px solid rgba(255,255,255,0.1);
+      z-index: 2000;
     }
-
-    nav a:hover {
-      color: #003d66;
-      text-decoration: underline;
-    }
+    .nav-item { color: #94a3b8; text-decoration: none; display: flex; flex-direction: column; align-items: center; font-size: 16px; }
+    .nav-item.active { color: var(--primary); }
+    .nav-item span { font-size: 9px; margin-top: 3px; font-weight: 700; }
 
     @media print {
-      body * {
-        visibility: hidden;
-      }
-      #certificate, #certificate * {
-        visibility: visible;
-      }
-      #certificate {
-        position: absolute;
-        top: 0;
-        left: 0;
-        margin: 0;
-        width: 100%;
-        box-shadow: none;
-        border: none;
-      }
+      body * { visibility: hidden; }
+      #certificate, #certificate * { visibility: visible; }
+      #certificate { position: absolute; top: 0; left: 0; width: 100%; border: none; box-shadow: none; }
+      .btn-download, .bottom-nav { display: none !important; }
     }
-
-
-  @media print {
-    button {
-      display: none !important;
-    }
-  }
-
-
   </style>
 </head>
 <body>
 
   <header>
-    <img src="logo.jpg" alt="شعار المدرسة" class="logo">
-    <h1>نموذج إصدار شهادة شكر وتقدير</h1>
-    <div style="width:60px"></div>
+    <div class="brand">
+      <img src="logo.jpg" alt="Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/50'">
+      <div class="header-text">
+        <h1>نظام إصدار الشهادات الرقمي</h1>
+      </div>
+    </div>
+    <a href="index.html" style="color: white; text-decoration: none; font-size: 14px; font-weight: bold;">الرئيسية</a>
   </header>
 
-<nav style="background-color: #f0f8ff; padding: 10px 0; border-top: 2px solid #5f9ea0; border-bottom: 2px solid #5f9ea0;">
-  <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-    <a href="index.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold; font-size: 20px;">الرئيسية</a>
-    <a href="kids.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold; font-size: 20px;">ركن الأنشطة</a>
-    <a href="ask.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold; font-size: 20px;">أنت تسأل</a>
-    <a href="initiatives.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold; font-size: 20px;">أعمالنا الرقمية</a>
-    <a href="downloads.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold; font-size: 20px;">مركز التحميلات</a>
-    <a href="certificate.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold; font-size: 20px;">شهادة الشكر</a>
-    <a href="index.html#contact" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold; font-size: 20px;">نموذج التواصل</a>
-  </div>
-</nav>
+  <div class="container">
+    <div class="input-card">
+      <i class="fas fa-award" style="font-size: 50px; color: var(--primary); margin-bottom: 20px;"></i>
+      <h2 style="margin-bottom: 10px;">شهادة شكر وتقدير</h2>
+      <p style="color: #94a3b8; margin-bottom: 30px;">يسر ثانوية اليرموك تكريم متميزيها في أعمال المكتبة الرقمية</p>
+      
+      <input type="text" id="nameInput" placeholder="أدخل الاسم الثلاثي هنا">
+      <br>
+      <button class="btn" onclick="generateCertificate()"><i class="fas fa-magic"></i> عرض الشهادة</button>
+    </div>
 
-  <div style="max-width: 700px; margin: 30px auto 10px; padding: 10px;">
-    <h2 style="text-align:center; color:#2c3e50;">مرحبًا بكم في نظام إصدار شهادات الشكر</h2>
-    <p style="text-align:center; color:#555;">يسرنا تقديم هذه الخدمة الرقمية لتكريم المتميزين في أنشطة ومبادرات المكتبة الرقمية بثانوية اليرموك.</p>
-    <p style="text-align:center; color:#888; font-size: 14px;">* يرجى إدخال الاسم كما ترغب أن يظهر في الشهادة.</p>
+    <div id="certificate">
+      <div class="cert-header">
+        <img src="logo.jpg" class="cert-logo" onerror="this.src='https://via.placeholder.com/80'">
+        <div style="text-align: left;">ثانوية اليرموك<br>المكتبة الرقمية</div>
+      </div>
+      
+      <div class="cert-content">
+        <h2>شهادة شكر وتقدير</h2>
+        <p>تتقدم إدارة مدرسة اليرموك الثانوية بجزيل الشكر لـ</p>
+        <div id="student-name"></div>
+        <p>وذلك نظير مشاركته المتميزة وتفاعله الفعّال في أنشطة المكتبة الرقمية</p>
+        <p>متمنين له دوام التوفيق والنجاح</p>
+      </div>
+
+      <div class="cert-footer">
+        <div>إدارة المدرسة<br>أ. حمد المعيقل</div>
+        <div>ختم المكتبة الرقمية<br>✔</div>
+      </div>
+      
+      <button class="btn btn-download" style="margin-top: 30px;" onclick="downloadCertificate()">
+        <i class="fas fa-download"></i> حفظ الشهادة بجهازك
+      </button>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <button class="btn btn-print" onclick="window.print()"><i class="fas fa-print"></i> طباعة الشهادة</button>
+    </div>
+
+    <p style="margin-top: 40px; color: #6366f1; font-weight: bold;">شكراً لكل من ساهم وشارك معنا – أنتم فخرنا في اليرموك</p>
   </div>
 
-  <div class="form-area">
-    <p>أدخل اسمك ليتم عرض الشهادة:</p>
-    <input type="text" id="nameInput" placeholder="اكتب اسمك هنا">
-    <br>
-    <button onclick="generateCertificate()">عرض الشهادة</button>
+  <div class="bottom-nav">
+    <a href="index.html" class="nav-item">
+      <i class="fas fa-th-large"></i>
+      <span>الرئيسية</span>
+    </a>
+    <a href="kids.html" class="nav-item">
+      <i class="fas fa-gamepad"></i>
+      <span>الأنشطة</span>
+    </a>
+    <a href="ask.html" class="nav-item">
+      <i class="fas fa-comment-dots"></i>
+      <span>اسأل</span>
+    </a>
+    <a href="contact.html" class="nav-item">
+      <i class="fas fa-envelope"></i>
+      <span>تواصل</span>
+    </a>
+    <a href="downloads.html" class="nav-item">
+      <i class="fas fa-download"></i>
+      <span>تحميل</span>
+    </a>
+    <a href="certificate.html" class="nav-item active">
+      <i class="fas fa-award"></i>
+      <span>شهادة</span>
+    </a>
   </div>
-
-  <div id="certificate">
-    <img src="logo.jpg" alt="شعار المدرسة" class="logo">
-    <h2>شهادة شكر وتقدير</h2>
-    <p>تُمنح لــ</p>
-    <div id="student-name"></div>
-    <p>وذلك نظير مشاركته المتميزة وتفاعله في المكتبة الرقمية</p>
-    <p>إدارة ثانوية اليرموك</p>
-    <button onclick="downloadCertificate()" style="margin-top: 20px;">تحميل الشهادة</button>
-  </div>
-
-  <div class="back">
-    <a href="index.html">العودة للمكتبة الرئيسية</a> | 
-    <a href="javascript:window.print()">طباعة الشهادة</a>
-  </div>
-
-  <p style="text-align:center; margin: 60px 10px 20px; color: #5f9ea0; font-weight: bold;">
-    شكراً لكل من ساهم وشارك معنا في أعمالنا الرقمية – أنتم فخرنا في اليرموك
-  </p>
 
   <script>
     function generateCertificate() {
@@ -193,15 +234,20 @@
       }
       document.getElementById("student-name").innerText = name;
       document.getElementById("certificate").style.display = "block";
+      window.scrollTo({ top: document.getElementById("certificate").offsetTop - 100, behavior: 'smooth' });
     }
 
     function downloadCertificate() {
       const certificate = document.getElementById("certificate");
-      html2canvas(certificate).then(canvas => {
+      const btn = certificate.querySelector(".btn-download");
+      btn.style.display = "none";
+
+      html2canvas(certificate, { scale: 2 }).then(canvas => {
         const link = document.createElement("a");
-        link.download = "شهادة_شكر.png";
-        link.href = canvas.toDataURL();
+        link.download = "شهادة_شكر_اليرموك.png";
+        link.href = canvas.toDataURL("image/png");
         link.click();
+        btn.style.display = "inline-block";
       });
     }
   </script>

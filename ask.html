@@ -2,190 +2,212 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>أنت تسأل والمكتبة تُجيب</title>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أنت تسأل والمكتبة تُجيب - اليرموك الثانوية</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
+    :root {
+      --primary: #6366f1;
+      --bg: #020617;
+      --card-bg: rgba(30, 41, 59, 0.5);
+      --glass: blur(20px);
+      --text: #f8fafc;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
       font-family: 'Tajawal', sans-serif;
-      background: linear-gradient(to bottom, #eef4f9, #dceeff);
-      margin: 0;
-      padding: 0;
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(79, 70, 229, 0.1) 0px, transparent 50%);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding-bottom: 100px;
     }
 
+    /* الهيدر */
     header {
-      background: linear-gradient(to left, #4682B4, #5f9ea0);
-      color: white;
-      padding: 20px;
+      padding: 15px 5%;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: var(--glass);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
-    .logo {
-      width: 60px;
-      height: 60px;
-      border-radius: 10px;
-      object-fit: contain;
-      border: 3px solid #ffffff;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
-      background-color: white;
-    }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .logo { width: 50px; height: 50px; border-radius: 10px; background: white; padding: 3px; object-fit: contain; }
+    .header-text h1 { font-size: 18px; font-weight: 900; background: linear-gradient(to left, #818cf8, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-    h1 {
-      margin: 0 auto;
-      font-size: 26px;
-      text-align: center;
-      flex: 1;
-    }
-
-    nav {
-      background-color: #f0f8ff;
-      padding: 10px 0;
-      border-top: 2px solid #5f9ea0;
-      border-bottom: 2px solid #5f9ea0;
-    }
-
-    nav div {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    nav a {
-      margin: 5px 10px;
-      text-decoration: none;
-      color: #005f8f;
-      font-weight: bold;
-    }
-
+    /* الحاوية */
     .container {
-      max-width: 900px;
+      max-width: 800px;
       margin: 30px auto;
-      padding: 20px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 0 20px;
     }
 
-    .qa {
-      margin-bottom: 25px;
+    .page-title {
+      text-align: center;
+      margin-bottom: 30px;
     }
+    .page-title i { font-size: 40px; color: var(--primary); margin-bottom: 10px; }
+
+    /* كروت الأسئلة والأجوبة */
+    .qa-card {
+      background: var(--card-bg);
+      backdrop-filter: var(--glass);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 15px;
+      transition: 0.3s;
+    }
+    .qa-card:hover { transform: translateY(-5px); border-color: var(--primary); }
 
     .question {
-      font-weight: bold;
-      color: #004a75;
-      margin-bottom: 5px;
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 17px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     .answer {
-      background-color: #f1faff;
-      padding: 12px;
-      border-radius: 8px;
-      border-right: 5px solid #5f9ea0;
+      color: #cbd5e1;
+      font-size: 15px;
+      line-height: 1.6;
+      padding-right: 27px;
     }
 
-    .back {
+    /* صندوق المساعد الذكي */
+    .assistant-box {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(192, 132, 252, 0.2));
+      border-radius: 24px;
+      padding: 30px;
       text-align: center;
-      margin-top: 30px;
+      border: 1px solid rgba(255,255,255,0.1);
+      margin-top: 40px;
     }
-
-    .back a {
-      text-decoration: none;
-      background-color: #4682B4;
+    .assistant-box h2 { font-size: 22px; margin-bottom: 10px; }
+    .assistant-box p { color: #94a3b8; margin-bottom: 20px; }
+    
+    .btn-ai {
+      display: inline-block;
+      padding: 12px 30px;
+      background: var(--primary);
       color: white;
-      padding: 10px 20px;
-      border-radius: 8px;
+      text-decoration: none;
+      border-radius: 15px;
       font-weight: bold;
+      transition: 0.3s;
+      box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
     }
+    .btn-ai:hover { transform: scale(1.05); background: #4f46e5; }
 
- .assistant-box {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 30px;
-  background: #ffffff;
-  border-radius: 14px;
-  box-shadow: 0 0 16px rgba(0, 0, 0, 0.08);
-  text-align: center;
-}
+    /* القائمة السفلية الموحدة */
+    .bottom-nav {
+      position: fixed; bottom: 20px; left: 15px; right: 15px;
+      background: rgba(30, 41, 59, 0.85);
+      backdrop-filter: var(--glass);
+      height: 60px; border-radius: 20px;
+      display: flex; justify-content: space-around; align-items: center;
+      border: 1px solid rgba(255,255,255,0.1);
+      z-index: 2000;
+    }
+    .nav-item { color: #94a3b8; text-decoration: none; display: flex; flex-direction: column; align-items: center; font-size: 16px; }
+    .nav-item.active { color: var(--primary); }
+    .nav-item span { font-size: 9px; margin-top: 3px; font-weight: 700; }
 
-.assistant-box h2 {
-  color: #004a75;
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.assistant-box a {
-  display: inline-block;
-  padding: 14px 28px;
-  background: linear-gradient(to left, #43cea2, #185a9d);
-  color: #fff;
-  font-weight: bold;
-  font-size: 16px;
-  border-radius: 10px;
-  text-decoration: none;
-  transition: 0.3s;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.assistant-box a:hover {
-  background: linear-gradient(to left, #37b38d, #144b84);
-  transform: scale(1.05);
-}
   </style>
 </head>
 <body>
 
   <header>
-    <img src="logo.jpg" alt="شعار المدرسة" class="logo">
-    <h1>أنت تسأل والمكتبة تُجيب</h1>
+    <div class="brand">
+      <img src="logo.jpg" alt="Logo" class="logo" onerror="this.src='https://via.placeholder.com/50'">
+      <div class="header-text">
+        <h1>أنت تسأل والمكتبة تُجيب</h1>
+      </div>
+    </div>
+    <a href="index.html" style="color: white; text-decoration: none; font-size: 14px; font-weight: bold;">الرئيسية</a>
   </header>
 
-<nav style="background-color: #f0f8ff; padding: 10px 0; border-top: 2px solid #5f9ea0; border-bottom: 2px solid #5f9ea0;">
-  <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-    <a href="index.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold; font-size: 20px;">الرئيسية</a>
-    <a href="kids.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold; font-size: 20px;">ركن الأنشطة</a>
-    <a href="ask.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold; font-size: 20px;">أنت تسأل</a>
-    <a href="initiatives.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold; font-size: 20px;">أعمالنا الرقمية</a>
-    <a href="downloads.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold; font-size: 20px;">مركز التحميلات</a>
-    <a href="certificate.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold; font-size: 20px;">شهادة الشكر</a>
-    <a href="index.html#contact" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold; font-size: 20px;">نموذج التواصل</a>
-  </div>
-</nav>
-
   <div class="container">
-    <div class="qa">
-      <div class="question">كيف أبحث عن كتاب معين في المكتبة؟</div>
-      <div class="answer">استخدم شريط البحث في أعلى الصفحة الرئيسية واكتب اسم الكتاب أو الكلمة المفتاحية.</div>
+    
+    <div class="page-title">
+      <i class="fas fa-question-circle"></i>
+      <h2>الأسئلة الشائعة</h2>
+      <p style="color: #94a3b8;">كل ما تحتاج معرفته عن خدماتنا الرقمية</p>
     </div>
 
-    <div class="qa">
-      <div class="question">هل يمكنني تحميل الكتب؟</div>
-      <div class="answer">بعض المواقع المرتبطة بالمكتبة تتيح تحميل الكتب بصيغة PDF، بينما البعض الآخر للقراءة فقط.</div>
+    <div class="qa-card">
+      <div class="question"><i class="fas fa-search"></i> كيف أبحث عن كتاب معين في المكتبة؟</div>
+      <div class="answer">استخدم شريط البحث في أعلى الصفحة الرئيسية واكتب اسم الكتاب أو الكلمة المفتاحية للوصول السريع للمصادر.</div>
     </div>
 
-    <div class="qa">
-      <div class="question">كيف أقترح إضافة كتاب أو رابط؟</div>
-      <div class="answer">من خلال نموذج التواصل الموجود في الصفحة الرئيسية، اختر "اقتراح كتاب" وأرسل اسم الكتاب أو رابطه.</div>
+    <div class="qa-card">
+      <div class="question"><i class="fas fa-download"></i> هل يمكنني تحميل الكتب؟</div>
+      <div class="answer">بعض المواقع المرتبطة بالمكتبة تتيح تحميل الكتب بصيغة PDF مباشرة، بينما البعض الآخر مخصص للقراءة الرقمية التفاعلية.</div>
     </div>
 
-    <div class="qa">
-      <div class="question">هل المكتبة تحتوي على محتوى للمرحلة الابتدائية فقط؟</div>
-      <div class="answer">المكتبة تحتوي على مصادر متعددة تناسب جميع المراحل الدراسية، ويتم تحديثها باستمرار.</div>
+    <div class="qa-card">
+      <div class="question"><i class="fas fa-lightbulb"></i> كيف أقترح إضافة كتاب أو رابط؟</div>
+      <div class="answer">يسعدنا استقبال مقترحاتكم! يمكنك التواصل مع إدارة المكتبة لإضافة أي مصدر تعليمي تراه مفيداً لزملائك.</div>
     </div>
+
+    <div class="qa-card">
+      <div class="question"><i class="fas fa-school"></i> هل المكتبة للمرحلة الثانوية فقط؟</div>
+      <div class="answer">المكتبة موجهة بشكل أساسي لطلاب ثانوية اليرموك، ولكنها تحتوي على مصادر تعليمية وطنية شاملة تفيد جميع المراحل الدراسية.</div>
+    </div>
+
+    <div class="assistant-box">
+      <i class="fas fa-robot" style="font-size: 40px; color: var(--primary); margin-bottom: 15px;"></i>
+      <h2>مساعد المكتبة الرقمية</h2>
+      <p>اسأل، تواصل، واستفد من كل خدمات المكتبة الذكية بضغطة زر عبر الذكاء الاصطناعي!</p>
+      <a href="https://chatgpt.com/g/g-6821b9befb008191a733aaf0e80f3a14-lmktb-lrqmy-lyrmwk-lthnwy" target="_blank" class="btn-ai">
+        ابدأ المحادثة الآن
+      </a>
+    </div>
+
   </div>
 
-<div class="assistant-box">
-  <h2>مساعد المكتبة الرقمية</h2>
-  <p style="color: #333; font-weight: 500; margin-bottom: 20px;">
-    اسأل، تواصل، واستفد من كل خدمات المكتبة الذكية بضغطة زر!
-  </p>
-  <a href="https://chatgpt.com/g/g-6821b9befb008191a733aaf0e80f3a14-lmktb-lrqmy-lyrmwk-lthnwy" target="_blank">
-    ابدأ المحادثة الآن
-  </a>
-</div>
-
-  <div class="back">
-    <a href="index.html">العودة للصفحة الرئيسية</a>
+  <div class="bottom-nav">
+    <a href="index.html" class="nav-item">
+      <i class="fas fa-th-large"></i>
+      <span>الرئيسية</span>
+    </a>
+    <a href="kids.html" class="nav-item">
+      <i class="fas fa-gamepad"></i>
+      <span>الأنشطة</span>
+    </a>
+    <a href="ask.html" class="nav-item active">
+      <i class="fas fa-comment-dots"></i>
+      <span>اسأل</span>
+    </a>
+    <a href="contact.html" class="nav-item">
+      <i class="fas fa-envelope"></i>
+      <span>تواصل</span>
+    </a>
+    <a href="downloads.html" class="nav-item">
+      <i class="fas fa-download"></i>
+      <span>تحميل</span>
+    </a>
+    <a href="certificate.html" class="nav-item">
+      <i class="fas fa-award"></i>
+      <span>شهادة</span>
+    </a>
   </div>
 
 </body>

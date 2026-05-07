@@ -2,146 +2,231 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>مركز التحميلات - المكتبة الرقمية</title>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مركز التحميلات الذكي - اليرموك الثانوية</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
+    :root {
+      --primary: #6366f1;
+      --bg: #020617;
+      --card-bg: rgba(30, 41, 59, 0.5);
+      --glass: blur(20px);
+      --text: #f8fafc;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      margin: 0;
       font-family: 'Tajawal', sans-serif;
-      background: linear-gradient(to bottom, #eef4f9, #dceeff);
-      color: #333;
-      text-align: center;
-      padding-bottom: 50px;
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(79, 70, 229, 0.1) 0px, transparent 50%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     header {
-      background: linear-gradient(to left, #4682B4, #5f9ea0);
-      color: white;
-      padding: 20px;
+      padding: 15px 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: var(--glass);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
-    header h1 {
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .logo-img { width: 50px; height: 50px; border-radius: 10px; background: white; padding: 3px; object-fit: contain; }
+    .header-text h1 { font-size: 18px; font-weight: 900; background: linear-gradient(to left, #818cf8, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
       flex: 1;
-      font-size: 22px;
-      margin: 0;
     }
 
-    .logo {
-      width: 60px;
-      height: 60px;
-      border-radius: 10px;
-      background: white;
-      border: 2px solid white;
-      object-fit: contain;
-    }
-
-    nav {
-      background-color: #f0f8ff;
-      padding: 10px 0;
-      border-top: 2px solid #5f9ea0;
-      border-bottom: 2px solid #5f9ea0;
-    }
-
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #005f8f;
-      font-weight: bold;
-    }
-
-    .welcome {
-      padding: 30px 20px 10px;
-      font-size: 20px;
-      color: #005f8f;
-      font-weight: bold;
-    }
-
-    .desc {
-      font-size: 16px;
-      margin-bottom: 30px;
-      color: #333;
-    }
-
-    .box {
-      max-width: 600px;
-      margin: auto;
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    /* كرت التحميل */
+    .download-card {
+      background: var(--card-bg);
+      backdrop-filter: var(--glass);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      padding: 40px 30px;
       text-align: center;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    }
+
+    .download-card i.main-icon {
+      font-size: 60px;
+      color: var(--primary);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .download-card h2 {
+      font-size: 24px;
+      font-weight: 900;
+      margin-bottom: 15px;
+    }
+
+    .download-card p {
+      color: #94a3b8;
+      font-size: 15px;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .input-wrapper {
+      position: relative;
+      margin-bottom: 25px;
     }
 
     input[type="text"] {
-      width: 90%;
-      padding: 12px;
+      width: 100%;
+      padding: 18px 25px;
+      border-radius: 15px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(0,0,0,0.3);
+      color: white;
+      font-family: 'Tajawal';
       font-size: 16px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      margin-bottom: 20px;
-      text-align: left;
+      outline: none;
+      transition: 0.3s;
+      text-align: center;
     }
 
-    button {
-      background: linear-gradient(to left, #5fa8d3, #68c3c0);
+    input[type="text"]:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+    }
+
+    .btn-download {
+      width: 100%;
+      max-width: 200px;
+      padding: 15px 30px;
+      border-radius: 15px;
       border: none;
+      background: var(--primary);
       color: white;
-      padding: 12px 30px;
+      font-weight: 900;
       font-size: 16px;
-      border-radius: 8px;
-      font-weight: bold;
       cursor: pointer;
+      transition: 0.3s;
+      font-family: 'Tajawal';
+      box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+    }
+
+    .btn-download:hover {
+      transform: translateY(-3px);
+      background: #4f46e5;
+      box-shadow: 0 15px 30px rgba(99, 102, 241, 0.4);
     }
 
     .note {
-      margin-top: 20px;
-      font-size: 14px;
-      color: #666;
+      margin-top: 25px;
+      font-size: 12px;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
     }
 
+    /* القائمة السفلية الموحدة */
+    .bottom-nav {
+      position: fixed; bottom: 20px; left: 5%; right: 5%;
+      background: rgba(30, 41, 59, 0.85);
+      backdrop-filter: var(--glass);
+      height: 65px; border-radius: 25px;
+      display: flex; justify-content: space-around; align-items: center;
+      border: 1px solid rgba(255,255,255,0.1);
+      z-index: 2000;
+    }
+    .nav-item { color: #94a3b8; text-decoration: none; display: flex; flex-direction: column; align-items: center; font-size: 18px; }
+    .nav-item.active { color: var(--primary); }
+    .nav-item span { font-size: 10px; margin-top: 4px; font-weight: 700; }
+
     footer {
-      margin-top: 40px;
+      text-align: center;
+      padding: 40px 0 110px;
       font-size: 13px;
-      color: #777;
+      color: #64748b;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="logo.jpg" alt="شعار" class="logo">
-    <h1>مركز التحميلات - بدون إعلانات</h1>
-    <div style="width:60px"></div>
+    <div class="brand">
+      <img src="logo.jpg" alt="Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/50'">
+      <div class="header-text">
+        <h1>مركز التحميلات الرقمي</h1>
+      </div>
+    </div>
+    <a href="index.html" style="color: white; text-decoration: none; font-size: 14px; font-weight: bold;">الرئيسية</a>
   </header>
 
-<nav style="background-color: #f0f8ff; padding: 10px 0; border-top: 2px solid #5f9ea0; border-bottom: 2px solid #5f9ea0;">
-  <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-    <a href="index.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold; font-size: 20px;">الرئيسية</a>
-    <a href="kids.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold; font-size: 20px;">ركن الأنشطة</a>
-    <a href="ask.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold; font-size: 20px;">أنت تسأل</a>
-    <a href="initiatives.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold; font-size: 20px;">أعمالنا الرقمية</a>
-    <a href="downloads.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold; font-size: 20px;">مركز التحميلات</a>
-    <a href="certificate.html" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold; font-size: 20px;">شهادة الشكر</a>
-    <a href="index.html#contact" style="margin: 5px 10px; text-decoration: none; color: #005f8f; font-weight: bold; font-size: 20px;">نموذج التواصل</a>
-  </div>
-</nav>
+  <div class="container">
+    <div class="download-card">
+      <i class="fas fa-cloud-download-alt main-icon"></i>
+      <h2>تحميل الفيديوهات التعليمية</h2>
+      <p>خدمة ذكية لتحميل الفيديوهات من يوتيوب وتيك توك وغيرها بدون إعلانات مزعجة لدعم تعلمك المستمر.</p>
+      
+      <div class="input-wrapper">
+        <input type="text" id="videoUrl" placeholder="ألصق رابط الفيديو هنا...">
+      </div>
 
-  <div class="welcome">مرحبًا بك في مركز التحميلات</div>
-  <div class="desc">المكتبة الرقمية تسعد بخدمتك وتوفر لك أداة سهلة لتحميل الفيديوهات من مختلف المنصات بدون إعلانات مزعجة.</div>
+      <button class="btn-download" onclick="handleDownload()">
+        <i class="fas fa-download"></i> تحميل الآن
+      </button>
 
-  <div class="box">
-    <input type="text" id="videoUrl" placeholder="ألصق هنا رابط الفيديو من تيك توك أو يوتيوب أو غيرها">
-    <br>
-    <button onclick="handleDownload()">تحميل الآن</button>
-    <div class="note">* يرجى التأكد أن الرابط مباشر أو من موقع يدعم التحميل.</div>
+      <div class="note">
+        <i class="fas fa-info-circle"></i> يرجى التأكد من أن الرابط مباشر أو من موقع يدعم التحميل.
+      </div>
+    </div>
   </div>
 
   <footer>
-    جميع الحقوق محفوظة © اليرموك الثانوية - مركز مصادر التعلم
+    <p>جميع الحقوق محفوظة © مدرسة اليرموك الثانوية</p>
+    <p style="margin-top: 5px; font-weight: bold;">مركز مصادر التعلم</p>
   </footer>
+
+  <div class="bottom-nav">
+    <a href="index.html" class="nav-item">
+      <i class="fas fa-th-large"></i>
+      <span>الرئيسية</span>
+    </a>
+    <a href="kids.html" class="nav-item">
+      <i class="fas fa-gamepad"></i>
+      <span>الأنشطة</span>
+    </a>
+    <a href="ask.html" class="nav-item">
+      <i class="fas fa-comment-dots"></i>
+      <span>اسأل</span>
+    </a>
+    <a href="contact.html" class="nav-item">
+      <i class="fas fa-envelope"></i>
+      <span>تواصل</span>
+    </a>
+    <a href="downloads.html" class="nav-item active">
+      <i class="fas fa-download"></i>
+      <span>تحميل</span>
+    </a>
+    <a href="certificate.html" class="nav-item">
+      <i class="fas fa-award"></i>
+      <span>شهادة</span>
+    </a>
+  </div>
 
   <script>
     function extractVideoId(url) {
