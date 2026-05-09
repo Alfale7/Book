@@ -1,204 +1,399 @@
 <!DOCTYPE html>
+
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>تواصل معنا - اليرموك الثانوية</title>
-  
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<title>تواصل معنا - ثانوية اليرموك</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+html { color-scheme: dark only; }
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'Cairo',sans-serif !important;
+  background-color:#04080f !important;
+  color:#eef2ff !important;
+  min-height:100vh; overflow-x:hidden;
+  forced-color-adjust:none; -webkit-text-size-adjust:100%;
+}
+#bg-canvas { position:fixed; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none; }
 
-  <style>
-    :root {
-      --primary: #6366f1;
-      --bg: #020617;
-      --card-bg: rgba(30, 41, 59, 0.5);
-      --glass: blur(20px);
-      --text: #f8fafc;
-    }
+/* TICKER */
+.ticker { position:relative; z-index:100; background:#0a1428 !important; border-bottom:1px solid rgba(240,192,64,0.2); padding:9px 0; overflow:hidden; }
+.ticker-inner { display:inline-flex; gap:55px; white-space:nowrap; animation:tick 24s linear infinite; }
+.ticker-inner span { font-size:11.5px !important; color:#f0c040 !important; font-weight:700 !important; font-family:‘Cairo’,sans-serif !important; }
+.ticker-inner span::before { content:’◆  ’; font-size:8px; opacity:0.65; }
+@keyframes tick { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+/* HEADER */
+header {
+position:sticky; top:0; z-index:500; height:68px; padding:0 5%;
+display:flex; align-items:center; justify-content:space-between;
+background-color:rgba(4,8,15,0.95) !important;
+backdrop-filter:blur(28px) saturate(2);
+border-bottom:1px solid rgba(240,192,64,0.18);
+}
+.brand { display:flex; align-items:center; gap:13px; text-decoration:none !important; }
+.logo-ring {
+width:46px; height:46px; border-radius:13px;
+background:linear-gradient(135deg,#f0c040,#c8993a) !important;
+padding:2px; display:flex; align-items:center; justify-content:center;
+box-shadow:0 0 22px rgba(240,192,64,0.28); overflow:hidden; flex-shrink:0;
+}
+.logo-ring img { width:100%; height:100%; object-fit:contain; border-radius:11px; }
+.brand-words { display:flex; flex-direction:column; }
+.b-title { font-size:15px !important; font-weight:900 !important; font-family:‘Tajawal’,sans-serif !important; background:linear-gradient(90deg,#f0c040,#fffde0) !important; -webkit-background-clip:text !important; -webkit-text-fill-color:transparent !important; line-height:1.2; }
+.b-sub { font-size:9.5px !important; color:#7a90b8 !important; letter-spacing:0.9px; font-weight:600 !important; font-family:‘Cairo’,sans-serif !important; }
+.page-badge {
+display:flex; align-items:center; gap:7px;
+background-color:rgba(240,192,64,0.1) !important;
+border:1px solid rgba(240,192,64,0.25);
+border-radius:20px; padding:6px 14px;
+font-size:11px !important; color:#f0c040 !important; font-weight:700 !important;
+font-family:‘Cairo’,sans-serif !important;
+}
 
-    body {
-      font-family: 'Tajawal', sans-serif;
-      background-color: var(--bg);
-      background-image: 
-        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(79, 70, 229, 0.1) 0px, transparent 50%);
-      color: var(--text);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+/* HERO */
+.hero { position:relative; z-index:10; padding:46px 5% 8px; text-align:center; }
+.eyebrow {
+display:inline-flex; align-items:center; gap:8px;
+background-color:rgba(240,192,64,0.1) !important;
+border:1px solid rgba(240,192,64,0.28); border-radius:30px; padding:6px 18px;
+font-size:10.5px !important; color:#f0c040 !important; font-weight:700 !important;
+font-family:‘Cairo’,sans-serif !important; letter-spacing:2px; text-transform:uppercase;
+margin-bottom:18px; animation:up .8s ease both;
+}
+.h-title { font-family:‘Tajawal’,sans-serif !important; font-size:clamp(26px,6vw,52px); font-weight:900 !important; line-height:1.15; margin-bottom:12px; animation:up .9s .1s ease both; }
+.l1 { display:block; background:linear-gradient(135deg,#ffffff,#c8d6ff) !important; -webkit-background-clip:text !important; -webkit-text-fill-color:transparent !important; }
+.l2 { display:block; background:linear-gradient(90deg,#f0c040,#ffecaa,#f0c040) !important; background-size:200% !important; -webkit-background-clip:text !important; -webkit-text-fill-color:transparent !important; animation:shim 3.5s linear infinite; }
+@keyframes shim { 0%{background-position:200%} 100%{background-position:-200%} }
+.h-desc { font-size:13px !important; color:#7a90b8 !important; max-width:460px; margin:0 auto 32px; line-height:1.9; animation:up 1s .2s ease both; font-family:‘Cairo’,sans-serif !important; }
 
-    header {
-      padding: 15px 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(15, 23, 42, 0.8);
-      backdrop-filter: var(--glass);
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+/* FORM CARD */
+.form-wrap {
+padding:0 5% 30px; position:relative; z-index:10;
+animation:up 1s .3s ease both;
+max-width:680px; margin:0 auto;
+}
+.form-card {
+background-color:rgba(10,20,40,0.78) !important;
+border:1px solid rgba(240,192,64,0.18) !important;
+border-radius:24px; padding:32px 24px;
+backdrop-filter:blur(20px);
+box-shadow:0 20px 60px rgba(0,0,0,0.4);
+}
 
-    .brand { display: flex; align-items: center; gap: 15px; }
-    .logo-img { width: 50px; height: 50px; border-radius: 10px; background: white; padding: 3px; object-fit: contain; }
-    .header-text h1 { font-size: 18px; font-weight: 900; background: linear-gradient(to left, #818cf8, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0; }
+/* FORM FIELDS */
+.form-group { margin-bottom:18px; }
+.form-label {
+display:block; margin-bottom:8px;
+font-size:11.5px !important; font-weight:700 !important;
+color:#7a90b8 !important; font-family:‘Cairo’,sans-serif !important;
+letter-spacing:0.5px;
+}
+.form-label span { color:#f0c040 !important; margin-right:2px; }
 
-    .container {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-      flex: 1;
-    }
+.field-wrap { position:relative; }
+.field-ico {
+position:absolute; top:50%; transform:translateY(-50%);
+right:16px; color:#7a90b8 !important; font-size:14px !important;
+pointer-events:none; transition:color .3s;
+}
+textarea ~ .field-ico { top:18px; transform:none; }
 
-    .contact-card {
-      background: var(--card-bg);
-      backdrop-filter: var(--glass);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 24px;
-      padding: 40px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-    }
+input, textarea {
+width:100%; padding:14px 44px 14px 16px;
+border-radius:14px;
+border:1px solid rgba(240,192,64,0.15) !important;
+background-color:rgba(4,8,20,0.6) !important;
+color:#eef2ff !important;
+font-family:‘Cairo’,sans-serif !important;
+font-size:13px !important;
+outline:none;
+transition:border-color .3s, box-shadow .3s, background-color .3s;
+-webkit-appearance:none;
+}
+input::placeholder, textarea::placeholder { color:#4a5a78 !important; }
+input:focus, textarea:focus {
+border-color:rgba(240,192,64,0.5) !important;
+background-color:rgba(8,15,35,0.8) !important;
+box-shadow:0 0 20px rgba(240,192,64,0.1);
+}
+input:focus ~ .field-ico, textarea:focus ~ .field-ico { color:#f0c040 !important; }
+textarea { resize:none; padding-top:14px; }
 
-    .contact-card h2 {
-      font-size: 26px;
-      font-weight: 900;
-      margin-bottom: 10px;
-      text-align: center;
-      color: var(--primary);
-    }
+/* SUBMIT BTN */
+.btn-send {
+width:100%; padding:15px;
+border-radius:14px; border:none;
+background:linear-gradient(135deg,#f0c040,#c8993a) !important;
+color:#000 !important;
+font-family:‘Cairo’,sans-serif !important;
+font-weight:900 !important; font-size:14px !important;
+cursor:pointer; margin-top:6px;
+display:flex; align-items:center; justify-content:center; gap:10px;
+transition:transform .25s, box-shadow .25s;
+box-shadow:0 8px 24px rgba(240,192,64,0.25);
+}
+.btn-send:hover { transform:translateY(-3px); box-shadow:0 14px 32px rgba(240,192,64,0.35); }
+.btn-send:active { transform:scale(.97); }
 
-    .contact-card p {
-      text-align: center;
-      color: #94a3b8;
-      margin-bottom: 30px;
-    }
+/* SUCCESS STATE */
+.success-msg {
+display:none; text-align:center; padding:24px;
+background-color:rgba(0,229,160,0.08) !important;
+border:1px solid rgba(0,229,160,0.25);
+border-radius:16px; margin-top:16px;
+}
+.success-msg i { font-size:32px !important; color:#00e5a0 !important; display:block; margin-bottom:10px; }
+.success-msg p { font-size:13px !important; color:#00e5a0 !important; font-weight:700 !important; font-family:‘Cairo’,sans-serif !important; }
 
-    .form-group { margin-bottom: 20px; }
-    label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 14px; color: #cbd5e1; }
+/* INFO CARDS */
+.info-row {
+display:grid; grid-template-columns:repeat(2,1fr); gap:11px;
+padding:0 5%; max-width:680px; margin:0 auto 8px;
+position:relative; z-index:10;
+animation:up 1s .4s ease both;
+}
+.info-card {
+background-color:rgba(10,20,40,0.72) !important;
+border:1px solid rgba(240,192,64,0.16) !important;
+border-radius:18px; padding:18px 14px;
+text-align:center; backdrop-filter:blur(16px);
+transition:transform .3s, border-color .3s;
+}
+.info-card:hover { transform:translateY(-4px); border-color:rgba(240,192,64,0.4) !important; }
+.info-ico { width:42px; height:42px; border-radius:12px; margin:0 auto 10px; display:flex; align-items:center; justify-content:center; }
+.info-ico.g { background-color:rgba(240,192,64,0.14) !important; border:1px solid rgba(240,192,64,0.22); }
+.info-ico.g i { color:#f0c040 !important; }
+.info-ico.n { background-color:rgba(0,229,160,0.14) !important; border:1px solid rgba(0,229,160,0.22); }
+.info-ico.n i { color:#00e5a0 !important; }
+.info-ico i { font-size:18px !important; }
+.info-title { font-size:11px !important; font-weight:700 !important; color:#eef2ff !important; font-family:‘Cairo’,sans-serif !important; margin-bottom:4px; }
+.info-val { font-size:10px !important; color:#7a90b8 !important; font-family:‘Cairo’,sans-serif !important; line-height:1.5; }
 
-    input, textarea {
-      width: 100%;
-      padding: 15px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(0,0,0,0.2);
-      color: white;
-      font-family: 'Tajawal';
-      outline: none;
-      transition: 0.3s;
-    }
+/* SECTION HEAD */
+.sec-head { position:relative; z-index:10; padding:0 5%; margin:28px auto 16px; max-width:680px; display:flex; align-items:center; gap:12px; }
+.sec-head::after { content:’’; flex:1; height:1px; background:linear-gradient(90deg,rgba(240,192,64,0.2),transparent); }
+.sec-label { font-size:10.5px !important; color:#f0c040 !important; font-weight:700 !important; letter-spacing:2px; text-transform:uppercase; white-space:nowrap; font-family:‘Cairo’,sans-serif !important; }
 
-    input:focus, textarea:focus { border-color: var(--primary); background: rgba(0,0,0,0.3); }
+/* FOOTER */
+.footer { position:relative; z-index:10; padding:28px 5% 116px; text-align:center; border-top:1px solid rgba(240,192,64,0.16); margin-top:36px; }
+.f-logo { font-family:‘Tajawal’,sans-serif !important; font-size:18px !important; font-weight:900 !important; background:linear-gradient(90deg,#f0c040,#fff) !important; -webkit-background-clip:text !important; -webkit-text-fill-color:transparent !important; margin-bottom:5px; }
+.f-sub { font-size:10.5px !important; color:#7a90b8 !important; font-family:‘Cairo’,sans-serif !important; }
+.f-acc { color:#f0c040 !important; font-weight:700 !important; }
 
-    .btn-send {
-      width: 100%;
-      padding: 15px;
-      border-radius: 12px;
-      border: none;
-      background: var(--primary);
-      color: white;
-      font-weight: 900;
-      font-size: 16px;
-      cursor: pointer;
-      transition: 0.3s;
-      margin-top: 10px;
-    }
+/* BOTTOM NAV */
+.bnav { position:fixed; bottom:14px; left:14px; right:14px; height:61px; border-radius:22px; z-index:9000; background-color:rgba(5,11,24,0.95) !important; backdrop-filter:blur(30px) saturate(2); border:1px solid rgba(240,192,64,0.18); display:flex; justify-content:space-around; align-items:center; box-shadow:0 8px 40px rgba(0,0,0,0.6); }
+.ni { color:#7a90b8 !important; text-decoration:none !important; display:flex; flex-direction:column; align-items:center; gap:3px; transition:color .2s; padding:4px 8px; border-radius:12px; font-size:16px !important; }
+.ni span { font-size:8px !important; font-weight:700 !important; letter-spacing:0.3px; font-family:‘Cairo’,sans-serif !important; color:inherit !important; }
+.ni.on { color:#f0c040 !important; }
+.ni.on i { filter:drop-shadow(0 0 6px #f0c040); }
+.ni:active { transform:scale(.87); }
 
-    .btn-send:hover { background: #4f46e5; transform: translateY(-2px); }
+@keyframes up { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+::-webkit-scrollbar { width:4px; }
+::-webkit-scrollbar-track { background:#04080f; }
+::-webkit-scrollbar-thumb { background:#c8993a; border-radius:2px; }
+</style>
 
-    .bottom-nav {
-      position: fixed; bottom: 15px; left: 15px; right: 15px;
-      background: rgba(30, 41, 59, 0.85);
-      backdrop-filter: var(--glass);
-      height: 60px; border-radius: 20px;
-      display: flex; justify-content: space-around; align-items: center;
-      border: 1px solid rgba(255,255,255,0.1);
-      z-index: 2000;
-    }
-    .nav-item { color: #94a3b8; text-decoration: none; display: flex; flex-direction: column; align-items: center; font-size: 16px; }
-    .nav-item.active { color: var(--primary); }
-    .nav-item span { font-size: 9px; margin-top: 3px; font-weight: 700; }
-
-    footer { text-align: center; padding: 20px 0 110px; font-size: 12px; color: #64748b; }
-  </style>
 </head>
 <body>
+<canvas id="bg-canvas"></canvas>
 
-  <header>
-    <div class="brand">
-      <img src="logo.jpg" alt="Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/50'">
-      <div class="header-text">
-        <h1>تواصل معنا</h1>
-      </div>
+<!-- TICKER -->
+
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>تواصل معنا في أي وقت</span>
+    <span>نرحب بملاحظاتكم ومقترحاتكم</span>
+    <span>مركز مصادر التعلم - ثانوية اليرموك</span>
+    <span>نطور المكتبة بمساعدتكم</span>
+    <span>تواصل معنا في أي وقت</span>
+    <span>نرحب بملاحظاتكم ومقترحاتكم</span>
+    <span>مركز مصادر التعلم - ثانوية اليرموك</span>
+    <span>نطور المكتبة بمساعدتكم</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+
+<header>
+  <a class="brand" href="index.html">
+    <div class="logo-ring"><img src="logo.jpg" alt="شعار اليرموك"></div>
+    <div class="brand-words">
+      <span class="b-title">تواصل معنا</span>
+      <span class="b-sub">ثانوية اليرموك · مركز مصادر التعلم</span>
     </div>
-    <a href="index.html" style="color: white; text-decoration: none; font-size: 14px; font-weight: bold;"><i class="fas fa-home"></i> الرئيسية</a>
-  </header>
+  </a>
+  <div class="page-badge"><i class="fas fa-envelope"></i>تواصل</div>
+</header>
 
-  <div class="container">
-    <div class="contact-card">
-      <h2>أرسل رسالتك</h2>
-      <p>يسعدنا استقبال استفساراتكم وملاحظاتكم لتطوير المكتبة الرقمية.</p>
-      
-      <form action="https://formspree.io/f/xqenlvyb" method="POST">
-        <div class="form-group">
-          <label>الاسم الكامل</label>
-          <input type="text" name="الاسم" placeholder="أدخل اسمك الكريم" required>
-        </div>
-        <div class="form-group">
-          <label>البريد الإلكتروني</label>
-          <input type="email" name="الايميل" placeholder="example@mail.com" required>
-        </div>
-        <div class="form-group">
-          <label>الموضوع</label>
-          <input type="text" name="الموضوع" placeholder="ما هو موضوع رسالتك؟">
-        </div>
-        <div class="form-group">
-          <label>الرسالة</label>
-          <textarea name="الرسالة" rows="5" placeholder="اكتب تفاصيل رسالتك هنا..." required></textarea>
-        </div>
-        <button type="submit" class="btn-send">
-          <i class="fas fa-paper-plane"></i> إرسال الرسالة
-        </button>
-      </form>
+<!-- HERO -->
+
+<section class="hero">
+  <div class="eyebrow"><i class="fas fa-paper-plane"></i>نسمعك دائماً</div>
+  <h1 class="h-title">
+    <span class="l1">رأيك يهمنا</span>
+    <span class="l2">أرسل رسالتك</span>
+  </h1>
+  <p class="h-desc">يسعدنا استقبال استفساراتكم وملاحظاتكم لتطوير المكتبة الرقمية وتقديم أفضل تجربة تعليمية.</p>
+</section>
+
+<!-- INFO CARDS -->
+
+<div class="sec-head">
+  <i class="fas fa-info-circle" style="color:#f0c040;font-size:11px;"></i>
+  <span class="sec-label">معلومات التواصل</span>
+</div>
+<div class="info-row">
+  <div class="info-card">
+    <div class="info-ico g"><i class="fas fa-school"></i></div>
+    <div class="info-title">ثانوية اليرموك</div>
+    <div class="info-val">مركز مصادر التعلم</div>
+  </div>
+  <div class="info-card">
+    <div class="info-ico n"><i class="fas fa-clock"></i></div>
+    <div class="info-title">أوقات الرد</div>
+    <div class="info-val">أيام الدوام الرسمي</div>
+  </div>
+</div>
+
+<!-- FORM -->
+
+<div class="sec-head">
+  <i class="fas fa-envelope-open-text" style="color:#f0c040;font-size:11px;"></i>
+  <span class="sec-label">نموذج التواصل</span>
+</div>
+<div class="form-wrap">
+  <div class="form-card">
+    <form action="https://formspree.io/f/xqenlvyb" method="POST" id="contactForm">
+
+```
+  <div class="form-group">
+    <label class="form-label"><span>*</span>الاسم الكامل</label>
+    <div class="field-wrap">
+      <input type="text" name="الاسم" placeholder="أدخل اسمك الكريم" required>
+      <i class="fas fa-user field-ico"></i>
     </div>
   </div>
 
-  <footer>
-    <p>جميع الحقوق محفوظة © مدرسة اليرموك الثانوية</p>
-    <p style="margin-top: 5px; font-weight: bold;">مركز مصادر التعلم</p>
-  </footer>
-
-  <div class="bottom-nav">
-    <a href="index.html" class="nav-item">
-      <i class="fas fa-th-large"></i>
-      <span>الرئيسية</span>
-    </a>
-    <a href="kids.html" class="nav-item">
-      <i class="fas fa-gamepad"></i>
-      <span>الأنشطة</span>
-    </a>
-    <a href="ask.html" class="nav-item">
-      <i class="fas fa-comment-dots"></i>
-      <span>اسأل</span>
-    </a>
-    <a href="contact.html" class="nav-item active">
-      <i class="fas fa-envelope"></i>
-      <span>تواصل</span>
-    </a>
-    <a href="downloads.html" class="nav-item">
-      <i class="fas fa-download"></i>
-      <span>تحميل</span>
-    </a>
-    <a href="certificate.html" class="nav-item">
-      <i class="fas fa-award"></i>
-      <span>شهادة</span>
-    </a>
+  <div class="form-group">
+    <label class="form-label"><span>*</span>البريد الإلكتروني</label>
+    <div class="field-wrap">
+      <input type="email" name="الايميل" placeholder="example@mail.com" required>
+      <i class="fas fa-at field-ico"></i>
+    </div>
   </div>
+
+  <div class="form-group">
+    <label class="form-label">الموضوع</label>
+    <div class="field-wrap">
+      <input type="text" name="الموضوع" placeholder="ما هو موضوع رسالتك؟">
+      <i class="fas fa-tag field-ico"></i>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label"><span>*</span>الرسالة</label>
+    <div class="field-wrap">
+      <textarea name="الرسالة" rows="5" placeholder="اكتب تفاصيل رسالتك هنا..." required></textarea>
+      <i class="fas fa-pen field-ico"></i>
+    </div>
+  </div>
+
+  <button type="submit" class="btn-send">
+    <i class="fas fa-paper-plane"></i>
+    إرسال الرسالة
+  </button>
+</form>
+
+<div class="success-msg" id="successMsg">
+  <i class="fas fa-check-circle"></i>
+  <p>تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.</p>
+</div>
+```
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+  <div class="f-logo">تواصل معنا</div>
+  <div class="f-sub">جميع الحقوق محفوظة © ثانوية اليرموك</div>
+  <div class="f-sub" style="margin-top:5px;"><span class="f-acc">مركز مصادر التعلم</span></div>
+</footer>
+
+<!-- BOTTOM NAV -->
+
+<nav class="bnav">
+  <a href="index.html" class="ni"><i class="fas fa-th-large"></i><span>الرئيسية</span></a>
+  <a href="kids.html" class="ni"><i class="fas fa-gamepad"></i><span>الأنشطة</span></a>
+  <a href="ask.html" class="ni"><i class="fas fa-comment-dots"></i><span>اسأل</span></a>
+  <a href="contact.html" class="ni on"><i class="fas fa-envelope"></i><span>تواصل</span></a>
+  <a href="downloads.html" class="ni"><i class="fas fa-download"></i><span>تحميل</span></a>
+  <a href="certificate.html" class="ni"><i class="fas fa-award"></i><span>شهادة</span></a>
+</nav>
+
+<script>
+/* CANVAS */
+const cv=document.getElementById('bg-canvas'),cx=cv.getContext('2d');
+let W,H,pts=[];
+function rsz(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;}
+rsz();window.addEventListener('resize',rsz);
+class Pt{
+  constructor(){this.rst();}
+  rst(){this.x=Math.random()*W;this.y=Math.random()*H;this.vx=(Math.random()-.5)*.26;this.vy=(Math.random()-.5)*.26;this.r=Math.random()*1.3+.3;this.a=Math.random()*.4+.12;this.col=Math.random()>.6?'#f0c040':'#00e5a0';}
+  upd(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>W||this.y<0||this.y>H)this.rst();}
+  drw(){cx.beginPath();cx.arc(this.x,this.y,this.r,0,Math.PI*2);cx.fillStyle=this.col;cx.globalAlpha=this.a;cx.fill();cx.globalAlpha=1;}
+}
+for(let i=0;i<80;i++)pts.push(new Pt());
+function frame(){
+  cx.clearRect(0,0,W,H);
+  const g1=cx.createRadialGradient(W*.2,H*.15,0,W*.2,H*.15,W*.6);
+  g1.addColorStop(0,'rgba(100,72,10,.07)');g1.addColorStop(1,'transparent');
+  cx.fillStyle=g1;cx.fillRect(0,0,W,H);
+  const g2=cx.createRadialGradient(W*.8,H*.8,0,W*.8,H*.8,W*.5);
+  g2.addColorStop(0,'rgba(0,80,60,.07)');g2.addColorStop(1,'transparent');
+  cx.fillStyle=g2;cx.fillRect(0,0,W,H);
+  for(let i=0;i<pts.length;i++){
+    for(let j=i+1;j<pts.length;j++){
+      const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<90){cx.beginPath();cx.moveTo(pts[i].x,pts[i].y);cx.lineTo(pts[j].x,pts[j].y);cx.strokeStyle=`rgba(240,192,64,${.045*(1-d/90)})`;cx.lineWidth=.35;cx.stroke();}
+    }
+  }
+  pts.forEach(p=>{p.upd();p.drw();});
+  requestAnimationFrame(frame);
+}
+frame();
+
+/* FORM SUCCESS */
+const form=document.getElementById('contactForm');
+const successMsg=document.getElementById('successMsg');
+form.addEventListener('submit', async(e)=>{
+  e.preventDefault();
+  const btn=form.querySelector('.btn-send');
+  btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
+  btn.style.opacity='0.7';
+  try{
+    const res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
+    if(res.ok){
+      form.style.display='none';
+      successMsg.style.display='block';
+    } else {
+      btn.innerHTML='<i class="fas fa-paper-plane"></i> إرسال الرسالة';
+      btn.style.opacity='1';
+    }
+  } catch{
+    btn.innerHTML='<i class="fas fa-paper-plane"></i> إرسال الرسالة';
+    btn.style.opacity='1';
+  }
+});
+</script>
 
 </body>
 </html>

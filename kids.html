@@ -1,267 +1,352 @@
 <!DOCTYPE html>
+
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ركن الأنشطة - اليرموك الثانوية</title>
-  
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<title>ركن الأنشطة - ثانوية اليرموك</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+html { color-scheme: dark only; }
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'Cairo',sans-serif !important;
+  background-color:#04080f !important;
+  color:#eef2ff !important;
+  min-height:100vh; overflow-x:hidden;
+  forced-color-adjust:none; -webkit-text-size-adjust:100%;
+}
+#bg-canvas { position:fixed; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none; }
 
-  <style>
-    :root {
-      --primary: #6366f1;
-      --bg: #020617;
-      --card-bg: rgba(30, 41, 59, 0.5);
-      --glass: blur(20px);
-      --text: #f8fafc;
-    }
+/* TICKER */
+.ticker { position:relative; z-index:100; background:#0a1428 !important; border-bottom:1px solid rgba(240,192,64,0.2); padding:9px 0; overflow:hidden; }
+.ticker-inner { display:inline-flex; gap:55px; white-space:nowrap; animation:tick 24s linear infinite; }
+.ticker-inner span { font-size:11.5px !important; color:#f0c040 !important; font-weight:700 !important; font-family:‘Cairo’,sans-serif !important; }
+.ticker-inner span::before { content:’◆  ’; font-size:8px; opacity:0.65; }
+@keyframes tick { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+/* HEADER */
+header {
+position:sticky; top:0; z-index:500; height:68px; padding:0 5%;
+display:flex; align-items:center; justify-content:space-between;
+background-color:rgba(4,8,15,0.95) !important;
+backdrop-filter:blur(28px) saturate(2);
+border-bottom:1px solid rgba(240,192,64,0.18);
+}
+.brand { display:flex; align-items:center; gap:13px; text-decoration:none !important; }
+.logo-ring {
+width:46px; height:46px; border-radius:13px;
+background:linear-gradient(135deg,#f0c040,#c8993a) !important;
+padding:2px; display:flex; align-items:center; justify-content:center;
+box-shadow:0 0 22px rgba(240,192,64,0.28); overflow:hidden; flex-shrink:0;
+}
+.logo-ring img { width:100%; height:100%; object-fit:contain; border-radius:11px; }
+.brand-words { display:flex; flex-direction:column; }
+.b-title { font-size:15px !important; font-weight:900 !important; font-family:‘Tajawal’,sans-serif !important; background:linear-gradient(90deg,#f0c040,#fffde0) !important; -webkit-background-clip:text !important; -webkit-text-fill-color:transparent !important; line-height:1.2; }
+.b-sub { font-size:9.5px !important; color:#7a90b8 !important; letter-spacing:0.9px; font-weight:600 !important; font-family:‘Cairo’,sans-serif !important; }
+.page-badge {
+display:flex; align-items:center; gap:7px;
+background-color:rgba(0,229,160,0.1) !important;
+border:1px solid rgba(0,229,160,0.25);
+border-radius:20px; padding:6px 14px;
+font-size:11px !important; color:#00e5a0 !important; font-weight:700 !important;
+font-family:‘Cairo’,sans-serif !important;
+}
+.page-badge i { font-size:12px; }
 
-    body {
-      font-family: 'Tajawal', sans-serif;
-      background-color: var(--bg);
-      background-image: 
-        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(79, 70, 229, 0.1) 0px, transparent 50%);
-      color: var(--text);
-      min-height: 100vh;
-      padding-bottom: 120px;
-    }
+/* HERO */
+.hero { position:relative; z-index:10; padding:48px 5% 10px; text-align:center; }
+.eyebrow {
+display:inline-flex; align-items:center; gap:8px;
+background-color:rgba(0,229,160,0.1) !important;
+border:1px solid rgba(0,229,160,0.28); border-radius:30px; padding:6px 18px;
+font-size:10.5px !important; color:#00e5a0 !important; font-weight:700 !important;
+font-family:‘Cairo’,sans-serif !important; letter-spacing:2px; text-transform:uppercase;
+margin-bottom:18px; animation:up .8s ease both;
+}
+.h-title { font-family:‘Tajawal’,sans-serif !important; font-size:clamp(26px,6vw,52px); font-weight:900 !important; line-height:1.15; margin-bottom:12px; animation:up .9s .1s ease both; }
+.l1 { display:block; background:linear-gradient(135deg,#ffffff,#c8d6ff) !important; -webkit-background-clip:text !important; -webkit-text-fill-color:transparent !important; }
+.l2 { display:block; background:linear-gradient(90deg,#00e5a0,#00d4ff,#00e5a0) !important; background-size:200% !important; -webkit-background-clip:text !important; -webkit-text-fill-color:transparent !important; animation:shim 3.5s linear infinite; }
+@keyframes shim { 0%{background-position:200%} 100%{background-position:-200%} }
+.h-desc { font-size:13px !important; color:#7a90b8 !important; max-width:480px; margin:0 auto 30px; line-height:1.9; animation:up 1s .2s ease both; font-family:‘Cairo’,sans-serif !important; }
 
-    header {
-      padding: 15px 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(15, 23, 42, 0.8);
-      backdrop-filter: var(--glass);
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+/* VIDEO SECTION */
+.vid-wrap { position:relative; z-index:10; padding:0 5% 10px; animation:up 1s .3s ease both; }
+.vid-card { border-radius:20px; overflow:hidden; border:1px solid rgba(240,192,64,0.18); position:relative; box-shadow:0 18px 50px rgba(0,0,0,0.5); }
+.vid-card iframe { width:100%; height:215px; border:none; display:block; }
+.vid-label { position:absolute; bottom:12px; right:12px; background-color:rgba(4,8,15,0.85) !important; backdrop-filter:blur(10px); border:1px solid rgba(240,192,64,0.2); border-radius:10px; padding:5px 12px; font-size:10px !important; color:#f0c040 !important; font-weight:700 !important; display:flex; align-items:center; gap:5px; font-family:‘Cairo’,sans-serif !important; }
+.vid-dots { display:flex; justify-content:center; gap:7px; margin-top:14px; }
+.vdot { width:8px; height:8px; border-radius:50%; background-color:rgba(240,192,64,0.25) !important; border:1px solid rgba(240,192,64,0.3); cursor:pointer; transition:all .3s; }
+.vdot.active { background-color:#f0c040 !important; box-shadow:0 0 8px rgba(240,192,64,0.5); transform:scale(1.2); }
 
-    .brand { display: flex; align-items: center; gap: 10px; }
-    .logo-img { width: 50px; height: 50px; border-radius: 10px; background: white; padding: 3px; object-fit: contain; }
-    .header-text h1 { font-size: 18px; font-weight: 900; background: linear-gradient(to left, #818cf8, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+/* SECTION HEADER */
+.sec-head { position:relative; z-index:10; padding:0 5%; margin:28px 0 14px; display:flex; align-items:center; gap:12px; }
+.sec-head::after { content:’’; flex:1; height:1px; background:linear-gradient(90deg,rgba(240,192,64,0.2),transparent); }
+.sec-icon { font-size:14px !important; }
+.sec-label { font-size:10.5px !important; color:#f0c040 !important; font-weight:700 !important; letter-spacing:2px; text-transform:uppercase; white-space:nowrap; font-family:‘Cairo’,sans-serif !important; }
 
-    .container {
-      max-width: 1000px;
-      margin: 20px auto;
-      padding: 0 20px;
-    }
+/* CARDS GRID */
+.cards-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:11px; padding:0 5%; position:relative; z-index:10; }
+@media(min-width:560px){ .cards-grid{ grid-template-columns:repeat(3,1fr); } }
+@media(min-width:860px){ .cards-grid{ grid-template-columns:repeat(4,1fr); } }
 
-    .banner {
-      background: var(--card-bg);
-      backdrop-filter: var(--glass);
-      border: 1px solid rgba(255,255,255,0.1);
-      padding: 25px;
-      border-radius: 20px;
-      text-align: center;
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 30px;
-      color: var(--primary);
-    }
+.card {
+background-color:rgba(10,20,40,0.75) !important;
+border:1px solid rgba(240,192,64,0.16) !important;
+border-radius:20px; padding:20px 13px 16px;
+text-align:center; text-decoration:none !important;
+color:#eef2ff !important;
+display:flex; flex-direction:column; align-items:center; gap:9px;
+transition:transform .32s cubic-bezier(.34,1.56,.64,1), border-color .3s, box-shadow .3s, background-color .3s;
+position:relative; overflow:hidden; backdrop-filter:blur(16px);
+}
+.card:hover { transform:translateY(-6px) scale(1.025); border-color:rgba(240,192,64,0.5) !important; box-shadow:0 16px 40px rgba(0,0,0,0.4),0 0 26px rgba(240,192,64,0.18); background-color:rgba(15,28,55,0.88) !important; }
+.card:active { transform:scale(.95); }
+.ico { width:50px; height:50px; border-radius:14px; display:flex; align-items:center; justify-content:center; transition:transform .3s; flex-shrink:0; }
+.card:hover .ico { transform:scale(1.1) rotate(-4deg); }
+.ico.g  { background-color:rgba(240,192,64,0.15) !important; border:1px solid rgba(240,192,64,0.25) !important; }
+.ico.g  i { color:#f0c040 !important; }
+.ico.c  { background-color:rgba(0,212,255,0.14) !important; border:1px solid rgba(0,212,255,0.25) !important; }
+.ico.c  i { color:#00d4ff !important; }
+.ico.n  { background-color:rgba(0,229,160,0.14) !important; border:1px solid rgba(0,229,160,0.25) !important; }
+.ico.n  i { color:#00e5a0 !important; }
+.ico.p  { background-color:rgba(167,139,250,0.14) !important; border:1px solid rgba(167,139,250,0.25) !important; }
+.ico.p  i { color:#a78bfa !important; }
+.ico.r  { background-color:rgba(255,107,107,0.14) !important; border:1px solid rgba(255,107,107,0.25) !important; }
+.ico.r  i { color:#ff6b6b !important; }
+.ico i { font-size:21px !important; }
+.card h3 { font-size:12.5px !important; font-weight:700 !important; line-height:1.3; color:#eef2ff !important; font-family:‘Cairo’,sans-serif !important; }
+.card p { font-size:9.5px !important; color:#7a90b8 !important; line-height:1.4; font-family:‘Cairo’,sans-serif !important; }
 
-    .section-title {
-      font-size: 22px;
-      font-weight: 900;
-      margin: 30px 0 15px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--text);
-    }
+/* DOWNLOAD BUTTON */
+.dl-wrap { padding:28px 5% 10px; position:relative; z-index:10; text-align:center; }
+.dl-btn {
+display:inline-flex; align-items:center; gap:10px;
+background:linear-gradient(135deg,#f0c040,#c8993a) !important;
+color:#000 !important; text-decoration:none !important;
+padding:14px 28px; border-radius:50px;
+font-family:‘Cairo’,sans-serif !important; font-weight:900 !important; font-size:13px !important;
+box-shadow:0 8px 24px rgba(240,192,64,0.28);
+transition:transform .25s, box-shadow .25s;
+}
+.dl-btn:hover { transform:translateY(-3px) scale(1.03); box-shadow:0 14px 32px rgba(240,192,64,0.38); }
+.dl-btn:active { transform:scale(.95); }
 
-    .section-title i { color: var(--primary); }
+/* FOOTER */
+.footer { position:relative; z-index:10; padding:28px 5% 116px; text-align:center; border-top:1px solid rgba(240,192,64,0.16); margin-top:36px; }
+.f-logo { font-family:‘Tajawal’,sans-serif !important; font-size:18px !important; font-weight:900 !important; background:linear-gradient(90deg,#f0c040,#fff) !important; -webkit-background-clip:text !important; -webkit-text-fill-color:transparent !important; margin-bottom:5px; }
+.f-sub { font-size:10.5px !important; color:#7a90b8 !important; font-family:‘Cairo’,sans-serif !important; }
+.f-acc { color:#f0c040 !important; font-weight:700 !important; }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 15px;
-    }
+/* BOTTOM NAV */
+.bnav { position:fixed; bottom:14px; left:14px; right:14px; height:61px; border-radius:22px; z-index:9000; background-color:rgba(5,11,24,0.95) !important; backdrop-filter:blur(30px) saturate(2); border:1px solid rgba(240,192,64,0.18); display:flex; justify-content:space-around; align-items:center; box-shadow:0 8px 40px rgba(0,0,0,0.6); }
+.ni { color:#7a90b8 !important; text-decoration:none !important; display:flex; flex-direction:column; align-items:center; gap:3px; transition:color .2s; padding:4px 8px; border-radius:12px; font-size:16px !important; }
+.ni span { font-size:8px !important; font-weight:700 !important; letter-spacing:0.3px; font-family:‘Cairo’,sans-serif !important; color:inherit !important; }
+.ni.on { color:#00e5a0 !important; }
+.ni.on i { filter:drop-shadow(0 0 6px #00e5a0); }
+.ni:active { transform:scale(.87); }
 
-    .activity-card {
-      background: var(--card-bg);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 18px;
-      padding: 20px;
-      text-decoration: none;
-      color: white;
-      transition: 0.3s;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
+@keyframes up { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+::-webkit-scrollbar { width:4px; }
+::-webkit-scrollbar-track { background:#04080f; }
+::-webkit-scrollbar-thumb { background:#c8993a; border-radius:2px; }
+</style>
 
-    .activity-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--primary);
-      background: rgba(99, 102, 241, 0.1);
-    }
-
-    .activity-card i { font-size: 24px; color: var(--primary); }
-    .activity-card h3 { font-size: 16px; font-weight: 700; }
-
-    .video-box {
-      background: var(--card-bg);
-      padding: 15px;
-      border-radius: 24px;
-      border: 1px solid rgba(255,255,255,0.1);
-      text-align: center;
-      margin: 20px 0;
-    }
-
-    .video-box iframe {
-      width: 100%;
-      height: 350px;
-      border-radius: 16px;
-      border: none;
-    }
-
-    .download-btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 15px 30px;
-      background: linear-gradient(to left, #6366f1, #a855f7);
-      color: white;
-      text-decoration: none;
-      border-radius: 15px;
-      font-weight: 900;
-      transition: 0.3s;
-      box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
-    }
-
-    .download-btn:hover { transform: scale(1.05); }
-
-    /* القائمة السفلية الموحدة */
-    .bottom-nav {
-      position: fixed; bottom: 15px; left: 15px; right: 15px;
-      background: rgba(30, 41, 59, 0.85);
-      backdrop-filter: var(--glass);
-      height: 60px; border-radius: 20px;
-      display: flex; justify-content: space-around; align-items: center;
-      border: 1px solid rgba(255,255,255,0.1);
-      z-index: 2000;
-    }
-    .nav-item { color: #94a3b8; text-decoration: none; display: flex; flex-direction: column; align-items: center; font-size: 16px; }
-    .nav-item.active { color: var(--primary); }
-    .nav-item span { font-size: 9px; margin-top: 3px; font-weight: 700; }
-
-  </style>
 </head>
 <body>
+<canvas id="bg-canvas"></canvas>
 
-  <header>
-    <div class="brand">
-      <img src="logo.jpg" alt="Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/50'">
-      <div class="header-text">
-        <h1>ركن الأنشطة والقصص</h1>
-      </div>
-    </div>
-    <a href="index.html" style="color: white; text-decoration: none; font-size: 14px; font-weight: bold;">الرئيسية</a>
-  </header>
+<!-- TICKER -->
 
-  <div class="container">
-    
-    <div class="banner">
-      <i class="fas fa-star"></i> أهلاً بك في ركن الأنشطة التفاعلية والقصص المسلية!
-    </div>
-
-    <div class="section-title"><i class="fas fa-book-reader"></i> قصص مقترحة</div>
-    <div class="grid">
-      <a href="https://3asafeer.com" target="_blank" class="activity-card">
-        <i class="fas fa-dove"></i>
-        <h3>منصة عصافير العربية</h3>
-      </a>
-      <a href="https://www.belarabyapps.com/category/قصص-أطفال/" target="_blank" class="activity-card">
-        <i class="fas fa-scroll"></i>
-        <h3>حكايات بالعربي</h3>
-      </a>
-      <a href="https://storyberries.com" target="_blank" class="activity-card">
-        <i class="fas fa-apple-alt"></i>
-        <h3>Storyberries (الإنجليزية)</h3>
-      </a>
-      <a href="https://www.oxfordowl.co.uk/for-home" target="_blank" class="activity-card">
-        <i class="fas fa-university"></i>
-        <h3>Oxford Owl التفاعلية</h3>
-      </a>
-    </div>
-
-    <div class="section-title"><i class="fas fa-play-circle"></i> مرئيات تعليمية (تتغير تلقائياً)</div>
-    <div class="video-box">
-      <iframe id="videoFrame" src="https://www.youtube.com/embed/KTRDQKTeXHk" allowfullscreen></iframe>
-    </div>
-
-    <div class="section-title"><i class="fas fa-paint-brush"></i> أنشطة وتلوين</div>
-    <div class="grid">
-      <a href="https://toytheater.com/category/teacher-tools/" target="_blank" class="activity-card">
-        <i class="fas fa-gamepad"></i>
-        <h3>ألعاب تعليمية مسلية</h3>
-      </a>
-      <a href="https://www.crayola.com/featured/free-coloring-pages/" target="_blank" class="activity-card">
-        <i class="fas fa-palette"></i>
-        <h3>صفحات تلوين Crayola</h3>
-      </a>
-      <a href="https://www.superteacherworksheets.com" target="_blank" class="activity-card">
-        <i class="fas fa-file-invoice"></i>
-        <h3>أوراق عمل Super Teacher</h3>
-      </a>
-    </div>
-
-    <div style="text-align: center; margin-top: 30px;">
-      <a href="hilal-ramadan.pdf" download class="download-btn">
-        <i class="fas fa-file-download"></i> تحميل ورقة عمل: هلال رمضان
-      </a>
-    </div>
-
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>ركن الأنشطة والقصص</span>
+    <span>قصص تفاعلية للطلاب</span>
+    <span>أنشطة تعليمية ممتعة</span>
+    <span>ثانوية اليرموك - مركز مصادر التعلم</span>
+    <span>ركن الأنشطة والقصص</span>
+    <span>قصص تفاعلية للطلاب</span>
+    <span>أنشطة تعليمية ممتعة</span>
+    <span>ثانوية اليرموك - مركز مصادر التعلم</span>
   </div>
+</div>
 
-  <div class="bottom-nav">
-    <a href="index.html" class="nav-item">
-      <i class="fas fa-th-large"></i>
-      <span>الرئيسية</span>
-    </a>
-    <a href="kids.html" class="nav-item active">
-      <i class="fas fa-gamepad"></i>
-      <span>الأنشطة</span>
-    </a>
-    <a href="ask.html" class="nav-item">
-      <i class="fas fa-comment-dots"></i>
-      <span>اسأل</span>
-    </a>
-    <a href="contact.html" class="nav-item">
-      <i class="fas fa-envelope"></i>
-      <span>تواصل</span>
-    </a>
-    <a href="downloads.html" class="nav-item">
-      <i class="fas fa-download"></i>
-      <span>تحميل</span>
-    </a>
-    <a href="certificate.html" class="nav-item">
-      <i class="fas fa-award"></i>
-      <span>شهادة</span>
-    </a>
+<!-- HEADER -->
+
+<header>
+  <a class="brand" href="index.html">
+    <div class="logo-ring"><img src="logo.jpg" alt="شعار اليرموك"></div>
+    <div class="brand-words">
+      <span class="b-title">ركن الأنشطة</span>
+      <span class="b-sub">ثانوية اليرموك · مركز مصادر التعلم</span>
+    </div>
+  </a>
+  <div class="page-badge"><i class="fas fa-gamepad"></i>تفاعلي</div>
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="eyebrow"><i class="fas fa-star"></i>أنشطة وقصص تعليمية</div>
+  <h1 class="h-title">
+    <span class="l1">اكتشف وتعلّم</span>
+    <span class="l2">بطريقة ممتعة</span>
+  </h1>
+  <p class="h-desc">قصص تفاعلية، مرئيات تعليمية، وأنشطة إبداعية تجعل التعلم تجربة لا تُنسى.</p>
+</section>
+
+<!-- VIDEO -->
+
+<div class="vid-wrap">
+  <div class="vid-card">
+    <iframe id="videoFrame" src="https://www.youtube.com/embed/KTRDQKTeXHk" allowfullscreen loading="lazy"></iframe>
+    <div class="vid-label"><i class="fas fa-play-circle"></i>مرئيات تعليمية</div>
   </div>
+  <div class="vid-dots">
+    <div class="vdot active" onclick="switchVid(0)"></div>
+    <div class="vdot" onclick="switchVid(1)"></div>
+    <div class="vdot" onclick="switchVid(2)"></div>
+    <div class="vdot" onclick="switchVid(3)"></div>
+  </div>
+</div>
 
-  <script>
-    const videos = [
-      "https://www.youtube.com/embed/KTRDQKTeXHk",
-      "https://www.youtube.com/embed/RJnOuk_KO_I",
-      "https://www.youtube.com/embed/-P1IRrkKeww",
-      "https://www.youtube.com/embed/-TUuX8jP398"
-    ];
+<!-- STORIES -->
 
-    let current = 0;
-    setInterval(() => {
-      current = (current + 1) % videos.length;
-      const frame = document.getElementById("videoFrame");
-      if(frame) frame.src = videos[current];
-    }, 20000);
-  </script>
+<div class="sec-head">
+  <i class="fas fa-book-reader sec-icon" style="color:#a78bfa;"></i>
+  <span class="sec-label" style="color:#a78bfa !important;">قصص مقترحة</span>
+</div>
+<div class="cards-grid">
+  <a href="https://3asafeer.com" target="_blank" class="card">
+    <div class="ico p"><i class="fas fa-dove"></i></div>
+    <h3>عصافير العربية</h3>
+    <p>قصص عربية تفاعلية</p>
+  </a>
+  <a href="https://www.belarabyapps.com/category/قصص-أطفال/" target="_blank" class="card">
+    <div class="ico g"><i class="fas fa-scroll"></i></div>
+    <h3>حكايات بالعربي</h3>
+    <p>أجمل الحكايات العربية</p>
+  </a>
+  <a href="https://storyberries.com" target="_blank" class="card">
+    <div class="ico r"><i class="fas fa-apple-alt"></i></div>
+    <h3>Storyberries</h3>
+    <p>قصص باللغة الإنجليزية</p>
+  </a>
+  <a href="https://www.oxfordowl.co.uk/for-home" target="_blank" class="card">
+    <div class="ico c"><i class="fas fa-university"></i></div>
+    <h3>Oxford Owl</h3>
+    <p>قصص أكسفورد التفاعلية</p>
+  </a>
+</div>
+
+<!-- ACTIVITIES -->
+
+<div class="sec-head">
+  <i class="fas fa-paint-brush sec-icon" style="color:#00e5a0;"></i>
+  <span class="sec-label" style="color:#00e5a0 !important;">أنشطة وتلوين</span>
+</div>
+<div class="cards-grid">
+  <a href="https://toytheater.com/category/teacher-tools/" target="_blank" class="card">
+    <div class="ico n"><i class="fas fa-gamepad"></i></div>
+    <h3>Toy Theater</h3>
+    <p>ألعاب تعليمية ممتعة</p>
+  </a>
+  <a href="https://www.crayola.com/featured/free-coloring-pages/" target="_blank" class="card">
+    <div class="ico r"><i class="fas fa-palette"></i></div>
+    <h3>Crayola</h3>
+    <p>صفحات تلوين مجانية</p>
+  </a>
+  <a href="https://www.superteacherworksheets.com" target="_blank" class="card">
+    <div class="ico g"><i class="fas fa-file-invoice"></i></div>
+    <h3>Super Teacher</h3>
+    <p>أوراق عمل للمعلمين</p>
+  </a>
+</div>
+
+<!-- DOWNLOAD -->
+
+<div class="dl-wrap">
+  <a href="hilal-ramadan.pdf" download class="dl-btn">
+    <i class="fas fa-file-download"></i>
+    تحميل ورقة عمل: هلال رمضان
+  </a>
+</div>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+  <div class="f-logo">ركن الأنشطة</div>
+  <div class="f-sub">جميع الحقوق محفوظة © ثانوية اليرموك</div>
+  <div class="f-sub" style="margin-top:5px;"><span class="f-acc">مركز مصادر التعلم</span></div>
+</footer>
+
+<!-- BOTTOM NAV -->
+
+<nav class="bnav">
+  <a href="index.html" class="ni"><i class="fas fa-th-large"></i><span>الرئيسية</span></a>
+  <a href="kids.html" class="ni on"><i class="fas fa-gamepad"></i><span>الأنشطة</span></a>
+  <a href="ask.html" class="ni"><i class="fas fa-comment-dots"></i><span>اسأل</span></a>
+  <a href="contact.html" class="ni"><i class="fas fa-envelope"></i><span>تواصل</span></a>
+  <a href="downloads.html" class="ni"><i class="fas fa-download"></i><span>تحميل</span></a>
+  <a href="certificate.html" class="ni"><i class="fas fa-award"></i><span>شهادة</span></a>
+</nav>
+
+<script>
+/* CANVAS */
+const cv=document.getElementById('bg-canvas'),cx=cv.getContext('2d');
+let W,H,pts=[];
+function rsz(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;}
+rsz();window.addEventListener('resize',rsz);
+class Pt{
+  constructor(){this.rst();}
+  rst(){this.x=Math.random()*W;this.y=Math.random()*H;this.vx=(Math.random()-.5)*.26;this.vy=(Math.random()-.5)*.26;this.r=Math.random()*1.3+.3;this.a=Math.random()*.4+.12;this.col=Math.random()>.65?'#00e5a0':'#a78bfa';}
+  upd(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>W||this.y<0||this.y>H)this.rst();}
+  drw(){cx.beginPath();cx.arc(this.x,this.y,this.r,0,Math.PI*2);cx.fillStyle=this.col;cx.globalAlpha=this.a;cx.fill();cx.globalAlpha=1;}
+}
+for(let i=0;i<80;i++)pts.push(new Pt());
+function frame(){
+  cx.clearRect(0,0,W,H);
+  const g1=cx.createRadialGradient(W*.2,H*.15,0,W*.2,H*.15,W*.6);
+  g1.addColorStop(0,'rgba(0,100,70,.07)');g1.addColorStop(1,'transparent');
+  cx.fillStyle=g1;cx.fillRect(0,0,W,H);
+  const g2=cx.createRadialGradient(W*.8,H*.8,0,W*.8,H*.8,W*.5);
+  g2.addColorStop(0,'rgba(80,50,120,.07)');g2.addColorStop(1,'transparent');
+  cx.fillStyle=g2;cx.fillRect(0,0,W,H);
+  for(let i=0;i<pts.length;i++){
+    for(let j=i+1;j<pts.length;j++){
+      const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<90){cx.beginPath();cx.moveTo(pts[i].x,pts[i].y);cx.lineTo(pts[j].x,pts[j].y);cx.strokeStyle=`rgba(0,229,160,${.045*(1-d/90)})`;cx.lineWidth=.35;cx.stroke();}
+    }
+  }
+  pts.forEach(p=>{p.upd();p.drw();});
+  requestAnimationFrame(frame);
+}
+frame();
+
+/* VIDEO SWITCHER */
+const videos=[
+  "https://www.youtube.com/embed/KTRDQKTeXHk",
+  "https://www.youtube.com/embed/RJnOuk_KO_I",
+  "https://www.youtube.com/embed/-P1IRrkKeww",
+  "https://www.youtube.com/embed/-TUuX8jP398"
+];
+let current=0;
+function switchVid(idx){
+  current=idx;
+  document.getElementById('videoFrame').src=videos[idx];
+  document.querySelectorAll('.vdot').forEach((d,i)=>d.classList.toggle('active',i===idx));
+}
+setInterval(()=>{ switchVid((current+1)%videos.length); },20000);
+
+/* CARD ENTRANCE */
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting){e.target.style.animation=`up 0.45s ${i*.04}s ease both`;io.unobserve(e.target);}});
+},{threshold:.08});
+document.querySelectorAll('.card').forEach(c=>io.observe(c));
+</script>
 
 </body>
 </html>

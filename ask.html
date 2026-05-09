@@ -1,214 +1,324 @@
 <!DOCTYPE html>
+
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>أنت تسأل والمكتبة تُجيب - اليرموك الثانوية</title>
-  
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<title>أنت تسأل والمكتبة تُجيب - ثانوية اليرموك</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+html{color-scheme:dark only;}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{font-family:'Cairo',sans-serif !important;background-color:#04080f !important;color:#eef2ff !important;min-height:100vh;overflow-x:hidden;forced-color-adjust:none;-webkit-text-size-adjust:100%;}
+#bg-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;}
 
-  <style>
-    :root {
-      --primary: #6366f1;
-      --bg: #020617;
-      --card-bg: rgba(30, 41, 59, 0.5);
-      --glass: blur(20px);
-      --text: #f8fafc;
-    }
+/* TICKER */
+.ticker{position:relative;z-index:100;background:#0a1428 !important;border-bottom:1px solid rgba(0,212,255,0.2);padding:9px 0;overflow:hidden;}
+.ticker-inner{display:inline-flex;gap:55px;white-space:nowrap;animation:tick 24s linear infinite;}
+.ticker-inner span{font-size:11.5px !important;color:#00d4ff !important;font-weight:700 !important;font-family:‘Cairo’,sans-serif !important;}
+.ticker-inner span::before{content:’◆  ’;font-size:8px;opacity:0.65;}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+/* HEADER */
+header{position:sticky;top:0;z-index:500;height:68px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;background-color:rgba(4,8,15,0.95) !important;backdrop-filter:blur(28px) saturate(2);border-bottom:1px solid rgba(240,192,64,0.18);}
+.brand{display:flex;align-items:center;gap:13px;text-decoration:none !important;}
+.logo-ring{width:46px;height:46px;border-radius:13px;background:linear-gradient(135deg,#f0c040,#c8993a) !important;padding:2px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 22px rgba(240,192,64,0.28);overflow:hidden;flex-shrink:0;}
+.logo-ring img{width:100%;height:100%;object-fit:contain;border-radius:11px;}
+.brand-words{display:flex;flex-direction:column;}
+.b-title{font-size:15px !important;font-weight:900 !important;font-family:‘Tajawal’,sans-serif !important;background:linear-gradient(90deg,#f0c040,#fffde0) !important;-webkit-background-clip:text !important;-webkit-text-fill-color:transparent !important;line-height:1.2;}
+.b-sub{font-size:9.5px !important;color:#7a90b8 !important;letter-spacing:0.9px;font-weight:600 !important;font-family:‘Cairo’,sans-serif !important;}
+.page-badge{display:flex;align-items:center;gap:7px;background-color:rgba(0,212,255,0.1) !important;border:1px solid rgba(0,212,255,0.25);border-radius:20px;padding:6px 14px;font-size:11px !important;color:#00d4ff !important;font-weight:700 !important;font-family:‘Cairo’,sans-serif !important;}
 
-    body {
-      font-family: 'Tajawal', sans-serif;
-      background-color: var(--bg);
-      background-image: 
-        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(79, 70, 229, 0.1) 0px, transparent 50%);
-      color: var(--text);
-      min-height: 100vh;
-      overflow-x: hidden;
-      padding-bottom: 100px;
-    }
+/* HERO */
+.hero{position:relative;z-index:10;padding:44px 5% 8px;text-align:center;}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background-color:rgba(0,212,255,0.1) !important;border:1px solid rgba(0,212,255,0.28);border-radius:30px;padding:6px 18px;font-size:10.5px !important;color:#00d4ff !important;font-weight:700 !important;font-family:‘Cairo’,sans-serif !important;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px;animation:up .8s ease both;}
+.h-title{font-family:‘Tajawal’,sans-serif !important;font-size:clamp(26px,6vw,52px);font-weight:900 !important;line-height:1.15;margin-bottom:12px;animation:up .9s .1s ease both;}
+.l1{display:block;background:linear-gradient(135deg,#ffffff,#c8d6ff) !important;-webkit-background-clip:text !important;-webkit-text-fill-color:transparent !important;}
+.l2{display:block;background:linear-gradient(90deg,#00d4ff,#a78bfa,#00d4ff) !important;background-size:200% !important;-webkit-background-clip:text !important;-webkit-text-fill-color:transparent !important;animation:shim 3.5s linear infinite;}
+@keyframes shim{0%{background-position:200%}100%{background-position:-200%}}
+.h-desc{font-size:13px !important;color:#7a90b8 !important;max-width:460px;margin:0 auto 28px;line-height:1.9;animation:up 1s .2s ease both;font-family:‘Cairo’,sans-serif !important;}
 
-    /* الهيدر */
-    header {
-      padding: 15px 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(15, 23, 42, 0.8);
-      backdrop-filter: var(--glass);
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+/* AI CARD */
+.ai-wrap{position:relative;z-index:10;padding:0 5%;max-width:660px;margin:0 auto 28px;animation:up 1s .3s ease both;}
+.ai-card{
+background:linear-gradient(135deg,rgba(0,212,255,0.07),rgba(167,139,250,0.07)) !important;
+border:1px solid rgba(0,212,255,0.22) !important;
+border-radius:28px;padding:32px 24px;text-align:center;
+backdrop-filter:blur(24px);
+box-shadow:0 24px 60px rgba(0,0,0,0.5),0 0 40px rgba(0,212,255,0.05);
+position:relative;overflow:hidden;
+}
+.ai-card::before{content:’’;position:absolute;inset:0;background:radial-gradient(circle at 25% 25%,rgba(0,212,255,0.07),transparent 55%),radial-gradient(circle at 75% 75%,rgba(167,139,250,0.07),transparent 55%);pointer-events:none;}
 
-    .brand { display: flex; align-items: center; gap: 10px; }
-    .logo { width: 50px; height: 50px; border-radius: 10px; background: white; padding: 3px; object-fit: contain; }
-    .header-text h1 { font-size: 18px; font-weight: 900; background: linear-gradient(to left, #818cf8, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+/* Big Avatar */
+.ai-avatar-big{
+width:80px;height:80px;border-radius:22px;margin:0 auto 16px;
+background:linear-gradient(135deg,#00d4ff,#a78bfa) !important;
+display:flex;align-items:center;justify-content:center;
+box-shadow:0 10px 32px rgba(0,212,255,0.38);
+position:relative;
+}
+.ai-avatar-big i{font-size:36px !important;color:#fff !important;}
+.ai-avatar-big::after{content:’’;position:absolute;inset:-7px;border-radius:28px;border:1px solid rgba(0,212,255,0.22);animation:aura 2.5s ease-in-out infinite;}
+@keyframes aura{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:0;transform:scale(1.09)}}
 
-    /* الحاوية */
-    .container {
-      max-width: 800px;
-      margin: 30px auto;
-      padding: 0 20px;
-    }
+/* Status */
+.ai-status{display:inline-flex;align-items:center;gap:6px;background-color:rgba(0,229,160,0.1) !important;border:1px solid rgba(0,229,160,0.25);border-radius:20px;padding:4px 14px;margin-bottom:16px;font-size:10px !important;color:#00e5a0 !important;font-weight:700 !important;font-family:‘Cairo’,sans-serif !important;}
+.sdot{width:6px;height:6px;border-radius:50%;background:#00e5a0 !important;animation:blink 2s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 
-    .page-title {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .page-title i { font-size: 40px; color: var(--primary); margin-bottom: 10px; }
+.ai-card h2{font-family:‘Tajawal’,sans-serif !important;font-size:21px !important;font-weight:900 !important;color:#eef2ff !important;margin-bottom:8px;}
+.ai-card>p{font-size:12.5px !important;color:#7a90b8 !important;max-width:360px;margin:0 auto 20px;line-height:1.85;font-family:‘Cairo’,sans-serif !important;}
 
-    /* كروت الأسئلة والأجوبة */
-    .qa-card {
-      background: var(--card-bg);
-      backdrop-filter: var(--glass);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 20px;
-      padding: 20px;
-      margin-bottom: 15px;
-      transition: 0.3s;
-    }
-    .qa-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+/* Feature pills */
+.ai-feats{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:22px;}
+.feat-pill{display:flex;align-items:center;gap:5px;background-color:rgba(0,212,255,0.08) !important;border:1px solid rgba(0,212,255,0.16);border-radius:20px;padding:5px 13px;font-size:10px !important;color:#00d4ff !important;font-family:‘Cairo’,sans-serif !important;font-weight:600 !important;}
+.feat-pill i{font-size:10px !important;}
 
-    .question {
-      font-weight: 700;
-      color: var(--primary);
-      font-size: 17px;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+/* Launch Button */
+.launch-btn{
+display:flex;align-items:center;justify-content:center;gap:11px;
+background:linear-gradient(135deg,#00d4ff,#a78bfa) !important;
+color:#fff !important;text-decoration:none !important;
+padding:16px 28px;border-radius:50px;width:100%;
+font-family:‘Cairo’,sans-serif !important;font-weight:900 !important;font-size:15px !important;
+box-shadow:0 10px 30px rgba(0,212,255,0.38);
+transition:transform .25s,box-shadow .25s;
+position:relative;overflow:hidden;border:none;cursor:pointer;
+}
+.launch-btn::before{content:’’;position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.18),transparent);transition:left .5s;}
+.launch-btn:hover::before{left:100%;}
+.launch-btn:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,212,255,0.48);}
+.launch-btn:active{transform:scale(.96);}
 
-    .answer {
-      color: #cbd5e1;
-      font-size: 15px;
-      line-height: 1.6;
-      padding-right: 27px;
-    }
+.launch-btn-icon{width:30px;height:30px;background:rgba(255,255,255,0.2);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px !important;}
+.ai-note{margin-top:13px;font-size:10px !important;color:#4a5a78 !important;font-family:‘Cairo’,sans-serif !important;}
 
-    /* صندوق المساعد الذكي */
-    .assistant-box {
-      background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(192, 132, 252, 0.2));
-      border-radius: 24px;
-      padding: 30px;
-      text-align: center;
-      border: 1px solid rgba(255,255,255,0.1);
-      margin-top: 40px;
-    }
-    .assistant-box h2 { font-size: 22px; margin-bottom: 10px; }
-    .assistant-box p { color: #94a3b8; margin-bottom: 20px; }
-    
-    .btn-ai {
-      display: inline-block;
-      padding: 12px 30px;
-      background: var(--primary);
-      color: white;
-      text-decoration: none;
-      border-radius: 15px;
-      font-weight: bold;
-      transition: 0.3s;
-      box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
-    }
-    .btn-ai:hover { transform: scale(1.05); background: #4f46e5; }
+/* SECTION HEAD */
+.sec-head{position:relative;z-index:10;padding:0 5%;margin:28px auto 16px;max-width:660px;display:flex;align-items:center;gap:12px;}
+.sec-head::after{content:’’;flex:1;height:1px;background:linear-gradient(90deg,rgba(0,212,255,0.2),transparent);}
+.sec-label{font-size:10.5px !important;color:#00d4ff !important;font-weight:700 !important;letter-spacing:2px;text-transform:uppercase;white-space:nowrap;font-family:‘Cairo’,sans-serif !important;}
 
-    /* القائمة السفلية الموحدة */
-    .bottom-nav {
-      position: fixed; bottom: 20px; left: 15px; right: 15px;
-      background: rgba(30, 41, 59, 0.85);
-      backdrop-filter: var(--glass);
-      height: 60px; border-radius: 20px;
-      display: flex; justify-content: space-around; align-items: center;
-      border: 1px solid rgba(255,255,255,0.1);
-      z-index: 2000;
-    }
-    .nav-item { color: #94a3b8; text-decoration: none; display: flex; flex-direction: column; align-items: center; font-size: 16px; }
-    .nav-item.active { color: var(--primary); }
-    .nav-item span { font-size: 9px; margin-top: 3px; font-weight: 700; }
+/* FAQ */
+.qa-list{padding:0 5%;max-width:660px;margin:0 auto;position:relative;z-index:10;display:flex;flex-direction:column;gap:10px;}
+.qa-card{background-color:rgba(10,20,40,0.75) !important;border:1px solid rgba(0,212,255,0.14) !important;border-radius:18px;overflow:hidden;backdrop-filter:blur(16px);transition:border-color .3s;cursor:pointer;}
+.qa-card:hover{border-color:rgba(0,212,255,0.35) !important;}
+.qa-q{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;gap:12px;}
+.qa-q-left{display:flex;align-items:center;gap:12px;}
+.qa-ico{width:36px;height:36px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background-color:rgba(0,212,255,0.1) !important;border:1px solid rgba(0,212,255,0.2);}
+.qa-ico i{color:#00d4ff !important;font-size:14px !important;}
+.qa-text{font-size:12.5px !important;font-weight:700 !important;color:#eef2ff !important;font-family:‘Cairo’,sans-serif !important;line-height:1.4;}
+.qa-arrow{color:#7a90b8 !important;font-size:11px !important;transition:transform .3s;flex-shrink:0;}
+.qa-card.open .qa-arrow{transform:rotate(180deg);color:#00d4ff !important;}
+.qa-a{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1),padding .3s;padding:0 18px;}
+.qa-card.open .qa-a{max-height:200px;padding:0 18px 16px;}
+.qa-a-inner{border-top:1px solid rgba(255,255,255,0.06);padding-top:12px;font-size:12px !important;color:#7a90b8 !important;line-height:1.8;font-family:‘Cairo’,sans-serif !important;}
 
-  </style>
+/* FOOTER */
+.footer{position:relative;z-index:10;padding:28px 5% 116px;text-align:center;border-top:1px solid rgba(240,192,64,0.16);margin-top:32px;}
+.f-logo{font-family:‘Tajawal’,sans-serif !important;font-size:18px !important;font-weight:900 !important;background:linear-gradient(90deg,#f0c040,#fff) !important;-webkit-background-clip:text !important;-webkit-text-fill-color:transparent !important;margin-bottom:5px;}
+.f-sub{font-size:10.5px !important;color:#7a90b8 !important;font-family:‘Cairo’,sans-serif !important;}
+.f-acc{color:#f0c040 !important;font-weight:700 !important;}
+
+/* BOTTOM NAV */
+.bnav{position:fixed;bottom:14px;left:14px;right:14px;height:61px;border-radius:22px;z-index:9000;background-color:rgba(5,11,24,0.95) !important;backdrop-filter:blur(30px) saturate(2);border:1px solid rgba(240,192,64,0.18);display:flex;justify-content:space-around;align-items:center;box-shadow:0 8px 40px rgba(0,0,0,0.6);}
+.ni{color:#7a90b8 !important;text-decoration:none !important;display:flex;flex-direction:column;align-items:center;gap:3px;transition:color .2s;padding:4px 8px;border-radius:12px;font-size:16px !important;}
+.ni span{font-size:8px !important;font-weight:700 !important;letter-spacing:0.3px;font-family:‘Cairo’,sans-serif !important;color:inherit !important;}
+.ni.on{color:#00d4ff !important;}
+.ni.on i{filter:drop-shadow(0 0 6px #00d4ff);}
+.ni:active{transform:scale(.87);}
+
+@keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:#04080f;}
+::-webkit-scrollbar-thumb{background:#c8993a;border-radius:2px;}
+</style>
+
 </head>
 <body>
+<canvas id="bg-canvas"></canvas>
 
-  <header>
-    <div class="brand">
-      <img src="logo.jpg" alt="Logo" class="logo" onerror="this.src='https://via.placeholder.com/50'">
-      <div class="header-text">
-        <h1>أنت تسأل والمكتبة تُجيب</h1>
-      </div>
-    </div>
-    <a href="index.html" style="color: white; text-decoration: none; font-size: 14px; font-weight: bold;">الرئيسية</a>
-  </header>
+<!-- TICKER -->
 
-  <div class="container">
-    
-    <div class="page-title">
-      <i class="fas fa-question-circle"></i>
-      <h2>الأسئلة الشائعة</h2>
-      <p style="color: #94a3b8;">كل ما تحتاج معرفته عن خدماتنا الرقمية</p>
-    </div>
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>أنت تسأل والمكتبة تُجيب</span>
+    <span>مساعد ذكي متخصص بمكتبة اليرموك</span>
+    <span>اسأل أي سؤال وستجد الإجابة فوراً</span>
+    <span>ثانوية اليرموك - مركز مصادر التعلم</span>
+    <span>أنت تسأل والمكتبة تُجيب</span>
+    <span>مساعد ذكي متخصص بمكتبة اليرموك</span>
+    <span>اسأل أي سؤال وستجد الإجابة فوراً</span>
+    <span>ثانوية اليرموك - مركز مصادر التعلم</span>
+  </div>
+</div>
 
-    <div class="qa-card">
-      <div class="question"><i class="fas fa-search"></i> كيف أبحث عن كتاب معين في المكتبة؟</div>
-      <div class="answer">استخدم شريط البحث في أعلى الصفحة الرئيسية واكتب اسم الكتاب أو الكلمة المفتاحية للوصول السريع للمصادر.</div>
-    </div>
+<!-- HEADER -->
 
-    <div class="qa-card">
-      <div class="question"><i class="fas fa-download"></i> هل يمكنني تحميل الكتب؟</div>
-      <div class="answer">بعض المواقع المرتبطة بالمكتبة تتيح تحميل الكتب بصيغة PDF مباشرة، بينما البعض الآخر مخصص للقراءة الرقمية التفاعلية.</div>
+<header>
+  <a class="brand" href="index.html">
+    <div class="logo-ring"><img src="logo.jpg" alt="شعار اليرموك"></div>
+    <div class="brand-words">
+      <span class="b-title">أنت تسأل</span>
+      <span class="b-sub">ثانوية اليرموك · مركز مصادر التعلم</span>
     </div>
+  </a>
+  <div class="page-badge"><i class="fas fa-robot"></i>مساعد ذكي</div>
+</header>
 
-    <div class="qa-card">
-      <div class="question"><i class="fas fa-lightbulb"></i> كيف أقترح إضافة كتاب أو رابط؟</div>
-      <div class="answer">يسعدنا استقبال مقترحاتكم! يمكنك التواصل مع إدارة المكتبة لإضافة أي مصدر تعليمي تراه مفيداً لزملائك.</div>
-    </div>
+<!-- HERO -->
 
-    <div class="qa-card">
-      <div class="question"><i class="fas fa-school"></i> هل المكتبة للمرحلة الثانوية فقط؟</div>
-      <div class="answer">المكتبة موجهة بشكل أساسي لطلاب ثانوية اليرموك، ولكنها تحتوي على مصادر تعليمية وطنية شاملة تفيد جميع المراحل الدراسية.</div>
-    </div>
+<section class="hero">
+  <div class="eyebrow"><i class="fas fa-robot"></i>مساعد المكتبة الذكي</div>
+  <h1 class="h-title">
+    <span class="l1">لديك سؤال؟</span>
+    <span class="l2">المكتبة تُجيب</span>
+  </h1>
+  <p class="h-desc">مساعد ذكي متخصص بمكتبة اليرموك — اسأل عن أي شيء واحصل على إجابة فورية.</p>
+</section>
 
-    <div class="assistant-box">
-      <i class="fas fa-robot" style="font-size: 40px; color: var(--primary); margin-bottom: 15px;"></i>
-      <h2>مساعد المكتبة الرقمية</h2>
-      <p>اسأل، تواصل، واستفد من كل خدمات المكتبة الذكية بضغطة زر عبر الذكاء الاصطناعي!</p>
-      <a href="https://chatgpt.com/g/g-6821b9befb008191a733aaf0e80f3a14-lmktb-lrqmy-lyrmwk-lthnwy" target="_blank" class="btn-ai">
-        ابدأ المحادثة الآن
-      </a>
-    </div>
+<!-- AI CARD -->
+
+<div class="ai-wrap">
+  <div class="ai-card">
+    <div class="ai-avatar-big"><i class="fas fa-robot"></i></div>
+    <div class="ai-status"><div class="sdot"></div>متصل الآن · جاهز للإجابة</div>
+    <h2>مساعد اليرموك الذكي</h2>
+    <p>مساعد ذكي مدعوم بالذكاء الاصطناعي — يجيبك عن أسئلتك التعليمية والمعلوماتية وكل ما يخطر على بالك، على مدار الساعة.</p>
+
+```
+<div class="ai-feats">
+  <div class="feat-pill"><i class="fas fa-bolt"></i>إجابات فورية</div>
+  <div class="feat-pill"><i class="fas fa-brain"></i>ذكاء اصطناعي</div>
+  <div class="feat-pill"><i class="fas fa-language"></i>عربي وإنجليزي</div>
+  <div class="feat-pill"><i class="fas fa-infinity"></i>أسئلة بلا حدود</div>
+</div>
+
+<a href="https://chatgpt.com/g/g-6821b9befb008191a733aaf0e80f3a14-lmktb-lrqmy-lyrmwk-lthnwy"
+   target="_blank" class="launch-btn">
+  <div class="launch-btn-icon"><i class="fas fa-comment-dots"></i></div>
+  ابدأ المحادثة مع المساعد الذكي
+  <i class="fas fa-arrow-left"></i>
+</a>
+
+<div class="ai-note">⚡ يفتح في نافذة جديدة — مجاني ولا يحتاج تسجيل</div>
+```
 
   </div>
+</div>
 
-  <div class="bottom-nav">
-    <a href="index.html" class="nav-item">
-      <i class="fas fa-th-large"></i>
-      <span>الرئيسية</span>
-    </a>
-    <a href="kids.html" class="nav-item">
-      <i class="fas fa-gamepad"></i>
-      <span>الأنشطة</span>
-    </a>
-    <a href="ask.html" class="nav-item active">
-      <i class="fas fa-comment-dots"></i>
-      <span>اسأل</span>
-    </a>
-    <a href="contact.html" class="nav-item">
-      <i class="fas fa-envelope"></i>
-      <span>تواصل</span>
-    </a>
-    <a href="downloads.html" class="nav-item">
-      <i class="fas fa-download"></i>
-      <span>تحميل</span>
-    </a>
-    <a href="certificate.html" class="nav-item">
-      <i class="fas fa-award"></i>
-      <span>شهادة</span>
-    </a>
+<!-- FAQ -->
+
+<div class="sec-head">
+  <i class="fas fa-question-circle" style="color:#00d4ff;font-size:11px;"></i>
+  <span class="sec-label">أسئلة شائعة</span>
+</div>
+
+<div class="qa-list">
+  <div class="qa-card" onclick="toggleQA(this)">
+    <div class="qa-q">
+      <div class="qa-q-left"><div class="qa-ico"><i class="fas fa-search"></i></div><span class="qa-text">كيف أبحث عن كتاب معين في المكتبة؟</span></div>
+      <i class="fas fa-chevron-down qa-arrow"></i>
+    </div>
+    <div class="qa-a"><div class="qa-a-inner">استخدم شريط البحث في الصفحة الرئيسية واكتب اسم الكتاب أو الكلمة المفتاحية للوصول السريع لجميع المصادر المتاحة.</div></div>
   </div>
+  <div class="qa-card" onclick="toggleQA(this)">
+    <div class="qa-q">
+      <div class="qa-q-left"><div class="qa-ico"><i class="fas fa-download"></i></div><span class="qa-text">هل يمكنني تحميل الكتب؟</span></div>
+      <i class="fas fa-chevron-down qa-arrow"></i>
+    </div>
+    <div class="qa-a"><div class="qa-a-inner">بعض المواقع المرتبطة بالمكتبة تتيح تحميل الكتب بصيغة PDF مباشرة، بينما البعض الآخر مخصص للقراءة الرقمية التفاعلية.</div></div>
+  </div>
+  <div class="qa-card" onclick="toggleQA(this)">
+    <div class="qa-q">
+      <div class="qa-q-left"><div class="qa-ico"><i class="fas fa-lightbulb"></i></div><span class="qa-text">كيف أقترح إضافة كتاب أو رابط؟</span></div>
+      <i class="fas fa-chevron-down qa-arrow"></i>
+    </div>
+    <div class="qa-a"><div class="qa-a-inner">يسعدنا استقبال مقترحاتكم! يمكنك التواصل مع إدارة المكتبة عبر صفحة "تواصل معنا" لإضافة أي مصدر تعليمي تراه مفيداً.</div></div>
+  </div>
+  <div class="qa-card" onclick="toggleQA(this)">
+    <div class="qa-q">
+      <div class="qa-q-left"><div class="qa-ico"><i class="fas fa-school"></i></div><span class="qa-text">هل المكتبة للمرحلة الثانوية فقط؟</span></div>
+      <i class="fas fa-chevron-down qa-arrow"></i>
+    </div>
+    <div class="qa-a"><div class="qa-a-inner">المكتبة موجهة أساساً لطلاب ثانوية اليرموك، لكنها تحتوي على مصادر وطنية شاملة تفيد جميع المراحل الدراسية.</div></div>
+  </div>
+  <div class="qa-card" onclick="toggleQA(this)">
+    <div class="qa-q">
+      <div class="qa-q-left"><div class="qa-ico"><i class="fas fa-wifi"></i></div><span class="qa-text">هل تحتاج المكتبة إلى إنترنت؟</span></div>
+      <i class="fas fa-chevron-down qa-arrow"></i>
+    </div>
+    <div class="qa-a"><div class="qa-a-inner">نعم، جميع المصادر والمنصات المرتبطة تعمل عبر الإنترنت. ننصح باستخدام شبكة ذات سرعة جيدة للحصول على أفضل تجربة.</div></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+  <div class="f-logo">أنت تسأل</div>
+  <div class="f-sub">جميع الحقوق محفوظة © ثانوية اليرموك</div>
+  <div class="f-sub" style="margin-top:5px;"><span class="f-acc">مركز مصادر التعلم</span></div>
+</footer>
+
+<!-- BOTTOM NAV -->
+
+<nav class="bnav">
+  <a href="index.html" class="ni"><i class="fas fa-th-large"></i><span>الرئيسية</span></a>
+  <a href="kids.html" class="ni"><i class="fas fa-gamepad"></i><span>الأنشطة</span></a>
+  <a href="ask.html" class="ni on"><i class="fas fa-comment-dots"></i><span>اسأل</span></a>
+  <a href="contact.html" class="ni"><i class="fas fa-envelope"></i><span>تواصل</span></a>
+  <a href="downloads.html" class="ni"><i class="fas fa-download"></i><span>تحميل</span></a>
+  <a href="certificate.html" class="ni"><i class="fas fa-award"></i><span>شهادة</span></a>
+</nav>
+
+<script>
+/* CANVAS */
+const cv=document.getElementById('bg-canvas'),cx=cv.getContext('2d');
+let W,H,pts=[];
+function rsz(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;}
+rsz();window.addEventListener('resize',rsz);
+class Pt{
+  constructor(){this.rst();}
+  rst(){this.x=Math.random()*W;this.y=Math.random()*H;this.vx=(Math.random()-.5)*.26;this.vy=(Math.random()-.5)*.26;this.r=Math.random()*1.3+.3;this.a=Math.random()*.4+.12;this.col=Math.random()>.6?'#00d4ff':'#a78bfa';}
+  upd(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>W||this.y<0||this.y>H)this.rst();}
+  drw(){cx.beginPath();cx.arc(this.x,this.y,this.r,0,Math.PI*2);cx.fillStyle=this.col;cx.globalAlpha=this.a;cx.fill();cx.globalAlpha=1;}
+}
+for(let i=0;i<80;i++)pts.push(new Pt());
+function frame(){
+  cx.clearRect(0,0,W,H);
+  const g1=cx.createRadialGradient(W*.2,H*.15,0,W*.2,H*.15,W*.6);
+  g1.addColorStop(0,'rgba(0,80,120,.07)');g1.addColorStop(1,'transparent');
+  cx.fillStyle=g1;cx.fillRect(0,0,W,H);
+  const g2=cx.createRadialGradient(W*.8,H*.8,0,W*.8,H*.8,W*.5);
+  g2.addColorStop(0,'rgba(80,50,120,.07)');g2.addColorStop(1,'transparent');
+  cx.fillStyle=g2;cx.fillRect(0,0,W,H);
+  for(let i=0;i<pts.length;i++){
+    for(let j=i+1;j<pts.length;j++){
+      const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<90){cx.beginPath();cx.moveTo(pts[i].x,pts[i].y);cx.lineTo(pts[j].x,pts[j].y);cx.strokeStyle=`rgba(0,212,255,${.045*(1-d/90)})`;cx.lineWidth=.35;cx.stroke();}
+    }
+  }
+  pts.forEach(p=>{p.upd();p.drw();});
+  requestAnimationFrame(frame);
+}
+frame();
+
+/* FAQ */
+function toggleQA(card){
+  const isOpen=card.classList.contains('open');
+  document.querySelectorAll('.qa-card.open').forEach(c=>c.classList.remove('open'));
+  if(!isOpen)card.classList.add('open');
+}
+
+/* ENTRANCE */
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting){e.target.style.animation=`up 0.45s ${i*.06}s ease both`;io.unobserve(e.target);}});
+},{threshold:.08});
+document.querySelectorAll('.qa-card').forEach(c=>io.observe(c));
+</script>
 
 </body>
 </html>

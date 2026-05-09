@@ -1,339 +1,758 @@
 <!DOCTYPE html>
+
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>المكتبة الرقمية - ثانوية اليرموك</title>
-  <meta name="description" content="المكتبة الرقمية لثانوية اليرموك - مرجعك الأول للمصادر التعليمية والكتب الرقمية.">
-
-<!-- وسمات Open Graph للظهور الاحترافي في الواتساب -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<title>المكتبة الرقمية - ثانوية اليرموك</title>
+<meta name="description" content="المكتبة الرقمية لثانوية اليرموك - مرجعك الأول للمصادر التعليمية والكتب الرقمية.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://alfale7.github.io/Book/index.html">
 <meta property="og:title" content="المكتبة الرقمية - ثانوية اليرموك">
 <meta property="og:description" content="مرجعك الأول للمصادر التعليمية والكتب الرقمية والخدمات التفاعلية.">
-
-<!-- تحديد نوع الصورة وأبعادها لضمان سحبها من قبل الواتساب -->
 <meta property="og:image" content="https://alfale7.github.io/Book/viwa.jpg">
 <meta property="og:image:secure_url" content="https://alfale7.github.io/Book/viwa.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="600">
 <meta property="og:image:height" content="600">
-
-<!-- روابط الخطوط والأيقونات -->
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* ===== FORCE COLORS - منع أي تغيير من المتصفح ===== */
+html { color-scheme: dark only; }
 
+- { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { scroll-behavior: smooth; }
 
-  <style>
-    :root {
-      --primary: #6366f1;
-      --bg: #020617;
-      --card-bg: rgba(30, 41, 59, 0.5);
-      --glass: blur(20px);
-      --text: #f8fafc;
-    }
+body {
+font-family: ‘Cairo’, sans-serif !important;
+background-color: #04080f !important;
+color: #eef2ff !important;
+min-height: 100vh;
+overflow-x: hidden;
+forced-color-adjust: none;
+-webkit-text-size-adjust: 100%;
+}
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+#bg-canvas {
+position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+z-index: 0; pointer-events: none;
+}
 
-    body {
-      font-family: 'Tajawal', sans-serif;
-      background-color: var(--bg);
-      background-image: 
-        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(79, 70, 229, 0.1) 0px, transparent 50%);
-      color: var(--text);
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
+/* ===== TICKER ===== */
+.ticker {
+position: relative; z-index: 100;
+background: #0a1428 !important;
+border-bottom: 1px solid rgba(240,192,64,0.2);
+padding: 9px 0; overflow: hidden;
+}
+.ticker-inner {
+display: inline-flex; gap: 55px; white-space: nowrap;
+animation: tick 24s linear infinite;
+}
+.ticker-inner span {
+font-size: 11.5px !important;
+color: #f0c040 !important;
+font-weight: 700 !important;
+font-family: ‘Cairo’, sans-serif !important;
+letter-spacing: 0.4px;
+}
+.ticker-inner span::before { content: ’◆  ’; font-size: 8px; opacity: 0.65; }
+@keyframes tick { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-    .announcement {
-      background-color: #005f8f;
-      color: white; padding: 10px; text-align: center; font-weight: bold;
-      white-space: nowrap; overflow: hidden; font-size: 14px;
-    }
-    .announcement-text { display: inline-block; animation: slide 15s linear infinite; }
-    @keyframes slide { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+/* ===== HEADER ===== */
+header {
+position: sticky; top: 0; z-index: 500;
+height: 68px; padding: 0 5%;
+display: flex; align-items: center; justify-content: space-between;
+background-color: rgba(4,8,15,0.95) !important;
+backdrop-filter: blur(28px) saturate(2);
+border-bottom: 1px solid rgba(240,192,64,0.18);
+}
+.brand { display: flex; align-items: center; gap: 13px; text-decoration: none !important; }
+.logo-ring {
+width: 46px; height: 46px; border-radius: 13px;
+background: linear-gradient(135deg, #f0c040, #c8993a) !important;
+padding: 2px; display: flex; align-items: center; justify-content: center;
+box-shadow: 0 0 22px rgba(240,192,64,0.28); overflow: hidden; flex-shrink: 0;
+}
+.logo-ring img { width: 100%; height: 100%; object-fit: contain; border-radius: 11px; }
+.brand-words { display: flex; flex-direction: column; }
+.b-title {
+font-size: 15px !important; font-weight: 900 !important;
+font-family: ‘Tajawal’, sans-serif !important;
+background: linear-gradient(90deg, #f0c040, #fffde0) !important;
+-webkit-background-clip: text !important;
+-webkit-text-fill-color: transparent !important;
+line-height: 1.2;
+}
+.b-sub {
+font-size: 9.5px !important;
+color: #7a90b8 !important;
+letter-spacing: 0.9px; font-weight: 600 !important;
+font-family: ‘Cairo’, sans-serif !important;
+}
+.live-badge {
+display: flex; align-items: center; gap: 6px;
+background-color: rgba(240,192,64,0.1) !important;
+border: 1px solid rgba(240,192,64,0.22);
+border-radius: 20px; padding: 6px 14px;
+font-size: 11px !important;
+color: #f0c040 !important;
+font-weight: 700 !important;
+font-family: ‘Cairo’, sans-serif !important;
+}
+.dot {
+width: 7px; height: 7px; border-radius: 50%;
+background-color: #00e5a0 !important;
+box-shadow: 0 0 8px #00e5a0;
+animation: blink 2s ease-in-out infinite;
+flex-shrink: 0;
+}
+@keyframes blink { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:.4; transform:scale(1.35); } }
 
-    header {
-      padding: 15px 5%; display: flex; justify-content: space-between; align-items: center;
-      background: rgba(15, 23, 42, 0.8); backdrop-filter: var(--glass);
-      border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 1000;
-    }
+/* ===== HERO ===== */
+.hero {
+position: relative; z-index: 10;
+padding: 52px 5% 12px; text-align: center;
+}
+.eyebrow {
+display: inline-flex; align-items: center; gap: 8px;
+background-color: rgba(0,212,255,0.12) !important;
+border: 1px solid rgba(0,212,255,0.3);
+border-radius: 30px; padding: 6px 18px;
+font-size: 10.5px !important;
+color: #00d4ff !important;
+font-weight: 700 !important; font-family: ‘Cairo’, sans-serif !important;
+letter-spacing: 2px; text-transform: uppercase;
+margin-bottom: 22px; animation: up .8s ease both;
+}
+.h-title {
+font-family: ‘Tajawal’, sans-serif !important;
+font-size: clamp(30px,7vw,60px);
+font-weight: 900 !important; line-height: 1.1;
+margin-bottom: 14px; animation: up .9s .1s ease both;
+}
+.l1 {
+display: block;
+background: linear-gradient(135deg, #ffffff, #c8d6ff) !important;
+-webkit-background-clip: text !important;
+-webkit-text-fill-color: transparent !important;
+}
+.l2 {
+display: block;
+background: linear-gradient(90deg, #f0c040, #ffecaa, #f0c040) !important;
+background-size: 200% !important;
+-webkit-background-clip: text !important;
+-webkit-text-fill-color: transparent !important;
+animation: shim 3.5s linear infinite;
+}
+@keyframes shim { 0% { background-position: 200%; } 100% { background-position: -200%; } }
+.h-desc {
+font-size: 13.5px !important;
+color: #7a90b8 !important;
+max-width: 500px; margin: 0 auto 30px;
+line-height: 1.9; animation: up 1s .2s ease both;
+font-family: ‘Cairo’, sans-serif !important;
+}
 
-    .brand { display: flex; align-items: center; gap: 10px; }
-    .logo { width: 55px; height: 55px; border-radius: 10px; background: white; padding: 3px; object-fit: contain; }
-    .header-text h1 { font-size: 18px; font-weight: 900; background: linear-gradient(to left, #818cf8, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+/* ===== STATS ===== */
+.stats {
+display: flex; justify-content: center;
+margin: 0 auto 42px; max-width: 570px;
+border: 1px solid rgba(240,192,64,0.18);
+border-radius: 16px; overflow: hidden;
+background-color: rgba(10,20,40,0.8) !important;
+backdrop-filter: blur(20px);
+animation: up 1s .3s ease both;
+position: relative; z-index: 10;
+}
+.s-item {
+flex: 1; padding: 16px 8px; text-align: center;
+border-left: 1px solid rgba(240,192,64,0.18);
+}
+.s-item:last-child { border-left: none; }
+.s-num {
+font-size: 24px !important; font-weight: 900 !important;
+font-family: ‘Tajawal’, sans-serif !important;
+background: linear-gradient(135deg, #f0c040, #fffce0) !important;
+-webkit-background-clip: text !important;
+-webkit-text-fill-color: transparent !important;
+display: block; line-height: 1;
+}
+.s-lbl {
+font-size: 9.5px !important;
+color: #7a90b8 !important;
+margin-top: 4px; display: block; font-weight: 600 !important;
+font-family: ‘Cairo’, sans-serif !important;
+}
 
-    .container { max-width: 1000px; margin: 10px auto; padding: 0 15px 100px 15px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+/* ===== SEARCH ===== */
+.search-zone {
+position: relative; z-index: 10;
+max-width: 540px; margin: 0 auto 40px; padding: 0 5%;
+animation: up 1s .35s ease both;
+}
+.s-box {
+display: flex; align-items: center;
+background-color: rgba(10,20,40,0.8) !important;
+border: 1px solid rgba(240,192,64,0.18);
+border-radius: 50px; overflow: hidden;
+backdrop-filter: blur(20px);
+transition: border-color .3s, box-shadow .3s;
+}
+.s-box:focus-within {
+border-color: #f0c040;
+box-shadow: 0 0 26px rgba(240,192,64,0.22);
+}
+.s-ico { padding: 0 16px; color: #f0c040 !important; font-size: 14px; }
+.s-input {
+flex: 1; background: transparent !important;
+border: none; outline: none;
+color: #eef2ff !important;
+font-family: ‘Cairo’, sans-serif !important;
+font-size: 13.5px !important; padding: 15px 0;
+}
+.s-input::placeholder { color: #7a90b8 !important; }
+.s-go {
+background: linear-gradient(135deg, #f0c040, #c8993a) !important;
+border: none; color: #000 !important;
+padding: 11px 20px;
+font-family: ‘Cairo’, sans-serif !important;
+font-weight: 700 !important; font-size: 12px !important;
+cursor: pointer; margin: 5px; border-radius: 40px;
+transition: transform .2s;
+}
+.s-go:active { transform: scale(.93); }
 
-    .hero-box { grid-column: span 4; background: var(--card-bg); border-radius: 20px; padding: 12px; border: 1px solid rgba(255,255,255,0.1); order: 1; }
-    .hero-box iframe { width: 100%; height: 210px; border-radius: 12px; border: none; }
+/* ===== FILTERS ===== */
+.filters {
+display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;
+margin-top: 20px; margin-bottom: 28px; padding: 0 5%;
+position: relative; z-index: 10;
+animation: up 1s .4s ease both;
+}
+.f-btn {
+padding: 7px 18px; border-radius: 28px;
+border: 1px solid rgba(240,192,64,0.2);
+background: transparent !important;
+color: #7a90b8 !important;
+font-family: ‘Cairo’, sans-serif !important;
+font-weight: 600 !important; font-size: 11.5px !important;
+cursor: pointer; transition: all .25s;
+}
+.f-btn:hover, .f-btn.on {
+background: linear-gradient(135deg, #f0c040, #c8993a) !important;
+border-color: transparent;
+color: #000 !important;
+box-shadow: 0 4px 18px rgba(240,192,64,0.25);
+}
 
-    .intro-box { grid-column: span 4; background: var(--card-bg); border-radius: 20px; padding: 20px; border: 1px solid rgba(255,255,255,0.1); line-height: 1.6; font-size: 14px; border-right: 5px solid var(--primary); order: 2; }
+/* ===== VIDEO ===== */
+.vid-sec { padding: 0 5% 40px; position: relative; z-index: 10; }
+.vid-card {
+border-radius: 18px; overflow: hidden;
+border: 1px solid rgba(240,192,64,0.18);
+position: relative;
+box-shadow: 0 18px 50px rgba(0,0,0,0.5);
+}
+.vid-card iframe { width: 100%; height: 210px; border: none; display: block; }
+.vid-label {
+position: absolute; bottom: 12px; right: 12px;
+background-color: rgba(4,8,15,0.85) !important;
+backdrop-filter: blur(10px);
+border: 1px solid rgba(240,192,64,0.2);
+border-radius: 10px; padding: 5px 12px;
+font-size: 10px !important;
+color: #f0c040 !important;
+font-weight: 700 !important;
+display: flex; align-items: center; gap: 5px;
+font-family: ‘Cairo’, sans-serif !important;
+}
 
-    .search-section { grid-column: span 4; text-align: center; margin: 5px 0; order: 3; }
-    .search-input { width: 100%; max-width: 500px; background: var(--card-bg); border: 1px solid rgba(255,255,255,0.1); padding: 12px 20px; border-radius: 30px; color: white; font-family: 'Tajawal'; outline: none; font-size: 14px; }
-    
-    .filter-buttons { margin-top: 12px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
-    .filter-buttons button { padding: 6px 14px; border-radius: 15px; border: none; background: var(--primary); color: white; cursor: pointer; font-weight: bold; font-size: 12px; }
+/* ===== SECTION HEAD ===== */
+.sec-head {
+position: relative; z-index: 10;
+padding: 0 5%; margin-bottom: 16px;
+display: flex; align-items: center; gap: 12px;
+}
+.sec-head::after {
+content: ‘’; flex: 1; height: 1px;
+background: linear-gradient(90deg, rgba(240,192,64,0.2), transparent);
+}
+.sec-label {
+font-size: 10.5px !important;
+color: #f0c040 !important;
+font-weight: 700 !important; letter-spacing: 2px;
+text-transform: uppercase; white-space: nowrap;
+font-family: ‘Cairo’, sans-serif !important;
+}
 
-    .grid-container { grid-column: span 4; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; order: 4; }
-    @media (min-width: 768px) { .grid-container { grid-template-columns: repeat(4, 1fr); } }
+/* ===== GRID ===== */
+.grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 11px; padding: 0 5% 115px;
+position: relative; z-index: 10;
+}
+@media(min-width: 560px) { .grid { grid-template-columns: repeat(3,1fr); } }
+@media(min-width: 860px) { .grid { grid-template-columns: repeat(4,1fr); } }
 
-    .source-card { background: var(--card-bg); backdrop-filter: var(--glass); border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; padding: 20px; text-align: center; text-decoration: none; color: white; transition: 0.3s; display: flex; flex-direction: column; align-items: center; gap: 8px; }
-    .source-card:active { transform: scale(0.95); }
-    .source-card i { font-size: 28px; color: var(--primary); }
-    .source-card h3 { font-size: 15px; font-weight: 700; }
-    .source-card p { font-size: 10px; color: #94a3b8; }
+/* ===== CARDS ===== */
+.card {
+background-color: rgba(10,20,40,0.75) !important;
+border: 1px solid rgba(240,192,64,0.16) !important;
+border-radius: 20px;
+padding: 22px 13px 17px;
+text-align: center;
+text-decoration: none !important;
+color: #eef2ff !important;
+display: flex; flex-direction: column;
+align-items: center; gap: 9px;
+transition: transform .32s cubic-bezier(.34,1.56,.64,1),
+border-color .3s, box-shadow .3s, background-color .3s;
+position: relative; overflow: hidden;
+backdrop-filter: blur(16px);
+}
+.card:hover {
+transform: translateY(-6px) scale(1.025);
+border-color: rgba(240,192,64,0.5) !important;
+box-shadow: 0 16px 40px rgba(0,0,0,0.4), 0 0 26px rgba(240,192,64,0.18);
+background-color: rgba(15,28,55,0.88) !important;
+}
+.card:active { transform: scale(.95); }
 
-    .bottom-nav { position: fixed; bottom: 15px; left: 15px; right: 15px; background: rgba(30, 41, 59, 0.85); backdrop-filter: var(--glass); height: 60px; border-radius: 20px; display: flex; justify-content: space-around; align-items: center; border: 1px solid rgba(255,255,255,0.1); z-index: 2000; }
-    .nav-item { color: #94a3b8; text-decoration: none; display: flex; flex-direction: column; align-items: center; font-size: 16px; }
-    .nav-item.active { color: var(--primary); }
-    .nav-item span { font-size: 9px; margin-top: 3px; font-weight: 700; }
+/* Icon wrapper colors — مثبتة بـ !important */
+.ico {
+width: 50px; height: 50px; border-radius: 14px;
+display: flex; align-items: center; justify-content: center;
+transition: transform .3s; flex-shrink: 0;
+}
+.card:hover .ico { transform: scale(1.1) rotate(-4deg); }
 
-    .footer-note { grid-column: span 4; text-align: center; padding: 30px 0; color: #94a3b8; font-size: 12px; order: 5; }
-    #no-results { grid-column: span 4; text-align: center; display: none; padding: 10px; color: #ff4757; order: 4; }
-  </style>
+.ico.g  { background-color: rgba(240,192,64,0.15) !important;  border: 1px solid rgba(240,192,64,0.25) !important; }
+.ico.g  i { color: #f0c040 !important; }
+.ico.c  { background-color: rgba(0,212,255,0.14) !important;   border: 1px solid rgba(0,212,255,0.25) !important; }
+.ico.c  i { color: #00d4ff !important; }
+.ico.n  { background-color: rgba(0,229,160,0.14) !important;   border: 1px solid rgba(0,229,160,0.25) !important; }
+.ico.n  i { color: #00e5a0 !important; }
+.ico.p  { background-color: rgba(167,139,250,0.14) !important; border: 1px solid rgba(167,139,250,0.25) !important; }
+.ico.p  i { color: #a78bfa !important; }
+.ico.r  { background-color: rgba(255,107,107,0.14) !important; border: 1px solid rgba(255,107,107,0.25) !important; }
+.ico.r  i { color: #ff6b6b !important; }
+
+.ico i { font-size: 21px !important; }
+
+.card h3 {
+font-size: 12.5px !important; font-weight: 700 !important;
+line-height: 1.3;
+color: #eef2ff !important;
+font-family: ‘Cairo’, sans-serif !important;
+}
+.card p {
+font-size: 9.5px !important;
+color: #7a90b8 !important;
+line-height: 1.4;
+font-family: ‘Cairo’, sans-serif !important;
+}
+
+/* Tags */
+.tag {
+position: absolute; top: 10px; left: 10px;
+font-size: 7.5px !important; padding: 2px 8px;
+border-radius: 10px; font-weight: 700 !important; letter-spacing: 0.9px;
+font-family: ‘Cairo’, sans-serif !important;
+}
+.tag.new {
+background-color: rgba(0,229,160,0.14) !important;
+color: #00e5a0 !important;
+border: 1px solid rgba(0,229,160,0.25);
+}
+.tag.hot {
+background-color: rgba(255,107,107,0.14) !important;
+color: #ff6b6b !important;
+border: 1px solid rgba(255,107,107,0.25);
+}
+
+/* ===== NO RESULTS ===== */
+#no-res {
+display: none; grid-column: 1/-1;
+text-align: center; padding: 40px;
+color: #7a90b8 !important;
+font-size: 14px !important;
+font-family: ‘Cairo’, sans-serif !important;
+}
+#no-res i {
+display: block; font-size: 34px;
+color: rgba(240,192,64,0.4) !important;
+margin-bottom: 12px;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+position: relative; z-index: 10;
+padding: 28px 5% 116px; text-align: center;
+border-top: 1px solid rgba(240,192,64,0.16);
+}
+.f-logo {
+font-family: ‘Tajawal’, sans-serif !important;
+font-size: 19px !important; font-weight: 900 !important;
+background: linear-gradient(90deg, #f0c040, #ffffff) !important;
+-webkit-background-clip: text !important;
+-webkit-text-fill-color: transparent !important;
+margin-bottom: 5px;
+}
+.f-sub {
+font-size: 10.5px !important;
+color: #7a90b8 !important;
+font-family: ‘Cairo’, sans-serif !important;
+}
+.f-acc { color: #f0c040 !important; font-weight: 700 !important; }
+
+/* ===== BOTTOM NAV ===== */
+.bnav {
+position: fixed; bottom: 14px; left: 14px; right: 14px;
+height: 61px; border-radius: 22px; z-index: 9000;
+background-color: rgba(5,11,24,0.95) !important;
+backdrop-filter: blur(30px) saturate(2);
+border: 1px solid rgba(240,192,64,0.18);
+display: flex; justify-content: space-around; align-items: center;
+box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+}
+.ni {
+color: #7a90b8 !important;
+text-decoration: none !important;
+display: flex; flex-direction: column;
+align-items: center; gap: 3px;
+transition: color .2s; padding: 4px 8px;
+border-radius: 12px; font-size: 16px !important;
+}
+.ni span {
+font-size: 8px !important; font-weight: 700 !important;
+letter-spacing: 0.3px;
+font-family: ‘Cairo’, sans-serif !important;
+color: inherit !important;
+}
+.ni.on { color: #f0c040 !important; }
+.ni.on i { filter: drop-shadow(0 0 6px #f0c040); }
+.ni:active { transform: scale(.87); }
+
+/* ===== ANIMATIONS ===== */
+@keyframes up { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #04080f; }
+::-webkit-scrollbar-thumb { background: #c8993a; border-radius: 2px; }
+</style>
+
 </head>
 <body>
+<canvas id="bg-canvas"></canvas>
 
-  <div class="announcement">
-    <div class="announcement-text">تنويه: يُعرض عبر هذا الشريط آخر التحديثات والإضافات في مكتبة اليرموك الرقمية.</div>
+<!-- TICKER -->
+
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>مكتبة اليرموك الرقمية</span>
+    <span>25+ مصدر تعليمي موثوق</span>
+    <span>منصات وزارة التعليم الرسمية</span>
+    <span>مركز مصادر التعلم</span>
+    <span>ثانوية اليرموك - التميز والريادة</span>
+    <span>مكتبة اليرموك الرقمية</span>
+    <span>25+ مصدر تعليمي موثوق</span>
+    <span>منصات وزارة التعليم الرسمية</span>
+    <span>مركز مصادر التعلم</span>
+    <span>ثانوية اليرموك - التميز والريادة</span>
   </div>
+</div>
 
-  <header>
-    <div class="brand">
-      <img src="logo.jpg" alt="Logo" class="logo">
-      <div class="header-text">
-        <h1>المكتبة الرقمية</h1>
-        <p>ثانوية اليرموك</p>
-      </div>
+<!-- HEADER -->
+
+<header>
+  <a class="brand" href="index.html">
+    <div class="logo-ring"><img src="logo.jpg" alt="شعار اليرموك"></div>
+    <div class="brand-words">
+      <span class="b-title">المكتبة الرقمية</span>
+      <span class="b-sub">ثانوية اليرموك · مركز مصادر التعلم</span>
     </div>
-  </header>
+  </a>
+  <div class="live-badge"><div class="dot"></div>مباشر</div>
+</header>
 
-  <div class="container">
-    <div class="hero-box">
-      <iframe src="https://www.youtube.com/embed/mX6e42Q7cO0" allowfullscreen></iframe>
-    </div>
+<!-- HERO -->
 
-    <div class="intro-box">
-      <p>انطلاقًا من أهمية إثراء المحتوى الرقمي، تم إنشاء هذه المكتبة لتكون مرجعًا موثوقًا للطلاب والمعلمين. تهدف هذه المنصة إلى تسهيل الوصول للمعلومات، وتحفيز التعلم الذاتي، ودعم العملية التعليمية بأدوات حديثة.</p>
-    </div>
+<section class="hero">
+  <div class="eyebrow"><i class="fas fa-bolt"></i>مركز مصادر التعلم الرقمي</div>
+  <h1 class="h-title">
+    <span class="l1">بوابتك إلى</span>
+    <span class="l2">عالم المعرفة</span>
+  </h1>
+  <p class="h-desc">منصة تعليمية متكاملة تجمع أفضل المصادر الرقمية الرسمية لدعم مسيرتك التعليمية وتحقيق التميز الأكاديمي.</p>
 
-    <div class="search-section">
-      <input type="text" id="searchInput" class="search-input" placeholder="ابحث عن مصدر أو كتاب...">
-      <div class="filter-buttons">
-        <button onclick="filterItems('all')">الكل</button>
-        <button onclick="filterItems('book')">كتب</button>
-        <button onclick="filterItems('video')">فيديوهات</button>
-        <button onclick="filterItems('interactive')">تفاعلي</button>
-      </div>
-    </div>
-
-    <div id="no-results">عذراً، لا توجد نتائج.</div>
-
-    <div class="grid-container" id="library">
-      <!-- مدرستي -->
-      <a href="https://schools.madrasati.sa" target="_blank" class="source-card item interactive">
-        <i class="fas fa-graduation-cap"></i>
-        <h3>مدرستي</h3>
-        <p>الفصول والواجبات</p>
-      </a>
-
-      <!-- منصة عين -->
-      <a href="https://ien.edu.sa" target="_blank" class="source-card item book">
-        <i class="fas fa-book-open"></i>
-        <h3>منصة عين</h3>
-        <p>بوابة التعليم</p>
-      </a>
-
-      <!-- منصة أبعاد - جديد -->
-      <a href="https://moe.futurex.sa/" target="_blank" class="source-card item interactive">
-        <i class="fas fa-cubes"></i>
-        <h3>منصة أبعاد</h3>
-        <p>المسارات المهارية</p>
-      </a>
-
-      <!-- موهبة -->
-      <a href="https://www.mawhiba.org/" target="_blank" class="source-card item interactive">
-        <i class="fas fa-brain"></i>
-        <h3>موهبة</h3>
-        <p>رعاية الموهوبين</p>
-      </a>
-
-      <!-- مركز قياس -->
-      <a href="https://e-services.etec.gov.sa/" target="_blank" class="source-card item interactive">
-        <i class="fas fa-edit"></i>
-        <h3>مركز قياس</h3>
-        <p>القدرات والتحصيلي</p>
-      </a>
-
-      <!-- منصتي للاختبارات -->
-      <a href="https://ekhtibar.moe.gov.sa/" target="_blank" class="source-card item interactive">
-        <i class="fas fa-file-signature"></i>
-        <h3>منصتي للاختبارات</h3>
-        <p>الاختبارات المركزية</p>
-      </a>
-
-      <!-- منصة أبواب -->
-      <a href="https://abwaab.com/" target="_blank" class="source-card item interactive">
-        <i class="fas fa-door-open"></i>
-        <h3>منصة أبواب</h3>
-        <p>دروس تفاعلية</p>
-      </a>
-
-      <!-- بوابة المستقبل -->
-      <a href="https://fg.moe.gov.sa/" target="_blank" class="source-card item interactive">
-        <i class="fas fa-rocket"></i>
-        <h3>بوابة المستقبل</h3>
-        <p>التحول الرقمي</p>
-      </a>
-
-      <!-- منصة إثرائي -->
-      <a href="https://ethrai.sa/" target="_blank" class="source-card item interactive">
-        <i class="fas fa-laptop-code"></i>
-        <h3>منصة إثرائي</h3>
-        <p>التدريب الإلكتروني</p>
-      </a>
-
-      <!-- المعجم الوسيط -->
-      <a href="https://www.almaany.com/ar/dict/ar-ar/" target="_blank" class="source-card item book">
-        <i class="fas fa-spell-check"></i>
-        <h3>المعجم الوسيط</h3>
-        <p>قاموس اللغة العربية</p>
-      </a>
-
-      <!-- المكتبة الرقمية العربية -->
-      <a href="https://www.arabicdigitallibrary.com/" target="_blank" class="source-card item book">
-        <i class="fas fa-atlas"></i>
-        <h3>المكتبة العربية</h3>
-        <p>ملايين المصادر</p>
-      </a>
-
-      <!-- منصة تعلم الإنجليزية -->
-      <a href="https://ien.edu.sa/Home/English" target="_blank" class="source-card item interactive">
-        <i class="fas fa-language"></i>
-        <h3>English Learning</h3>
-        <p>تعلم الإنجليزية</p>
-      </a>
-
-      <!-- مؤسسة هنداوي -->
-      <a href="https://www.hindawi.org/" target="_blank" class="source-card item book">
-        <i class="fas fa-book-reader"></i>
-        <h3>مؤسسة هنداوي</h3>
-        <p>كتب مجانية</p>
-      </a>
-
-      <!-- موقع كتبي -->
-      <a href="https://www.kottby.net" target="_blank" class="source-card item book">
-        <i class="fas fa-file-pdf"></i>
-        <h3>موقع كتبي</h3>
-        <p>المناهج والحلول</p>
-      </a>
-
-      <!-- المكتبة السعودية -->
-      <a href="https://sdl.edu.sa" target="_blank" class="source-card item book">
-        <i class="fas fa-university"></i>
-        <h3>المكتبة السعودية</h3>
-        <p>البحث الرقمي</p>
-      </a>
-
-      <!-- منصة تميز -->
-      <a href="https://se.etec.gov.sa" target="_blank" class="source-card item interactive">
-        <i class="fas fa-star"></i>
-        <h3>منصة تميز</h3>
-        <p>تطوير المهارات</p>
-      </a>
-
-      <!-- قناة التقنيات التعليمية -->
-      <a href="https://www.youtube.com/@Edu_Tech" target="_blank" class="source-card item video">
-        <i class="fas fa-microchip"></i>
-        <h3>التقنيات التعليمية</h3>
-        <p>مهارات تقنية</p>
-      </a>
-
-      <!-- قناة عين -->
-      <a href="https://www.ientv.edu.sa/" target="_blank" class="source-card item video">
-        <i class="fab fa-youtube"></i>
-        <h3>قناة عين</h3>
-        <p>دروس مرئية</p>
-      </a>
-
-      <!-- وزارة التعليم -->
-      <a href="https://youtube.com/@moe_gov" target="_blank" class="source-card item video">
-        <i class="fas fa-tv"></i>
-        <h3>وزارة التعليم</h3>
-        <p>القناة الرسمية</p>
-      </a>
-
-      <!-- تواصل معنا -->
-      <a href="contact.html" class="source-card item interactive">
-        <i class="fas fa-envelope-open-text"></i>
-        <h3>تواصل معنا</h3>
-        <p>أرسل مقترحاتك</p>
-      </a>
-    </div>
-
-    <div class="footer-note">
-      <p>جميع الحقوق محفوظة © مدرسة اليرموك الثانوية</p>
-      <p style="font-weight: bold; margin-top: 5px; color: var(--primary);">مركز مصادر التعلم</p>
-    </div>
+  <div class="stats">
+    <div class="s-item"><span class="s-num" data-t="25">0</span><span class="s-lbl">مصدر رقمي</span></div>
+    <div class="s-item"><span class="s-num" data-t="12">0</span><span class="s-lbl">منصة رسمية</span></div>
+    <div class="s-item"><span class="s-num" data-t="5">0</span><span class="s-lbl">مكتبات رقمية</span></div>
+    <div class="s-item"><span class="s-num" data-t="3">0</span><span class="s-lbl">قنوات تعليمية</span></div>
   </div>
+</section>
 
-  <div class="bottom-nav">
-    <a href="index.html" class="nav-item active">
-      <i class="fas fa-th-large"></i>
-      <span>الرئيسية</span>
-    </a>
-    <a href="kids.html" class="nav-item">
-      <i class="fas fa-gamepad"></i>
-      <span>الأنشطة</span>
-    </a>
-    <a href="ask.html" class="nav-item">
-      <i class="fas fa-comment-dots"></i>
-      <span>اسأل</span>
-    </a>
-    <a href="contact.html" class="nav-item">
-      <i class="fas fa-envelope"></i>
-      <span>تواصل</span>
-    </a>
-    <a href="downloads.html" class="nav-item">
-      <i class="fas fa-download"></i>
-      <span>تحميل</span>
-    </a>
-    <a href="certificate.html" class="nav-item">
-      <i class="fas fa-award"></i>
-      <span>شهادة</span>
-    </a>
+<!-- SEARCH -->
+
+<div class="search-zone">
+  <div class="s-box">
+    <span class="s-ico"><i class="fas fa-search"></i></span>
+    <input type="text" id="searchInput" class="s-input" placeholder="ابحث عن منصة أو مصدر تعليمي...">
+    <button class="s-go">بحث</button>
   </div>
+</div>
 
-  <script>
-    const searchInput = document.getElementById('searchInput');
-    const items = document.querySelectorAll('.item');
-    const noResults = document.getElementById('no-results');
+<!-- VIDEO -->
 
-    searchInput.addEventListener('input', () => {
-      const val = searchInput.value.toLowerCase();
-      let found = false;
-      items.forEach(item => {
-        if (item.textContent.toLowerCase().includes(val)) {
-          item.style.display = 'flex';
-          found = true;
-        } else {
-          item.style.display = 'none';
-        }
-      });
-      noResults.style.display = found ? 'none' : 'block';
-    });
+<div class="vid-sec">
+  <div class="vid-card">
+    <iframe src="https://www.youtube.com/embed/mX6e42Q7cO0" allowfullscreen loading="lazy"></iframe>
+    <div class="vid-label"><i class="fas fa-play-circle"></i>نشرة المكتبة</div>
+  </div>
+</div>
 
-    function filterItems(type) {
-      searchInput.value = "";
-      noResults.style.display = 'none';
-      items.forEach(item => {
-        item.style.display = (type === 'all' || item.classList.contains(type)) ? 'flex' : 'none';
-      });
+<!-- FILTERS -->
+
+<div class="filters">
+  <button class="f-btn on" onclick="filterItems('all',this)">◈ الكل</button>
+  <button class="f-btn" onclick="filterItems('interactive',this)">⬡ منصات</button>
+  <button class="f-btn" onclick="filterItems('book',this)">◉ مكتبات</button>
+  <button class="f-btn" onclick="filterItems('video',this)">▷ فيديو</button>
+</div>
+
+<!-- SECTION HEAD -->
+
+<div class="sec-head">
+  <i class="fas fa-layer-group" style="color:#f0c040;font-size:11px;"></i>
+  <span class="sec-label">المصادر والمنصات</span>
+</div>
+
+<!-- NO RESULTS -->
+
+<div id="no-res"><i class="fas fa-search"></i>لا توجد نتائج مطابقة</div>
+
+<!-- GRID -->
+
+<div class="grid" id="library">
+
+  <a href="https://schools.madrasati.sa" target="_blank" class="card item interactive">
+    <div class="ico g"><i class="fas fa-graduation-cap"></i></div>
+    <h3>مدرستي</h3><p>الفصول والواجبات والاختبارات</p>
+  </a>
+
+  <a href="https://ien.edu.sa" target="_blank" class="card item book">
+    <div class="ico c"><i class="fas fa-book-open"></i></div>
+    <h3>منصة عين</h3><p>بوابة التعليم الإلكتروني</p>
+  </a>
+
+  <a href="https://moe.futurex.sa/" target="_blank" class="card item interactive">
+    <span class="tag new">جديد</span>
+    <div class="ico p"><i class="fas fa-cubes"></i></div>
+    <h3>منصة أبعاد</h3><p>المسارات المهارية</p>
+  </a>
+
+  <a href="https://www.mawhiba.org/" target="_blank" class="card item interactive">
+    <div class="ico g"><i class="fas fa-brain"></i></div>
+    <h3>موهبة</h3><p>رعاية الموهوبين</p>
+  </a>
+
+  <a href="https://e-services.etec.gov.sa/" target="_blank" class="card item interactive">
+    <div class="ico c"><i class="fas fa-edit"></i></div>
+    <h3>مركز قياس</h3><p>القدرات والتحصيلي</p>
+  </a>
+
+  <a href="https://ekhtibar.moe.gov.sa/" target="_blank" class="card item interactive">
+    <div class="ico n"><i class="fas fa-file-signature"></i></div>
+    <h3>منصتي للاختبارات</h3><p>الاختبارات المركزية</p>
+  </a>
+
+  <a href="https://abwaab.com/" target="_blank" class="card item interactive">
+    <div class="ico p"><i class="fas fa-door-open"></i></div>
+    <h3>منصة أبواب</h3><p>دروس تفاعلية</p>
+  </a>
+
+  <a href="https://fg.moe.gov.sa/" target="_blank" class="card item interactive">
+    <div class="ico g"><i class="fas fa-rocket"></i></div>
+    <h3>بوابة المستقبل</h3><p>التحول الرقمي التعليمي</p>
+  </a>
+
+  <a href="https://ethrai.sa/" target="_blank" class="card item interactive">
+    <div class="ico c"><i class="fas fa-laptop-code"></i></div>
+    <h3>منصة إثرائي</h3><p>التدريب الإلكتروني</p>
+  </a>
+
+  <a href="https://noor.moe.gov.sa" target="_blank" class="card item interactive">
+    <div class="ico n"><i class="fas fa-database"></i></div>
+    <h3>نظام نور</h3><p>بيانات الطلاب والمدارس</p>
+  </a>
+
+  <a href="https://nataeji.moe.gov.sa" target="_blank" class="card item interactive">
+    <div class="ico g"><i class="fas fa-clipboard-check"></i></div>
+    <h3>نتائجي</h3><p>نتائج الطلاب والشهادات</p>
+  </a>
+
+  <a href="https://futurex.edu.sa" target="_blank" class="card item interactive">
+    <span class="tag new">جديد</span>
+    <div class="ico p"><i class="fas fa-chalkboard-teacher"></i></div>
+    <h3>فيوتشرإكس</h3><p>دورات وتطوير مهني</p>
+  </a>
+
+  <a href="https://doroob.com.sa" target="_blank" class="card item interactive">
+    <div class="ico c"><i class="fas fa-road"></i></div>
+    <h3>منصة دروب</h3><p>تدريب مهني مجاني</p>
+  </a>
+
+  <a href="https://se.etec.gov.sa" target="_blank" class="card item interactive">
+    <div class="ico g"><i class="fas fa-star"></i></div>
+    <h3>منصة تميز</h3><p>تطوير المهارات</p>
+  </a>
+
+  <a href="https://www.almaany.com/ar/dict/ar-ar/" target="_blank" class="card item book">
+    <div class="ico c"><i class="fas fa-spell-check"></i></div>
+    <h3>المعجم الوسيط</h3><p>قاموس اللغة العربية</p>
+  </a>
+
+  <a href="https://www.arabicdigitallibrary.com/" target="_blank" class="card item book">
+    <div class="ico n"><i class="fas fa-atlas"></i></div>
+    <h3>المكتبة العربية</h3><p>ملايين المصادر الرقمية</p>
+  </a>
+
+  <a href="https://www.hindawi.org/" target="_blank" class="card item book">
+    <div class="ico p"><i class="fas fa-book-reader"></i></div>
+    <h3>مؤسسة هنداوي</h3><p>كتب عربية مجانية</p>
+  </a>
+
+  <a href="https://www.kottby.net" target="_blank" class="card item book">
+    <div class="ico g"><i class="fas fa-file-pdf"></i></div>
+    <h3>موقع كتبي</h3><p>المناهج والحلول</p>
+  </a>
+
+  <a href="https://sdl.edu.sa" target="_blank" class="card item book">
+    <span class="tag hot">مميز</span>
+    <div class="ico g"><i class="fas fa-university"></i></div>
+    <h3>المكتبة السعودية</h3><p>البحث العلمي الرقمي</p>
+  </a>
+
+  <a href="https://ien.edu.sa/Home/English" target="_blank" class="card item interactive">
+    <div class="ico c"><i class="fas fa-language"></i></div>
+    <h3>English Learning</h3><p>تعلم اللغة الإنجليزية</p>
+  </a>
+
+  <a href="https://www.youtube.com/@Edu_Tech" target="_blank" class="card item video">
+    <div class="ico r"><i class="fas fa-microchip"></i></div>
+    <h3>التقنيات التعليمية</h3><p>مهارات تقنية بالفيديو</p>
+  </a>
+
+  <a href="https://www.ientv.edu.sa/" target="_blank" class="card item video">
+    <div class="ico r"><i class="fab fa-youtube"></i></div>
+    <h3>قناة عين</h3><p>دروس مرئية تفاعلية</p>
+  </a>
+
+  <a href="https://youtube.com/@moe_gov" target="_blank" class="card item video">
+    <div class="ico r"><i class="fas fa-tv"></i></div>
+    <h3>وزارة التعليم</h3><p>القناة الرسمية</p>
+  </a>
+
+  <a href="contact.html" class="card item interactive">
+    <div class="ico n"><i class="fas fa-envelope-open-text"></i></div>
+    <h3>تواصل معنا</h3><p>أرسل مقترحاتك واستفساراتك</p>
+  </a>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+  <div class="f-logo">المكتبة الرقمية</div>
+  <div class="f-sub">جميع الحقوق محفوظة © ثانوية اليرموك</div>
+  <div class="f-sub" style="margin-top:5px;"><span class="f-acc">مركز مصادر التعلم</span></div>
+</footer>
+
+<!-- BOTTOM NAV -->
+
+<nav class="bnav">
+  <a href="index.html" class="ni on"><i class="fas fa-th-large"></i><span>الرئيسية</span></a>
+  <a href="kids.html" class="ni"><i class="fas fa-gamepad"></i><span>الأنشطة</span></a>
+  <a href="ask.html" class="ni"><i class="fas fa-comment-dots"></i><span>اسأل</span></a>
+  <a href="contact.html" class="ni"><i class="fas fa-envelope"></i><span>تواصل</span></a>
+  <a href="downloads.html" class="ni"><i class="fas fa-download"></i><span>تحميل</span></a>
+  <a href="certificate.html" class="ni"><i class="fas fa-award"></i><span>شهادة</span></a>
+</nav>
+
+<script>
+/* ===== CANVAS ===== */
+const cv = document.getElementById('bg-canvas');
+const cx = cv.getContext('2d');
+let W, H, pts = [];
+function rsz() { W = cv.width = window.innerWidth; H = cv.height = window.innerHeight; }
+rsz(); window.addEventListener('resize', rsz);
+class Pt {
+  constructor() { this.rst(); }
+  rst() {
+    this.x = Math.random()*W; this.y = Math.random()*H;
+    this.vx = (Math.random()-.5)*.26; this.vy = (Math.random()-.5)*.26;
+    this.r = Math.random()*1.3+.3; this.a = Math.random()*.4+.12;
+    this.col = Math.random() > .65 ? '#f0c040' : '#00d4ff';
+  }
+  upd() { this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>W||this.y<0||this.y>H) this.rst(); }
+  drw() { cx.beginPath(); cx.arc(this.x,this.y,this.r,0,Math.PI*2); cx.fillStyle=this.col; cx.globalAlpha=this.a; cx.fill(); cx.globalAlpha=1; }
+}
+for(let i=0;i<80;i++) pts.push(new Pt());
+function frame() {
+  cx.clearRect(0,0,W,H);
+  const g1=cx.createRadialGradient(W*.15,H*.2,0,W*.15,H*.2,W*.6);
+  g1.addColorStop(0,'rgba(100,72,10,.07)'); g1.addColorStop(1,'transparent');
+  cx.fillStyle=g1; cx.fillRect(0,0,W,H);
+  const g2=cx.createRadialGradient(W*.85,H*.8,0,W*.85,H*.8,W*.5);
+  g2.addColorStop(0,'rgba(0,70,110,.07)'); g2.addColorStop(1,'transparent');
+  cx.fillStyle=g2; cx.fillRect(0,0,W,H);
+  for(let i=0;i<pts.length;i++) {
+    for(let j=i+1;j<pts.length;j++) {
+      const dx=pts[i].x-pts[j].x, dy=pts[i].y-pts[j].y, d=Math.sqrt(dx*dx+dy*dy);
+      if(d<90) { cx.beginPath(); cx.moveTo(pts[i].x,pts[i].y); cx.lineTo(pts[j].x,pts[j].y); cx.strokeStyle=`rgba(240,192,64,${.05*(1-d/90)})`; cx.lineWidth=.35; cx.stroke(); }
     }
-  </script>
+  }
+  pts.forEach(p=>{p.upd();p.drw();});
+  requestAnimationFrame(frame);
+}
+frame();
+
+/* ===== COUNTERS ===== */
+setTimeout(() => {
+  document.querySelectorAll('[data-t]').forEach(el => {
+    const target = parseInt(el.dataset.t); let cur = 0;
+    const t = setInterval(() => { cur = Math.min(cur+1, target); el.textContent = cur+'+'; if(cur>=target) clearInterval(t); }, 45);
+  });
+}, 500);
+
+/* ===== SEARCH ===== */
+const si = document.getElementById('searchInput');
+const items = document.querySelectorAll('.item');
+const nr = document.getElementById('no-res');
+si.addEventListener('input', () => {
+  const v = si.value.toLowerCase(); let f = false;
+  items.forEach(item => { const m = item.textContent.toLowerCase().includes(v); item.style.display = m?'flex':'none'; if(m) f=true; });
+  nr.style.display = f ? 'none' : 'block';
+});
+
+/* ===== FILTER ===== */
+function filterItems(type, btn) {
+  document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on'); si.value=''; nr.style.display='none';
+  items.forEach(item => { item.style.display = (type==='all'||item.classList.contains(type)) ? 'flex' : 'none'; });
+}
+
+/* ===== CARD ENTRANCE ===== */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => { if(e.isIntersecting) { e.target.style.animation=`up 0.45s ${i*.03}s ease both`; io.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.card').forEach(c => io.observe(c));
+</script>
+
 </body>
 </html>
