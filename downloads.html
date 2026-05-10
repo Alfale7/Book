@@ -33,123 +33,53 @@ header{position:sticky;top:0;z-index:500;height:68px;padding:0 5%;display:flex;a
 .page-badge{display:flex;align-items:center;gap:7px;background-color:rgba(167,139,250,0.1) !important;border:1px solid rgba(167,139,250,0.28);border-radius:20px;padding:6px 14px;font-size:11px !important;color:#a78bfa !important;font-weight:700 !important;font-family:‘Cairo’,sans-serif !important;}
 
 /* HERO */
-.hero{position:relative;z-index:10;padding:44px 5% 8px;text-align:center;}
+.hero{position:relative;z-index:10;padding:50px 5% 16px;text-align:center;}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;background-color:rgba(167,139,250,0.1) !important;border:1px solid rgba(167,139,250,0.3);border-radius:30px;padding:6px 18px;font-size:10.5px !important;color:#a78bfa !important;font-weight:700 !important;font-family:‘Cairo’,sans-serif !important;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px;animation:up .8s ease both;}
 .h-title{font-family:‘Tajawal’,sans-serif !important;font-size:clamp(26px,6vw,52px);font-weight:900 !important;line-height:1.15;margin-bottom:12px;animation:up .9s .1s ease both;}
 .l1{display:block;background:linear-gradient(135deg,#ffffff,#c8d6ff) !important;-webkit-background-clip:text !important;-webkit-text-fill-color:transparent !important;}
 .l2{display:block;background:linear-gradient(90deg,#a78bfa,#c084fc,#a78bfa) !important;background-size:200% !important;-webkit-background-clip:text !important;-webkit-text-fill-color:transparent !important;animation:shim 3.5s linear infinite;}
 @keyframes shim{0%{background-position:200%}100%{background-position:-200%}}
-.h-desc{font-size:13px !important;color:#7a90b8 !important;max-width:460px;margin:0 auto 28px;line-height:1.9;animation:up 1s .2s ease both;font-family:‘Cairo’,sans-serif !important;}
+.h-desc{font-size:13px !important;color:#7a90b8 !important;max-width:440px;margin:0 auto 32px;line-height:1.9;animation:up 1s .2s ease both;font-family:‘Cairo’,sans-serif !important;}
 
-/* ===== VIDEO DOWNLOADER ===== */
-.dl-wrap{padding:0 5%;max-width:640px;margin:0 auto 10px;position:relative;z-index:10;animation:up 1s .3s ease both;}
-.dl-card{background-color:rgba(10,20,40,0.78) !important;border:1px solid rgba(167,139,250,0.22) !important;border-radius:24px;padding:28px 22px;backdrop-filter:blur(20px);box-shadow:0 20px 60px rgba(0,0,0,0.4);text-align:center;}
-.dl-icon-ring{width:70px;height:70px;border-radius:20px;margin:0 auto 16px;background:linear-gradient(135deg,rgba(167,139,250,0.2),rgba(192,132,252,0.1)) !important;border:1px solid rgba(167,139,250,0.3);display:flex;align-items:center;justify-content:center;position:relative;}
-.dl-icon-ring::before{content:’’;position:absolute;inset:-5px;border-radius:25px;border:1px solid rgba(167,139,250,0.18);animation:pulse-ring 2.8s ease-in-out infinite;}
-@keyframes pulse-ring{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:0;transform:scale(1.1)}}
-.dl-icon-ring i{font-size:30px !important;color:#a78bfa !important;}
-.dl-card h2{font-family:‘Tajawal’,sans-serif !important;font-size:18px !important;font-weight:900 !important;color:#eef2ff !important;margin-bottom:7px;}
-.dl-card>p{font-size:12px !important;color:#7a90b8 !important;line-height:1.8;max-width:360px;margin:0 auto 20px;font-family:‘Cairo’,sans-serif !important;}
+/* DOWNLOADER CARD */
+.dl-wrap{padding:0 5%;max-width:580px;margin:0 auto 40px;position:relative;z-index:10;animation:up 1s .3s ease both;}
+.dl-card{background-color:rgba(10,20,40,0.78) !important;border:1px solid rgba(167,139,250,0.22) !important;border-radius:28px;padding:32px 22px;backdrop-filter:blur(20px);box-shadow:0 24px 60px rgba(0,0,0,0.5);text-align:center;}
+
+/* Big Icon */
+.dl-icon-ring{width:80px;height:80px;border-radius:22px;margin:0 auto 18px;background:linear-gradient(135deg,rgba(167,139,250,0.2),rgba(192,132,252,0.1)) !important;border:1px solid rgba(167,139,250,0.3);display:flex;align-items:center;justify-content:center;position:relative;}
+.dl-icon-ring::before{content:’’;position:absolute;inset:-6px;border-radius:28px;border:1px solid rgba(167,139,250,0.18);animation:pulse-ring 2.8s ease-in-out infinite;}
+@keyframes pulse-ring{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:0;transform:scale(1.09)}}
+.dl-icon-ring i{font-size:34px !important;color:#a78bfa !important;}
+
+.dl-card h2{font-family:‘Tajawal’,sans-serif !important;font-size:20px !important;font-weight:900 !important;color:#eef2ff !important;margin-bottom:8px;}
+.dl-card>p{font-size:12.5px !important;color:#7a90b8 !important;line-height:1.85;max-width:360px;margin:0 auto 24px;font-family:‘Cairo’,sans-serif !important;}
+
+/* URL Field */
 .url-field{display:flex;align-items:center;background-color:rgba(4,8,20,0.7) !important;border:1px solid rgba(167,139,250,0.2) !important;border-radius:16px;overflow:hidden;margin-bottom:14px;transition:border-color .3s,box-shadow .3s;}
 .url-field:focus-within{border-color:rgba(167,139,250,0.55) !important;box-shadow:0 0 20px rgba(167,139,250,0.12);}
-.url-ico{padding:0 16px;color:#a78bfa !important;font-size:14px !important;flex-shrink:0;}
-.url-input{flex:1;background:transparent !important;border:none;outline:none;color:#eef2ff !important;font-family:‘Cairo’,sans-serif !important;font-size:13px !important;padding:14px 0;text-align:right;-webkit-appearance:none;}
+.url-ico{padding:0 16px;color:#a78bfa !important;font-size:15px !important;flex-shrink:0;}
+.url-input{flex:1;background:transparent !important;border:none;outline:none;color:#eef2ff !important;font-family:‘Cairo’,sans-serif !important;font-size:13.5px !important;padding:15px 0;text-align:right;-webkit-appearance:none;}
 .url-input::placeholder{color:#4a5a78 !important;}
 .url-clear{background:transparent;border:none;color:#7a90b8 !important;padding:0 14px;cursor:pointer;font-size:13px !important;transition:color .2s;display:none;}
 .url-clear:hover{color:#ff6b6b !important;}
-.btn-dl{width:100%;padding:14px;border-radius:14px;border:none;background:linear-gradient(135deg,#a78bfa,#c084fc) !important;color:#fff !important;font-family:‘Cairo’,sans-serif !important;font-weight:900 !important;font-size:14px !important;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:transform .25s,box-shadow .25s;box-shadow:0 8px 24px rgba(167,139,250,0.28);}
-.btn-dl:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(167,139,250,0.4);}
+
+/* Download Btn */
+.btn-dl{width:100%;padding:15px;border-radius:14px;border:none;background:linear-gradient(135deg,#a78bfa,#c084fc) !important;color:#fff !important;font-family:‘Cairo’,sans-serif !important;font-weight:900 !important;font-size:14px !important;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:transform .25s,box-shadow .25s;box-shadow:0 8px 24px rgba(167,139,250,0.3);}
+.btn-dl:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(167,139,250,0.44);}
 .btn-dl:active{transform:scale(.96);}
-.dl-note{margin-top:12px;font-size:10.5px !important;color:#4a5a78 !important;display:flex;align-items:center;justify-content:center;gap:5px;font-family:‘Cairo’,sans-serif !important;}
+
+/* Note */
+.dl-note{margin-top:14px;font-size:10.5px !important;color:#4a5a78 !important;display:flex;align-items:center;justify-content:center;gap:5px;font-family:‘Cairo’,sans-serif !important;}
 .dl-note i{color:#a78bfa !important;}
-.platforms{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:16px;}
-.plat{display:flex;align-items:center;gap:5px;background-color:rgba(167,139,250,0.08) !important;border:1px solid rgba(167,139,250,0.16);border-radius:20px;padding:5px 12px;font-size:10px !important;color:#a78bfa !important;font-weight:700 !important;font-family:‘Cairo’,sans-serif !important;}
-.plat i{font-size:11px !important;}
 
-/* ===== SECTION HEAD ===== */
-.sec-head{position:relative;z-index:10;padding:0 5%;margin:28px auto 14px;max-width:640px;display:flex;align-items:center;gap:12px;}
-.sec-head::after{content:’’;flex:1;height:1px;background:linear-gradient(90deg,rgba(167,139,250,0.25),transparent);}
-.sec-icon{font-size:12px !important;}
-.sec-label{font-size:10.5px !important;font-weight:700 !important;letter-spacing:2px;text-transform:uppercase;white-space:nowrap;font-family:‘Cairo’,sans-serif !important;}
-
-/* ===== SUBJECTS ACCORDION ===== */
-.subjects-wrap{padding:0 5%;max-width:640px;margin:0 auto;position:relative;z-index:10;display:flex;flex-direction:column;gap:10px;animation:up 1s .4s ease both;}
-
-.subj-card{background-color:rgba(10,20,40,0.75) !important;border:1px solid rgba(167,139,250,0.16) !important;border-radius:20px;overflow:hidden;backdrop-filter:blur(16px);transition:border-color .3s;}
-.subj-card:hover{border-color:rgba(167,139,250,0.38) !important;}
-
-.subj-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;gap:12px;}
-.subj-head-left{display:flex;align-items:center;gap:12px;}
-.subj-ico{width:42px;height:42px;border-radius:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s;}
-.subj-card.open .subj-ico{transform:scale(1.08);}
-.subj-ico i{font-size:19px !important;}
-
-.subj-ico.arabic{background-color:rgba(240,192,64,0.14) !important;border:1px solid rgba(240,192,64,0.24);}
-.subj-ico.arabic i{color:#f0c040 !important;}
-.subj-ico.math{background-color:rgba(0,212,255,0.14) !important;border:1px solid rgba(0,212,255,0.24);}
-.subj-ico.math i{color:#00d4ff !important;}
-.subj-ico.science{background-color:rgba(0,229,160,0.14) !important;border:1px solid rgba(0,229,160,0.24);}
-.subj-ico.science i{color:#00e5a0 !important;}
-.subj-ico.english{background-color:rgba(167,139,250,0.14) !important;border:1px solid rgba(167,139,250,0.24);}
-.subj-ico.english i{color:#a78bfa !important;}
-.subj-ico.social{background-color:rgba(255,107,107,0.14) !important;border:1px solid rgba(255,107,107,0.24);}
-.subj-ico.social i{color:#ff6b6b !important;}
-.subj-ico.islamic{background-color:rgba(240,192,64,0.14) !important;border:1px solid rgba(240,192,64,0.24);}
-.subj-ico.islamic i{color:#f0c040 !important;}
-
-.subj-info h3{font-size:13px !important;font-weight:700 !important;color:#eef2ff !important;font-family:‘Cairo’,sans-serif !important;}
-.subj-info p{font-size:10px !important;color:#7a90b8 !important;font-family:‘Cairo’,sans-serif !important;margin-top:2px;}
-.subj-arrow{color:#7a90b8 !important;font-size:11px !important;transition:transform .3s;flex-shrink:0;}
-.subj-card.open .subj-arrow{transform:rotate(180deg);color:#a78bfa !important;}
-
-.subj-body{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.4,0,.2,1);}
-.subj-card.open .subj-body{max-height:500px;}
-.subj-links{padding:0 16px 16px;display:flex;flex-direction:column;gap:8px;border-top:1px solid rgba(255,255,255,0.05);}
-
-.res-link{
-display:flex;align-items:center;gap:12px;
-background-color:rgba(4,8,20,0.5) !important;
-border:1px solid rgba(255,255,255,0.07);
-border-radius:14px;padding:12px 14px;
-text-decoration:none !important;color:#eef2ff !important;
-transition:border-color .25s,background-color .25s,transform .2s;
-}
-.res-link:hover{background-color:rgba(167,139,250,0.1) !important;border-color:rgba(167,139,250,0.3);transform:translateX(-4px);}
-.res-link:active{transform:scale(.97);}
-.res-link-ico{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px !important;}
-.res-link-ico.pdf{background-color:rgba(255,107,107,0.14) !important;border:1px solid rgba(255,107,107,0.22);}
-.res-link-ico.pdf i{color:#ff6b6b !important;}
-.res-link-ico.web{background-color:rgba(0,212,255,0.14) !important;border:1px solid rgba(0,212,255,0.22);}
-.res-link-ico.web i{color:#00d4ff !important;}
-.res-link-ico.vid{background-color:rgba(255,107,107,0.14) !important;border:1px solid rgba(255,107,107,0.22);}
-.res-link-ico.vid i{color:#ff6b6b !important;}
-.res-link-ico.book{background-color:rgba(240,192,64,0.14) !important;border:1px solid rgba(240,192,64,0.22);}
-.res-link-ico.book i{color:#f0c040 !important;}
-.res-link-text{flex:1;}
-.res-link-title{font-size:12px !important;font-weight:700 !important;color:#eef2ff !important;font-family:‘Cairo’,sans-serif !important;}
-.res-link-desc{font-size:9.5px !important;color:#7a90b8 !important;font-family:‘Cairo’,sans-serif !important;margin-top:2px;}
-.res-link-ext{font-size:9px !important;padding:2px 8px;border-radius:8px;font-weight:700 !important;font-family:‘Cairo’,sans-serif !important;}
-.res-link-ext.free{background-color:rgba(0,229,160,0.12) !important;color:#00e5a0 !important;border:1px solid rgba(0,229,160,0.2);}
-.res-link-ext.official{background-color:rgba(240,192,64,0.12) !important;color:#f0c040 !important;border:1px solid rgba(240,192,64,0.2);}
-
-/* ===== QUICK FILES ===== */
-.files-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;padding:0 5%;max-width:640px;margin:0 auto;position:relative;z-index:10;animation:up 1s .5s ease both;}
-@media(min-width:560px){.files-grid{grid-template-columns:repeat(3,1fr);}}
-.file-card{background-color:rgba(10,20,40,0.72) !important;border:1px solid rgba(167,139,250,0.16) !important;border-radius:18px;padding:18px 12px;text-align:center;text-decoration:none !important;color:#eef2ff !important;backdrop-filter:blur(16px);display:flex;flex-direction:column;align-items:center;gap:8px;transition:transform .3s cubic-bezier(.34,1.56,.64,1),border-color .3s,box-shadow .3s;}
-.file-card:hover{transform:translateY(-5px) scale(1.02);border-color:rgba(167,139,250,0.45) !important;box-shadow:0 12px 32px rgba(0,0,0,0.35),0 0 20px rgba(167,139,250,0.12);}
-.file-card:active{transform:scale(.95);}
-.file-ico{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;}
-.file-ico.p{background-color:rgba(167,139,250,0.15) !important;border:1px solid rgba(167,139,250,0.25);}
-.file-ico.p i{color:#a78bfa !important;}
-.file-ico.r{background-color:rgba(255,107,107,0.14) !important;border:1px solid rgba(255,107,107,0.24);}
-.file-ico.r i{color:#ff6b6b !important;}
-.file-ico i{font-size:20px !important;}
-.file-card h3{font-size:11.5px !important;font-weight:700 !important;color:#eef2ff !important;font-family:‘Cairo’,sans-serif !important;line-height:1.3;}
-.file-card p{font-size:9px !important;color:#7a90b8 !important;font-family:‘Cairo’,sans-serif !important;}
-.file-tag{font-size:7.5px !important;padding:2px 8px;border-radius:10px;font-weight:700 !important;background-color:rgba(0,229,160,0.12) !important;color:#00e5a0 !important;border:1px solid rgba(0,229,160,0.22);font-family:‘Cairo’,sans-serif !important;}
+/* Platforms */
+.platforms{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:20px;}
+.plat{display:flex;align-items:center;gap:5px;background-color:rgba(167,139,250,0.08) !important;border:1px solid rgba(167,139,250,0.18);border-radius:20px;padding:6px 14px;font-size:10.5px !important;color:#a78bfa !important;font-weight:700 !important;font-family:‘Cairo’,sans-serif !important;transition:background-color .2s,border-color .2s;}
+.plat:hover{background-color:rgba(167,139,250,0.16) !important;border-color:rgba(167,139,250,0.4);}
+.plat i{font-size:12px !important;}
 
 /* FOOTER */
-.footer{position:relative;z-index:10;padding:28px 5% 116px;text-align:center;border-top:1px solid rgba(240,192,64,0.16);margin-top:36px;}
+.footer{position:relative;z-index:10;padding:28px 5% 116px;text-align:center;border-top:1px solid rgba(240,192,64,0.16);margin-top:20px;}
 .f-logo{font-family:‘Tajawal’,sans-serif !important;font-size:18px !important;font-weight:900 !important;background:linear-gradient(90deg,#f0c040,#fff) !important;-webkit-background-clip:text !important;-webkit-text-fill-color:transparent !important;margin-bottom:5px;}
 .f-sub{font-size:10.5px !important;color:#7a90b8 !important;font-family:‘Cairo’,sans-serif !important;}
 .f-acc{color:#f0c040 !important;font-weight:700 !important;}
@@ -178,12 +108,12 @@ transition:border-color .25s,background-color .25s,transform .2s;
 <div class="ticker">
   <div class="ticker-inner">
     <span>مركز التحميلات الرقمي</span>
-    <span>مصادر تعليمية رسمية منظمة</span>
-    <span>حمّل الفيديوهات من يوتيوب وتيك توك</span>
+    <span>حمّل فيديوهاتك بسهولة وبدون إعلانات</span>
+    <span>يوتيوب · تيك توك · تويتر · إنستغرام</span>
     <span>ثانوية اليرموك - مركز مصادر التعلم</span>
     <span>مركز التحميلات الرقمي</span>
-    <span>مصادر تعليمية رسمية منظمة</span>
-    <span>حمّل الفيديوهات من يوتيوب وتيك توك</span>
+    <span>حمّل فيديوهاتك بسهولة وبدون إعلانات</span>
+    <span>يوتيوب · تيك توك · تويتر · إنستغرام</span>
     <span>ثانوية اليرموك - مركز مصادر التعلم</span>
   </div>
 </div>
@@ -209,34 +139,45 @@ transition:border-color .25s,background-color .25s,transform .2s;
     <span class="l1">حمّل بذكاء</span>
     <span class="l2">تعلّم بحرية</span>
   </h1>
-  <p class="h-desc">أداة تحميل الفيديوهات ومصادر تعليمية رسمية منظمة حسب المادة الدراسية.</p>
+  <p class="h-desc">الصق رابط أي فيديو تعليمي من منصاتك المفضلة وحمّله مباشرة لجهازك.</p>
 </section>
 
-<!-- ===== VIDEO DOWNLOADER ===== -->
-
-<div class="sec-head">
-  <i class="fas fa-cloud-download-alt sec-icon" style="color:#a78bfa;"></i>
-  <span class="sec-label" style="color:#a78bfa !important;">تحميل فيديوهات السوشل ميديا</span>
-</div>
+<!-- DOWNLOADER -->
 
 <div class="dl-wrap">
   <div class="dl-card">
-    <div class="dl-icon-ring"><i class="fas fa-cloud-download-alt"></i></div>
-    <h2>تحميل الفيديوهات التعليمية</h2>
-    <p>الصق رابط الفيديو من يوتيوب أو أي منصة مدعومة وحمّله مباشرة لجهازك بدون إعلانات.</p>
 
 ```
+<div class="dl-icon-ring">
+  <i class="fas fa-cloud-download-alt"></i>
+</div>
+
+<h2>تحميل الفيديوهات</h2>
+<p>الصق رابط الفيديو من أي منصة مدعومة وحمّله مباشرة بجودة عالية وبدون إعلانات.</p>
+
 <div class="url-field">
   <span class="url-ico"><i class="fas fa-link"></i></span>
-  <input type="text" id="videoUrl" class="url-input" placeholder="ألصق رابط الفيديو هنا..." oninput="toggleClear()">
-  <button class="url-clear" id="clearBtn" onclick="clearUrl()"><i class="fas fa-times"></i></button>
+  <input
+    type="text"
+    id="videoUrl"
+    class="url-input"
+    placeholder="ألصق رابط الفيديو هنا..."
+    oninput="toggleClear()"
+  >
+  <button class="url-clear" id="clearBtn" onclick="clearUrl()">
+    <i class="fas fa-times"></i>
+  </button>
 </div>
 
 <button class="btn-dl" onclick="handleDownload()">
-  <i class="fas fa-download"></i>تحميل الآن
+  <i class="fas fa-download"></i>
+  تحميل الآن
 </button>
 
-<div class="dl-note"><i class="fas fa-info-circle"></i>تأكد من أن الرابط صحيح ومن منصة مدعومة</div>
+<div class="dl-note">
+  <i class="fas fa-info-circle"></i>
+  تأكد من صحة الرابط قبل الضغط على تحميل
+</div>
 
 <div class="platforms">
   <div class="plat"><i class="fab fa-youtube"></i>يوتيوب</div>
@@ -247,288 +188,6 @@ transition:border-color .25s,background-color .25s,transform .2s;
 ```
 
   </div>
-</div>
-
-<!-- ===== SUBJECTS ===== -->
-
-<div class="sec-head">
-  <i class="fas fa-book sec-icon" style="color:#f0c040;"></i>
-  <span class="sec-label" style="color:#f0c040 !important;">مصادر المواد الدراسية</span>
-</div>
-
-<div class="subjects-wrap">
-
-  <!-- اللغة العربية -->
-
-  <div class="subj-card" id="s1">
-    <div class="subj-head" onclick="toggleSubj('s1')">
-      <div class="subj-head-left">
-        <div class="subj-ico arabic"><i class="fas fa-feather-alt"></i></div>
-        <div class="subj-info">
-          <h3>اللغة العربية</h3>
-          <p>قواعد · نصوص · أوراق عمل</p>
-        </div>
-      </div>
-      <i class="fas fa-chevron-down subj-arrow"></i>
-    </div>
-    <div class="subj-body">
-      <div class="subj-links">
-        <a href="https://ien.edu.sa" target="_blank" class="res-link">
-          <div class="res-link-ico web"><i class="fas fa-globe"></i></div>
-          <div class="res-link-text">
-            <div class="res-link-title">منصة عين التعليمية</div>
-            <div class="res-link-desc">مناهج اللغة العربية لجميع المراحل</div>
-          </div>
-          <span class="res-link-ext official">رسمي</span>
-        </a>
-        <a href="https://www.almaany.com/ar/dict/ar-ar/" target="_blank" class="res-link">
-          <div class="res-link-ico web"><i class="fas fa-spell-check"></i></div>
-          <div class="res-link-text">
-            <div class="res-link-title">المعجم الوسيط</div>
-            <div class="res-link-desc">قاموس عربي شامل للمعاني والمفردات</div>
-          </div>
-          <span class="res-link-ext free">مجاني</span>
-        </a>
-        <a href="https://www.hindawi.org/" target="_blank" class="res-link">
-          <div class="res-link-ico book"><i class="fas fa-book-reader"></i></div>
-          <div class="res-link-text">
-            <div class="res-link-title">مؤسسة هنداوي</div>
-            <div class="res-link-desc">كتب أدبية ولغوية مجانية بصيغة PDF</div>
-          </div>
-          <span class="res-link-ext free">مجاني</span>
-        </a>
-        <a href="hilal-ramadan.pdf" download class="res-link">
-          <div class="res-link-ico pdf"><i class="fas fa-file-pdf"></i></div>
-          <div class="res-link-text">
-            <div class="res-link-title">ورقة عمل: هلال رمضان</div>
-            <div class="res-link-desc">تحميل مباشر من مكتبة اليرموك</div>
-          </div>
-          <span class="res-link-ext free">تحميل</span>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- الرياضيات -->
-
-  <div class="subj-card" id="s2">
-    <div class="subj-head" onclick="toggleSubj('s2')">
-      <div class="subj-head-left">
-        <div class="subj-ico math"><i class="fas fa-calculator"></i></div>
-        <div class="subj-info">
-          <h3>الرياضيات</h3>
-          <p>تمارين · حلول · اختبارات</p>
-        </div>
-      </div>
-      <i class="fas fa-chevron-down subj-arrow"></i>
-    </div>
-    <div class="subj-body">
-      <div class="subj-links">
-        <a href="https://ien.edu.sa" target="_blank" class="res-link">
-          <div class="res-link-ico web"><i class="fas fa-globe"></i></div>
-          <div class="res-link-text">
-            <div class="res-link-title">منصة عين - الرياضيات</div>
-            <div class="res-link-desc">دروس وتمارين الرياضيات المنهجية</div>
-          </div>
-          <span class="res-link-ext official">رسمي</span>
-        </a>
-        <a href="https://www.kottby.net" target="_blank" class="res-link">
-          <div class="res-link-ico pdf"><i class="fas fa-file-pdf"></i></div>
-          <div class="res-link-text">
-            <div class="res-link-title">موقع كتبي</div>
-            <div class="res-link-desc">حلول الكتب المدرسية والمناهج</div>
-          </div>
-          <span class="res-link-ext free">مجاني</span>
-        </a>
-        <a href="https://e-services.etec.gov.sa/" target="_blank" class="res-link">
-          <div class="res-link-ico web"><i class="fas fa-edit"></i></div>
-          <div class="res-link-text">
-            <div class="res-link-title">مركز قياس</div>
-            <div class="res-link-desc">نماذج اختبارات التحصيلي والقدرات</div>
-          </div>
-          <span class="res-link-ext official">رسمي</span>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- العلوم -->
-
-  <div class="subj-card" id="s3">
-    <div class="subj-head" onclick="toggleSubj('s3')">
-      <div class="subj-head-left">
-        <div class="subj-ico science"><i class="fas fa-flask"></i></div>
-        <div class="subj-info">
-          <h3>العلوم والأحياء والكيمياء</h3>
-          <p>تجارب · ملخصات · مصادر بحثية</p>
-        </div>
-      </div>
-      <i class="fas fa-chevron-down subj-arrow"></i>
-    </div>
-    <div class="subj-body">
-      <div class="subj-links">
-        <a href="https://ien.edu.sa" target="_blank" class="res-link">
-          <div class="res-link-ico web"><i class="fas fa-globe"></i></div>
-          <div class="res-link-text">
-            <div class="res-link-title">منصة عين - العلوم</div>
-            <div class="res-link-desc">دروس العلوم التفاعلية والتجارب المرئية</div>
-          </div>
-          <span class="res-link-ext official">رسمي</span>
-        </a>
-        <a href="https://ethrai.sa/" target="_blank" class="res-link">
-          <div class="res-link-ico web"><i class="fas fa-laptop-code"></i></div>
-          <div class="res-link-text">
-            <div class="res-link-title">منصة إثرائي</div>
-            <div class="res-link-desc">محتوى إثرائي للعلوم والمواد التقنية</div>
-          </div>
-          <span class="res-link-ext official">رسمي</span>
-        </a>
-        <a href="https://sdl.edu.sa" target="_blank" class="res-link">
-          <div class="res-link-ico book"><i class="fas fa-university"></i></div>
-          <div class="res-link-text">
-            <div class="res-link-title">المكتبة السعودية الرقمية</div>
-            <div class="res-link-desc">أبحاث ودوريات علمية متخصصة</div>
-          </div>
-          <span class="res-link-ext official">رسمي</span>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- الإنجليزي -->
-
-  <div class="subj-card" id="s4">
-    <div class="subj-head" onclick="toggleSubj('s4')">
-      <div class="subj-head-left">
-        <div class="subj-ico english"><i class="fas fa-language"></i></div>
-        <div class="subj-info">
-          <h3>اللغة الإنجليزية</h3>
-          <p>Grammar · Vocabulary · Reading</p>
-        </div>
-      </div>
-      <i class="fas fa-chevron-down subj-arrow"></i>
-    </div>
-    <div class="subj-body">
-      <div class="subj-links">
-        <a href="https://ien.edu.sa/Home/English" target="_blank" class="res-link">
-          <div class="res-link-ico web"><i class="fas fa-globe"></i></div>
-          <div class="res-link-text">
-            <div class="res-link-title">English Learning - عين</div>
-            <div class="res-link-desc">تعلم الإنجليزية بالمنهج الرسمي</div>
-          </div>
-          <span class="res-link-ext official">رسمي</span>
-        </a>
-        <a href="https://www.oxfordowl.co.uk/for-home" target="_blank" class="res-link">
-          <div class="res-link-ico book"><i class="fas fa-book"></i></div>
-          <div class="res-link-text">
-            <div class="res-link-title">Oxford Owl</div>
-            <div class="res-link-desc">كتب قراءة إنجليزية تفاعلية مجانية</div>
-          </div>
-          <span class="res-link-ext free">مجاني</span>
-        </a>
-        <a href="https://storyberries.com" target="_blank" class="res-link">
-          <div class="res-link-ico web"><i class="fas fa-apple-alt"></i></div>
-          <div class="res-link-text">
-            <div class="res-link-title">Storyberries</div>
-            <div class="res-link-desc">قصص إنجليزية للقراءة والتدريب</div>
-          </div>
-          <span class="res-link-ext free">مجاني</span>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- الدراسات الاجتماعية -->
-
-  <div class="subj-card" id="s5">
-    <div class="subj-head" onclick="toggleSubj('s5')">
-      <div class="subj-head-left">
-        <div class="subj-ico social"><i class="fas fa-globe-asia"></i></div>
-        <div class="subj-info">
-          <h3>الدراسات الاجتماعية</h3>
-          <p>تاريخ · جغرافيا · وطنيات</p>
-        </div>
-      </div>
-      <i class="fas fa-chevron-down subj-arrow"></i>
-    </div>
-    <div class="subj-body">
-      <div class="subj-links">
-        <a href="https://ien.edu.sa" target="_blank" class="res-link">
-          <div class="res-link-ico web"><i class="fas fa-globe"></i></div>
-          <div class="res-link-text">
-            <div class="res-link-title">منصة عين - الدراسات</div>
-            <div class="res-link-desc">محتوى الدراسات الاجتماعية المنهجي</div>
-          </div>
-          <span class="res-link-ext official">رسمي</span>
-        </a>
-        <a href="https://www.arabicdigitallibrary.com/" target="_blank" class="res-link">
-          <div class="res-link-ico book"><i class="fas fa-atlas"></i></div>
-          <div class="res-link-text">
-            <div class="res-link-title">المكتبة العربية الرقمية</div>
-            <div class="res-link-desc">ملايين المصادر التاريخية والجغرافية</div>
-          </div>
-          <span class="res-link-ext free">مجاني</span>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- التربية الإسلامية -->
-
-  <div class="subj-card" id="s6">
-    <div class="subj-head" onclick="toggleSubj('s6')">
-      <div class="subj-head-left">
-        <div class="subj-ico islamic"><i class="fas fa-mosque"></i></div>
-        <div class="subj-info">
-          <h3>التربية الإسلامية</h3>
-          <p>قرآن · فقه · حديث · سيرة</p>
-        </div>
-      </div>
-      <i class="fas fa-chevron-down subj-arrow"></i>
-    </div>
-    <div class="subj-body">
-      <div class="subj-links">
-        <a href="https://quran.gov.sa" target="_blank" class="res-link">
-          <div class="res-link-ico web"><i class="fas fa-quran"></i></div>
-          <div class="res-link-text">
-            <div class="res-link-title">مجمع الملك فهد للقرآن الكريم</div>
-            <div class="res-link-desc">القرآن الكريم والتفسير والتلاوات</div>
-          </div>
-          <span class="res-link-ext official">رسمي</span>
-        </a>
-        <a href="https://ien.edu.sa" target="_blank" class="res-link">
-          <div class="res-link-ico web"><i class="fas fa-globe"></i></div>
-          <div class="res-link-text">
-            <div class="res-link-title">منصة عين - الإسلامية</div>
-            <div class="res-link-desc">محتوى التربية الإسلامية المنهجي</div>
-          </div>
-          <span class="res-link-ext official">رسمي</span>
-        </a>
-      </div>
-    </div>
-  </div>
-
-</div><!-- subjects-wrap -->
-
-<!-- ===== QUICK FILES ===== -->
-
-<div class="sec-head" style="margin-top:28px;">
-  <i class="fas fa-folder-open sec-icon" style="color:#a78bfa;"></i>
-  <span class="sec-label" style="color:#a78bfa !important;">ملفات سريعة</span>
-</div>
-<div class="files-grid">
-  <a href="hilal-ramadan.pdf" download class="file-card">
-    <div class="file-ico r"><i class="fas fa-file-pdf"></i></div>
-    <h3>هلال رمضان</h3>
-    <p>ورقة عمل</p>
-    <span class="file-tag">PDF</span>
-  </a>
-  <a href="#" class="file-card">
-    <div class="file-ico p"><i class="fas fa-file-powerpoint"></i></div>
-    <h3>عروض تقديمية</h3>
-    <p>ملفات PPTX</p>
-    <span class="file-tag">PPTX</span>
-  </a>
 </div>
 
 <!-- FOOTER -->
@@ -582,7 +241,7 @@ function frame(){
 }
 frame();
 
-/* VIDEO DOWNLOADER */
+/* URL FIELD */
 function toggleClear(){
   const val=document.getElementById('videoUrl').value;
   document.getElementById('clearBtn').style.display=val?'block':'none';
@@ -592,6 +251,8 @@ function clearUrl(){
   document.getElementById('clearBtn').style.display='none';
   document.getElementById('videoUrl').focus();
 }
+
+/* DOWNLOADER */
 function extractVideoId(url){
   try{
     const u=new URL(url);
@@ -614,19 +275,10 @@ function handleDownload(){
   window.open('https://ssyoutube.com/watch?v='+extractVideoId(link),'_blank');
 }
 
-/* SUBJECTS ACCORDION */
-function toggleSubj(id){
-  const card=document.getElementById(id);
-  const isOpen=card.classList.contains('open');
-  document.querySelectorAll('.subj-card.open').forEach(c=>c.classList.remove('open'));
-  if(!isOpen)card.classList.add('open');
-}
-
-/* ENTRANCE */
-const io=new IntersectionObserver((entries)=>{
-  entries.forEach((e,i)=>{if(e.isIntersecting){e.target.style.animation=`up 0.45s ${i*.05}s ease both`;io.unobserve(e.target);}});
-},{threshold:.06});
-document.querySelectorAll('.subj-card,.file-card').forEach(c=>io.observe(c));
+/* Enter to download */
+document.getElementById('videoUrl').addEventListener('keydown',e=>{
+  if(e.key==='Enter') handleDownload();
+});
 </script>
 
 </body>
